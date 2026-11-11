@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>스토리랩 (StoryLab) - 연재 및 공지</title>
+  <meta property="og:title" content="스토리랩 (StoryLab)">
+  <meta property="og:description" content="매일 업데이트되는 연재 및 채용·개발 소식">
+  <!-- 인라인 SVG 파비콘: 중립적인 미니멀 책/문서 아이콘 -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231E293B'%3E%3Cpath d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-sub: #64748B;
+      --border: #E2E8F0;
+      --primary: #0EA5E9;
+      --badge-free-bg: #E0F2FE;
+      --badge-free-txt: #0284C7;
+      --badge-pay-bg: #F1F5F9;
+      --badge-pay-txt: #64748B;
+      --badge-job-bg: #DCFCE7;
+      --badge-job-txt: #16A34A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 40px;
+    }
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--text-main);
+    }
+    .sim-toggle {
+      background: #F1F5F9;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 99px;
+      color: var(--text-sub);
+      cursor: pointer;
+    }
+    .sim-toggle.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .tabs {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-sub);
+      cursor: pointer;
+      position: relative;
+    }
+    .tab.active {
+      color: var(--text-main);
+    }
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 15%;
+      right: 15%;
+      height: 2.5px;
+      background: var(--text-main);
+      border-radius: 2px 2px 0 0;
+    }
+    main {
+      max-width: 600px;
+      margin: 16px auto;
+      padding: 0 16px;
+    }
+    .list-wrapper {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .list { list-style: none; }
+    .item {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: background-color 0.15s;
+    }
+    .item:last-child { border-bottom: none; }
+    .item-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .badge-free { background: var(--badge-free-bg); color: var(--badge-free-txt); }
+    .badge-pay { background: var(--badge-pay-bg); color: var(--badge-pay-txt); }
+    .badge-job { background: var(--badge-job-bg); color: var(--badge-job-txt); }
+    .title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      word-break: keep-all;
+    }
+    .item-meta {
+      font-size: 12px;
+      color: var(--text-sub);
+      display: flex;
+      gap: 8px;
+    }
+    .new-tag {
+      color: #EF4444;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
+        <span>StoryLab</span>
+      </div>
+      <button id="simBtn" class="sim-toggle" onclick="toggleSimNew()">+ 새 글 업데이트 시뮬레이션</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="tab active" onclick="switchTab('webtoon')">웹툰·연재</div>
+    <div class="tab" onclick="switchTab('career')">채용·공고</div>
+    <div class="tab" onclick="switchTab('tech')">기술·공지</div>
+  </nav>
+
+  <main>
+    <div class="list-wrapper">
+      <!-- 1. 웹툰/연재 탭 -->
+      <ul id="tab-webtoon" class="list">
+        <li id="simulatedItem" class="item hidden">
+          <div class="item-top">
+            <span class="badge badge-free">무료 공개</span>
+            <span class="new-tag">NEW</span>
+          </div>
+          <a href="#link" class="title">달빛 아뜰리에 - 제 151화</a>
+          <div class="item-meta">
+            <span>방금 전</span>
+            <span>·</span>
+            <span>별점 9.94</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-top">
+            <span class="badge badge-pay">미리보기</span>
+          </div>
+          <a href="#link" class="title">달빛 아뜰리에 - 제 153화 (유료)</a>
+          <div class="item-meta">
+            <span>오늘</span>
+            <span>·</span>
+            <span>쿠키 3개</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-top">
+            <span class="badge badge-free">무료 공개</span>
+          </div>
+          <a href="#link" class="title">달빛 아뜰리에 - 제 150화</a>
+          <div class="item-meta">
+            <span>어제</span>
+            <span>·</span>
+            <span>별점 9.92</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-top">
+            <span class="badge badge-free">기다무</span>
+          </div>
+          <a href="#link" class="title">심야 공방의 비밀 - 제 42화</a>
+          <div class="item-meta">
+            <span>2일 전</span>
+            <span>·</span>
+            <span>무료 이용권 충전 완료</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- 2. 채용/공고 탭 -->
+      <ul id="tab-career" class="list hidden">
+        <li class="item">
+          <div class="item-top">
+            <span class="badge badge-job">채용공고</span>
+          </div>
+          <a href="#link" class="title">[채용] 2026 하반기 모바일 앱 개발자 공개 채용</a>
+          <div class="item-meta">
+            <span>접수 중 (~11/30)</span>
+            <span>·</span>
+            <span>경력무관 / 신입</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-top">
+            <span class="badge badge-job">지원사업</span>
+          </div>
+          <a href="#link" class="title">[공고] 2026 청년 메이커 디지털 창업 패키지 참여기업 모집</a>
+          <div class="item-meta">
+            <span>D-7 마감</span>
+            <span>·</span>
+            <span>최대 5,000만원 지원</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- 3. 기술/공지 탭 -->
+      <ul id="tab-tech" class="list hidden">
+        <li class="item">
+          <a href="#link" class="title">v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</a>
+          <div class="item-meta">
+            <span>2026-11-08</span>
+            <span>·</span>
+            <span>안정성 향상 및 버그 패치</span>
+          </div>
+        </li>
+        <li class="item">
+          <a href="#link" class="title">플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처</a>
+          <div class="item-meta">
+            <span>2026-11-04</span>
+            <span>·</span>
+            <span>엔지니어링 블로그</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab').forEach((tab, index) => {
+        const names = ['webtoon', 'career', 'tech'];
+        tab.classList.toggle('active', names[index] === tabName);
+      });
+      document.getElementById('tab-webtoon').classList.toggle('hidden', tabName !== 'webtoon');
+      document.getElementById('tab-career').classList.toggle('hidden', tabName !== 'career');
+      document.getElementById('tab-tech').classList.toggle('hidden', tabName !== 'tech');
+    }
+
+    function toggleSimNew() {
+      const item = document.getElementById('simulatedItem');
+      const btn = document.getElementById('simBtn');
+      const isHidden = item.classList.contains('hidden');
+      if (isHidden) {
+        item.classList.remove('hidden');
+        btn.classList.add('active');
+        btn.innerText = '✓ 새 글 노출 중 (클릭 시 원복)';
+      } else {
+        item.classList.add('hidden');
+        btn.classList.remove('active');
+        btn.innerText = '+ 새 글 업데이트 시뮬레이션';
+      }
+    }
+
+    // URL 쿼리에 ?new=true 가 있으면 자동으로 새 글 활성화
+    if (new URLSearchParams(window.location.search).get('new') === 'true') {
+      toggleSimNew();
+    }
+  </script>
+</body>
+</html>
