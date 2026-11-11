@@ -58,6 +58,42 @@
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-11-09T23:00:00+09:00"
+    },
+    {
+      "id": "career-104",
+      "category": "career",
+      "title": "[공채] 2026 하반기 모바일 앱 개발자 (Flutter/iOS) 공개 채용",
+      "url": "/posts/career-201.html",
+      "badge": "채용공고",
+      "is_new": false,
+      "published_at": "2026-11-08T09:00:00+09:00"
+    },
+    {
+      "id": "webtoon-dev-10",
+      "category": "webtoon",
+      "title": "회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽",
+      "url": "/posts/webtoon-150.html",
+      "badge": "신작 연재",
+      "is_new": false,
+      "published_at": "2026-11-05T10:00:00+09:00"
+    },
+    {
+      "id": "career-103",
+      "category": "career",
+      "title": "[공고] 2026 청년 메이커 디지털 창업 패키지 참여기업 모집",
+      "url": "/posts/career-201.html",
+      "badge": "지원사업",
+      "is_new": false,
+      "published_at": "2026-11-04T14:00:00+09:00"
+    },
+    {
+      "id": "tech-298",
+      "category": "tech",
+      "title": "플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처",
+      "url": "/posts/tech-301.html",
+      "badge": "아키텍처",
+      "is_new": false,
+      "published_at": "2026-11-04T16:30:00+09:00"
     }
   ]
 }
