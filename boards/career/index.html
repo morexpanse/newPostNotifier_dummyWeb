@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>채용·공고 - 스토리랩 (StoryLab)</title>
+  <meta name="description" content="스토리랩 채용 공고 및 지원사업 소식 목록 (테이블 형태 게시판)">
+  <meta property="og:title" content="스토리랩 - 채용·공고 게시판">
+  <meta property="og:description" content="실시간 채용 및 정부 지원사업 공고 목록 (cachi 알림 테스트용)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2315803D'%3E%3Cpath d='M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z'/></svg>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
+        </div>
+        <div>
+          <span class="brand-name">StoryLab</span>
+          <span class="brand-tagline">cachi 알림 테스트 더미 사이트</span>
+        </div>
+      </a>
+      <div class="header-sub-links">
+        <a href="../../feeds/rss.xml" target="_blank">RSS 피드</a>
+        <a href="../../feeds/posts.json" target="_blank">JSON API</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Board Navigation Tabs -->
+  <nav class="board-tabs">
+    <div class="board-tabs-inner">
+      <a href="../../index.html" class="board-tab">홈 (전체)</a>
+      <a href="../webtoon/index.html" class="board-tab">웹툰·연재 <span class="tab-badge">리스트형</span></a>
+      <a href="./index.html" class="board-tab active">채용·공고 <span class="tab-badge">테이블형</span></a>
+      <a href="../tech/index.html" class="board-tab">기술·공지 <span class="tab-badge">카드형</span></a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="board-intro">
+      <div class="board-title-group">
+        <h1>채용·공고 게시판</h1>
+        <p>국내 대학교 및 공공기관 공지사항의 대표적인 테이블(table > tr > td) 구조 게시판입니다.</p>
+      </div>
+      <div class="board-url-display">
+        <span>URL: /boards/career/</span>
+      </div>
+    </div>
+
+    <!-- Cachi Guide Banner -->
+    <div class="info-card cachi-guide">
+      <svg class="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="info-card-content">
+        <h3>cachi app 등록 안내</h3>
+        <p>cachi app의 <strong>[+ 새 알림 추가]</strong>에 현재 페이지 주소를 등록하세요. 테이블 크롤러 셀렉터: <code>.board-table tbody tr td.col-title a</code> 또는 <code>table a</code></p>
+      </div>
+    </div>
+
+    <!-- Career Table View (기본 상태) -->
+    <div class="board-card-wrapper">
+      <div class="table-responsive">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th class="col-num">번호</th>
+              <th class="col-type">구분</th>
+              <th class="col-title">공고 제목</th>
+              <th class="col-date">등록일</th>
+              <th class="col-status">상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Pinned Notice -->
+            <tr class="pinned-row" data-post-id="notice-1">
+              <td class="col-num"><span class="badge badge-pin">공지</span></td>
+              <td class="col-type"><span class="badge badge-job">안내</span></td>
+              <td class="col-title">
+                <a href="../../posts/career-201.html" class="post-title">2026년 채용 전형 프로세스 및 FAQ 지원 가이드 안내</a>
+              </td>
+              <td class="col-date"><time datetime="2026-11-01">2026-11-01</time></td>
+              <td class="col-status"><span class="badge badge-pay">상시</span></td>
+            </tr>
+
+            <!-- Item 104 -->
+            <tr data-post-id="career-104">
+              <td class="col-num">104</td>
+              <td class="col-type"><span class="badge badge-job">채용공고</span></td>
+              <td class="col-title">
+                <a href="../../posts/career-201.html" class="post-title">[공채] 2026 하반기 모바일 앱 개발자 (Flutter/iOS) 공개 채용</a>
+              </td>
+              <td class="col-date"><time datetime="2026-11-08">2026-11-08</time></td>
+              <td class="col-status"><span class="badge badge-free">접수중 (~11/30)</span></td>
+            </tr>
+
+            <!-- Item 103 -->
+            <tr data-post-id="career-103">
+              <td class="col-num">103</td>
+              <td class="col-type"><span class="badge badge-job">지원사업</span></td>
+              <td class="col-title">
+                <a href="../../posts/career-201.html" class="post-title">[공고] 2026 청년 메이커 디지털 창업 패키지 참여기업 모집</a>
+              </td>
+              <td class="col-date"><time datetime="2026-11-04">2026-11-04</time></td>
+              <td class="col-status"><span class="badge badge-pay">D-5 마감</span></td>
+            </tr>
+
+            <!-- Item 102 -->
+            <tr data-post-id="career-102">
+              <td class="col-num">102</td>
+              <td class="col-type"><span class="badge badge-job">인턴십</span></td>
+              <td class="col-title">
+                <a href="../../posts/career-201.html" class="post-title">스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강</a>
+              </td>
+              <td class="col-date"><time datetime="2026-10-28">2026-10-28</time></td>
+              <td class="col-status"><span class="badge badge-pay">마감</span></td>
+            </tr>
+
+            <!-- Item 101 -->
+            <tr data-post-id="career-101">
+              <td class="col-num">101</td>
+              <td class="col-type"><span class="badge badge-job">행사</span></td>
+              <td class="col-title">
+                <a href="../../posts/career-201.html" class="post-title">2026 글로벌 스타트업 채용 페어 참가 사전 신청 안내</a>
+              </td>
+              <td class="col-date"><time datetime="2026-10-15">2026-10-15</time></td>
+              <td class="col-status"><span class="badge badge-pay">마감</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="../../index.html">홈</a>
+      <a href="../webtoon/index.html">웹툰·연재</a>
+      <a href="./index.html">채용·공고</a>
+      <a href="../tech/index.html">기술·공지</a>
+      <a href="../../feeds/rss.xml">RSS</a>
+    </div>
+    <p>© 2026 StoryLab. Cachi App & Server Test Dummy Project.</p>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/demo-toolbar.js"></script>
+</body>
+</html>

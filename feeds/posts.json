@@ -1,0 +1,63 @@
+{
+  "service": "StoryLab",
+  "description": "cachi app & server testing JSON API feed",
+  "updated_at": "2026-11-10T22:50:00+09:00",
+  "boards": [
+    {
+      "id": "webtoon",
+      "name": "웹툰·연재",
+      "url": "/boards/webtoon/",
+      "format": "list"
+    },
+    {
+      "id": "career",
+      "name": "채용·공고",
+      "url": "/boards/career/",
+      "format": "table"
+    },
+    {
+      "id": "tech",
+      "name": "기술·공지",
+      "url": "/boards/tech/",
+      "format": "card"
+    }
+  ],
+  "items": [
+    {
+      "id": "webtoon-151",
+      "category": "webtoon",
+      "title": "달빛 아뜰리에 - 제 151화 : 푸른 불꽃의 비밀",
+      "url": "/posts/webtoon-151.html",
+      "badge": "무료 공개",
+      "is_new": true,
+      "published_at": "2026-11-10T22:50:00+09:00"
+    },
+    {
+      "id": "career-105",
+      "category": "career",
+      "title": "[긴급채용] 백엔드 크롤링 & 데이터 파이프라인 엔지니어 채용",
+      "url": "/posts/career-202.html",
+      "badge": "긴급채용",
+      "is_new": true,
+      "published_at": "2026-11-10T22:40:00+09:00"
+    },
+    {
+      "id": "tech-301",
+      "category": "tech",
+      "title": "v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내",
+      "url": "/posts/tech-301.html",
+      "badge": "릴리즈 노트",
+      "is_new": false,
+      "published_at": "2026-11-08T15:00:00+09:00"
+    },
+    {
+      "id": "webtoon-150",
+      "category": "webtoon",
+      "title": "달빛 아뜰리에 - 제 150화 : 새로운 시작",
+      "url": "/posts/webtoon-150.html",
+      "badge": "무료 공개",
+      "is_new": false,
+      "published_at": "2026-11-09T23:00:00+09:00"
+    }
+  ]
+}

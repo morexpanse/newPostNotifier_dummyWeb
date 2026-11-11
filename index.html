@@ -2,312 +2,397 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>스토리랩 (StoryLab) - 연재 및 공지</title>
-  <meta property="og:title" content="스토리랩 (StoryLab)">
-  <meta property="og:description" content="매일 업데이트되는 연재 및 채용·개발 소식">
-  <!-- 인라인 SVG 파비콘: 중립적인 미니멀 책/문서 아이콘 -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231E293B'%3E%3Cpath d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스토리랩 (StoryLab) - cachi 알림 테스트 &amp; 홍보 더미 포털</title>
+  <meta name="description" content="cachi app 및 cachi server의 새 글 감지 및 크롤링 알림 테스트를 위한 공식 더미 사이트">
+  <meta property="og:title" content="스토리랩 (StoryLab) - 연재·채용·기술 포털">
+  <meta property="og:description" content="cachi 새 글 알림 앱/서버 테스트 및 홍보용 공식 더미 사이트">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284C7'%3E%3Cpath d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <style>
-    :root {
-      --bg: #F8FAFC;
-      --card-bg: #FFFFFF;
-      --text-main: #0F172A;
-      --text-sub: #64748B;
-      --border: #E2E8F0;
-      --primary: #0EA5E9;
-      --badge-free-bg: #E0F2FE;
-      --badge-free-txt: #0284C7;
-      --badge-pay-bg: #F1F5F9;
-      --badge-pay-txt: #64748B;
-      --badge-job-bg: #DCFCE7;
-      --badge-job-txt: #16A34A;
+    /* Main Portal Specific Styles */
+    .portal-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.5;
-      padding-bottom: 40px;
+    .portal-hero h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
     }
-    header {
-      background: var(--card-bg);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .header-inner {
+    .portal-hero p {
+      font-size: 14px;
+      color: #94A3B8;
+      line-height: 1.6;
       max-width: 600px;
-      margin: 0 auto;
-      padding: 14px 16px;
+    }
+    .board-nav-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .board-nav-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.15s ease;
+    }
+    .board-nav-card:hover {
+      border-color: #38BDF8;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-card-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .logo {
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.5px;
+    .nav-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      font-size: 20px;
     }
-    .logo-icon {
-      width: 22px;
-      height: 22px;
-      fill: var(--text-main);
+    .nav-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 10px;
+      margin-bottom: 4px;
     }
-    .sim-toggle {
-      background: #F1F5F9;
-      border: 1px solid var(--border);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 99px;
+    .nav-card-desc {
+      font-size: 12.5px;
       color: var(--text-sub);
-      cursor: pointer;
+      line-height: 1.5;
     }
-    .sim-toggle.active {
-      background: var(--primary);
-      color: #FFFFFF;
-      border-color: var(--primary);
-    }
-    .tabs {
-      max-width: 600px;
-      margin: 0 auto;
+    .nav-card-footer {
       display: flex;
-      border-bottom: 1px solid var(--border);
-      background: var(--card-bg);
+      gap: 8px;
+      margin-top: auto;
     }
-    .tab {
+    .btn-enter {
       flex: 1;
       text-align: center;
-      padding: 12px 0;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-sub);
-      cursor: pointer;
-      position: relative;
-    }
-    .tab.active {
-      color: var(--text-main);
-    }
-    .tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 15%;
-      right: 15%;
-      height: 2.5px;
       background: var(--text-main);
-      border-radius: 2px 2px 0 0;
+      color: #FFFFFF;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
     }
-    main {
-      max-width: 600px;
-      margin: 16px auto;
-      padding: 0 16px;
+    .btn-enter:hover {
+      background: #334155;
     }
-    .list-wrapper {
-      background: var(--card-bg);
-      border-radius: 12px;
+    .btn-copy {
+      background: #F1F5F9;
+      color: #334155;
       border: 1px solid var(--border);
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-    }
-    .list { list-style: none; }
-    .item {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
       gap: 4px;
-      transition: background-color 0.15s;
+      transition: all 0.15s ease;
     }
-    .item:last-child { border-bottom: none; }
-    .item-top {
+    .btn-copy:hover {
+      background: #E2E8F0;
+    }
+    .workflow-guide {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .workflow-step {
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      margin-bottom: 8px;
     }
-    .badge {
-      font-size: 11px;
+    .step-title {
+      font-size: 13.5px;
       font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .badge-free { background: var(--badge-free-bg); color: var(--badge-free-txt); }
-    .badge-pay { background: var(--badge-pay-bg); color: var(--badge-pay-txt); }
-    .badge-job { background: var(--badge-job-bg); color: var(--badge-job-txt); }
-    .title {
-      font-size: 14.5px;
-      font-weight: 600;
       color: var(--text-main);
-      text-decoration: none;
-      word-break: keep-all;
+      margin-bottom: 4px;
     }
-    .item-meta {
+    .step-desc {
       font-size: 12px;
       color: var(--text-sub);
-      display: flex;
-      gap: 8px;
+      line-height: 1.45;
     }
-    .new-tag {
-      color: #EF4444;
-      font-weight: 700;
-      font-size: 11px;
-    }
-    .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Site Header -->
+  <header class="site-header">
     <div class="header-inner">
-      <div class="logo">
-        <svg class="logo-icon" viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
-        <span>StoryLab</span>
+      <a href="./index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
+        </div>
+        <div>
+          <span class="brand-name">StoryLab</span>
+          <span class="brand-tagline">cachi 알림 테스트 더미 사이트</span>
+        </div>
+      </a>
+      <div class="header-sub-links">
+        <a href="./feeds/rss.xml" target="_blank">RSS 피드</a>
+        <a href="./feeds/posts.json" target="_blank">JSON API</a>
       </div>
-      <button id="simBtn" class="sim-toggle" onclick="toggleSimNew()">+ 새 글 업데이트 시뮬레이션</button>
     </div>
   </header>
 
-  <nav class="tabs">
-    <div class="tab active" onclick="switchTab('webtoon')">웹툰·연재</div>
-    <div class="tab" onclick="switchTab('career')">채용·공고</div>
-    <div class="tab" onclick="switchTab('tech')">기술·공지</div>
+  <!-- Board Navigation Tabs -->
+  <nav class="board-tabs">
+    <div class="board-tabs-inner">
+      <a href="./index.html" class="board-tab active">홈 (전체 허브)</a>
+      <a href="./boards/webtoon/index.html" class="board-tab">웹툰·연재 <span class="tab-badge">리스트형</span></a>
+      <a href="./boards/career/index.html" class="board-tab">채용·공고 <span class="tab-badge">테이블형</span></a>
+      <a href="./boards/tech/index.html" class="board-tab">기술·공지 <span class="tab-badge">카드형</span></a>
+    </div>
   </nav>
 
-  <main>
-    <div class="list-wrapper">
-      <!-- 1. 웹툰/연재 탭 -->
-      <ul id="tab-webtoon" class="list">
-        <li id="simulatedItem" class="item hidden">
-          <div class="item-top">
-            <span class="badge badge-free">무료 공개</span>
-            <span class="new-tag">NEW</span>
-          </div>
-          <a href="#link" class="title">달빛 아뜰리에 - 제 151화</a>
-          <div class="item-meta">
-            <span>방금 전</span>
-            <span>·</span>
-            <span>별점 9.94</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-top">
-            <span class="badge badge-pay">미리보기</span>
-          </div>
-          <a href="#link" class="title">달빛 아뜰리에 - 제 153화 (유료)</a>
-          <div class="item-meta">
-            <span>오늘</span>
-            <span>·</span>
-            <span>쿠키 3개</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-top">
-            <span class="badge badge-free">무료 공개</span>
-          </div>
-          <a href="#link" class="title">달빛 아뜰리에 - 제 150화</a>
-          <div class="item-meta">
-            <span>어제</span>
-            <span>·</span>
-            <span>별점 9.92</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-top">
-            <span class="badge badge-free">기다무</span>
-          </div>
-          <a href="#link" class="title">심야 공방의 비밀 - 제 42화</a>
-          <div class="item-meta">
-            <span>2일 전</span>
-            <span>·</span>
-            <span>무료 이용권 충전 완료</span>
-          </div>
-        </li>
-      </ul>
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Hero Banner -->
+    <section class="portal-hero">
+      <div style="display: inline-block; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); color: #93C5FD; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 99px; margin-bottom: 12px;">
+        🔔 cachi app &amp; server 공식 테스트베드
+      </div>
+      <h1>스토리랩 더미 포털</h1>
+      <p>
+        각 카테고리별 독립된 서브 URL(Sub-path)을 제공하여, cachi app에서 원하는 게시판만 개별 등록하고 새 글 크롤링 감지 및 푸시 알림 수신을 완벽하게 테스트할 수 있습니다.
+      </p>
+    </section>
 
-      <!-- 2. 채용/공고 탭 -->
-      <ul id="tab-career" class="list hidden">
-        <li class="item">
-          <div class="item-top">
-            <span class="badge badge-job">채용공고</span>
+    <!-- Board Cards (Sub-path Navigation & Quick Copy) -->
+    <h2 style="font-size: 17px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px;">
+      📂 게시판 선택 (서브 주소별 독립 크롤링)
+    </h2>
+    <div class="board-nav-cards">
+      <!-- 1. Webtoon Card -->
+      <div class="board-nav-card">
+        <div>
+          <div class="nav-card-head">
+            <div class="nav-card-icon" style="background: #E0F2FE;">🎨</div>
+            <span class="badge badge-free">리스트 (ul &gt; li)</span>
           </div>
-          <a href="#link" class="title">[채용] 2026 하반기 모바일 앱 개발자 공개 채용</a>
-          <div class="item-meta">
-            <span>접수 중 (~11/30)</span>
-            <span>·</span>
-            <span>경력무관 / 신입</span>
+          <h3 class="nav-card-title">웹툰·연재 게시판</h3>
+          <p class="nav-card-desc">
+            매주 요일별 웹툰 및 소설 최신 회차가 등록되는 리스트형 구조입니다.
+          </p>
+          <div style="margin-top: 8px; font-family: monospace; font-size: 11px; color: #64748B;">
+            /boards/webtoon/
           </div>
-        </li>
-        <li class="item">
-          <div class="item-top">
-            <span class="badge badge-job">지원사업</span>
-          </div>
-          <a href="#link" class="title">[공고] 2026 청년 메이커 디지털 창업 패키지 참여기업 모집</a>
-          <div class="item-meta">
-            <span>D-7 마감</span>
-            <span>·</span>
-            <span>최대 5,000만원 지원</span>
-          </div>
-        </li>
-      </ul>
+        </div>
+        <div class="nav-card-footer">
+          <a href="./boards/webtoon/index.html" class="btn-enter">게시판 이동</a>
+          <button class="btn-copy" onclick="copyBoardPath('boards/webtoon/index.html')">📋 URL 복사</button>
+        </div>
+      </div>
 
-      <!-- 3. 기술/공지 탭 -->
-      <ul id="tab-tech" class="list hidden">
-        <li class="item">
-          <a href="#link" class="title">v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</a>
-          <div class="item-meta">
-            <span>2026-11-08</span>
-            <span>·</span>
-            <span>안정성 향상 및 버그 패치</span>
+      <!-- 2. Career Card -->
+      <div class="board-nav-card">
+        <div>
+          <div class="nav-card-head">
+            <div class="nav-card-icon" style="background: #DCFCE7;">💼</div>
+            <span class="badge badge-job">테이블 (table &gt; tr)</span>
+          </div>
+          <h3 class="nav-card-title">채용·공고 게시판</h3>
+          <p class="nav-card-desc">
+            대학교 및 공공기관 공지사항과 동일한 테이블형 구조입니다.
+          </p>
+          <div style="margin-top: 8px; font-family: monospace; font-size: 11px; color: #64748B;">
+            /boards/career/
+          </div>
+        </div>
+        <div class="nav-card-footer">
+          <a href="./boards/career/index.html" class="btn-enter">게시판 이동</a>
+          <button class="btn-copy" onclick="copyBoardPath('boards/career/index.html')">📋 URL 복사</button>
+        </div>
+      </div>
+
+      <!-- 3. Tech Card -->
+      <div class="board-nav-card">
+        <div>
+          <div class="nav-card-head">
+            <div class="nav-card-icon" style="background: #EDE9FE;">⚡</div>
+            <span class="badge badge-tech">카드 (section &gt; article)</span>
+          </div>
+          <h3 class="nav-card-title">기술·공지 게시판</h3>
+          <p class="nav-card-desc">
+            엔지니어링 블로그 및 릴리즈 노트 형태의 카드형 아티클 구조입니다.
+          </p>
+          <div style="margin-top: 8px; font-family: monospace; font-size: 11px; color: #64748B;">
+            /boards/tech/
+          </div>
+        </div>
+        <div class="nav-card-footer">
+          <a href="./boards/tech/index.html" class="btn-enter">게시판 이동</a>
+          <button class="btn-copy" onclick="copyBoardPath('boards/tech/index.html')">📋 URL 복사</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow Guide -->
+    <section class="workflow-guide">
+      <h2 style="font-size: 16px; font-weight: 700; color: var(--text-main);">
+        💡 cachi app &amp; cachi server 테스트 절차
+      </h2>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-num">1</div>
+          <div class="step-title">서브 URL 복사</div>
+          <div class="step-desc">구독하고 싶은 게시판의 [📋 URL 복사] 버튼을 눌러 링크를 복사합니다.</div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">2</div>
+          <div class="step-title">cachi app에 등록</div>
+          <div class="step-desc">cachi app에서 [+ 새 알림 추가]를 눌러 주소를 등록하고 모니터링을 시작합니다.</div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">3</div>
+          <div class="step-title">새 글 발생 트리거</div>
+          <div class="step-desc">게시판 상단의 [⚡ 새 글 발생 시뮬레이션] 버튼을 눌러 신규 글을 노출시킵니다.</div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">4</div>
+          <div class="step-title">푸시 알림 수신</div>
+          <div class="step-desc">cachi server가 감지하여 스마트폰으로 전송된 알림을 탭해 상세 글로 이동합니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Recent Posts Overview (전체 통합 최근 글) -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+      <h2 style="font-size: 17px; font-weight: 700; letter-spacing: -0.3px;">
+        📢 전체 최신 소식 (통합 피드)
+      </h2>
+      <span style="font-size: 12px; color: var(--text-sub);">실시간 동기화</span>
+    </div>
+
+    <div class="board-card-wrapper">
+      <ul class="board-list">
+        <!-- Post 1: Webtoon -->
+        <li class="post-item">
+          <div class="post-thumb">🎨</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">웹툰</span>
+              <span class="badge badge-free">무료 공개</span>
+            </div>
+            <a href="./posts/webtoon-150.html" class="post-title">달빛 아뜰리에 - 제 150화 : 새로운 시작</a>
+            <div class="post-meta-line">
+              <span>어제</span>
+              <span>·</span>
+              <span>루나 작가</span>
+              <span>·</span>
+              <span>별점 9.92</span>
+            </div>
           </div>
         </li>
-        <li class="item">
-          <a href="#link" class="title">플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처</a>
-          <div class="item-meta">
-            <span>2026-11-04</span>
-            <span>·</span>
-            <span>엔지니어링 블로그</span>
+
+        <!-- Post 2: Career -->
+        <li class="post-item">
+          <div class="post-thumb">💼</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-job">채용</span>
+              <span class="badge badge-free">접수중 (~11/30)</span>
+            </div>
+            <a href="./posts/career-201.html" class="post-title">[공채] 2026 하반기 모바일 앱 개발자 (Flutter/iOS) 공개 채용</a>
+            <div class="post-meta-line">
+              <span>2026-11-08</span>
+              <span>·</span>
+              <span>피플팀</span>
+              <span>·</span>
+              <span>신입/경력</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post 3: Tech -->
+        <li class="post-item">
+          <div class="post-thumb">⚡</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-tech">기술</span>
+              <span class="badge badge-tech">릴리즈 노트</span>
+            </div>
+            <a href="./posts/tech-301.html" class="post-title">v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</a>
+            <div class="post-meta-line">
+              <span>2026-11-08</span>
+              <span>·</span>
+              <span>엔지니어링 팀</span>
+              <span>·</span>
+              <span>읽는 시간 4분</span>
+            </div>
           </div>
         </li>
       </ul>
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="./index.html">홈</a>
+      <a href="./boards/webtoon/index.html">웹툰·연재</a>
+      <a href="./boards/career/index.html">채용·공고</a>
+      <a href="./boards/tech/index.html">기술·공지</a>
+      <a href="./feeds/rss.xml">RSS</a>
+      <a href="./feeds/posts.json">JSON API</a>
+    </div>
+    <p>© 2026 StoryLab. Cachi App &amp; Server Test Dummy Project.</p>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/demo-toolbar.js"></script>
   <script>
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab').forEach((tab, index) => {
-        const names = ['webtoon', 'career', 'tech'];
-        tab.classList.toggle('active', names[index] === tabName);
-      });
-      document.getElementById('tab-webtoon').classList.toggle('hidden', tabName !== 'webtoon');
-      document.getElementById('tab-career').classList.toggle('hidden', tabName !== 'career');
-      document.getElementById('tab-tech').classList.toggle('hidden', tabName !== 'tech');
-    }
-
-    function toggleSimNew() {
-      const item = document.getElementById('simulatedItem');
-      const btn = document.getElementById('simBtn');
-      const isHidden = item.classList.contains('hidden');
-      if (isHidden) {
-        item.classList.remove('hidden');
-        btn.classList.add('active');
-        btn.innerText = '✓ 새 글 노출 중 (클릭 시 원복)';
-      } else {
-        item.classList.add('hidden');
-        btn.classList.remove('active');
-        btn.innerText = '+ 새 글 업데이트 시뮬레이션';
-      }
-    }
-
-    // URL 쿼리에 ?new=true 가 있으면 자동으로 새 글 활성화
-    if (new URLSearchParams(window.location.search).get('new') === 'true') {
-      toggleSimNew();
+    function copyBoardPath(relPath) {
+      const fullUrl = new URL(relPath, window.location.href).href;
+      copyUrl(fullUrl, '📋 서브 게시판 URL이 복사되었습니다! cachi app에 등록하세요.');
     }
   </script>
 </body>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹툰·연재 - 스토리랩 (StoryLab)</title>
+  <meta name="description" content="인기 웹툰 및 연재 소설의 최신 화 무료 공개 및 미리보기 목록">
+  <meta property="og:title" content="스토리랩 - 웹툰·연재 게시판">
+  <meta property="og:description" content="매일 업데이트되는 웹툰 연재 목록 (cachi 알림 테스트용)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284C7'%3E%3Cpath d='M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
+        </div>
+        <div>
+          <span class="brand-name">StoryLab</span>
+          <span class="brand-tagline">cachi 알림 테스트 더미 사이트</span>
+        </div>
+      </a>
+      <div class="header-sub-links">
+        <a href="../../feeds/rss.xml" target="_blank">RSS 피드</a>
+        <a href="../../feeds/posts.json" target="_blank">JSON API</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Board Navigation Tabs (독립 서브 주소 라우팅) -->
+  <nav class="board-tabs">
+    <div class="board-tabs-inner">
+      <a href="../../index.html" class="board-tab">홈 (전체)</a>
+      <a href="./index.html" class="board-tab active">웹툰·연재 <span class="tab-badge">리스트형</span></a>
+      <a href="../career/index.html" class="board-tab">채용·공고 <span class="tab-badge">테이블형</span></a>
+      <a href="../tech/index.html" class="board-tab">기술·공지 <span class="tab-badge">카드형</span></a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="board-intro">
+      <div class="board-title-group">
+        <h1>웹툰·연재 게시판</h1>
+        <p>매주 요일별 최신 회차가 등록되는 리스트(ul > li) 구조의 게시판입니다.</p>
+      </div>
+      <div class="board-url-display">
+        <span>URL: /boards/webtoon/</span>
+      </div>
+    </div>
+
+    <!-- Cachi Guide Banner -->
+    <div class="info-card cachi-guide">
+      <svg class="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="info-card-content">
+        <h3>cachi app 등록 안내</h3>
+        <p>cachi app의 <strong>[+ 새 알림 추가]</strong>에 현재 페이지 주소를 등록하세요. 크롤러 셀렉터: <code>.post-item .post-title</code> 또는 <code>.board-list li a</code></p>
+      </div>
+    </div>
+
+    <!-- Webtoon List (기본 상태: 150화까지 노출) -->
+    <div class="board-card-wrapper">
+      <ul class="board-list">
+        <!-- Post 152 (Preview) -->
+        <li class="post-item" data-post-id="152">
+          <div class="post-thumb">🎨</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-pay">미리보기</span>
+            </div>
+            <a href="../../posts/webtoon-150.html" class="post-title">달빛 아뜰리에 - 제 152화 (유료 선공개)</a>
+            <div class="post-meta-line">
+              <time datetime="2026-11-10T12:00:00+09:00">오늘 12:00</time>
+              <span>·</span>
+              <span>쿠키 3개</span>
+              <span>·</span>
+              <span>별점 9.95</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post 150 (Free) -->
+        <li class="post-item" data-post-id="150">
+          <div class="post-thumb">🎨</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">무료 공개</span>
+            </div>
+            <a href="../../posts/webtoon-150.html" class="post-title">달빛 아뜰리에 - 제 150화 : 새로운 시작</a>
+            <div class="post-meta-line">
+              <time datetime="2026-11-09T23:00:00+09:00">어제</time>
+              <span>·</span>
+              <span>무료</span>
+              <span>·</span>
+              <span>별점 9.92</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post 42 (기다무) -->
+        <li class="post-item" data-post-id="42">
+          <div class="post-thumb">📖</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">기다무</span>
+            </div>
+            <a href="../../posts/webtoon-150.html" class="post-title">심야 공방의 비밀 - 제 42화 : 의뢰인의 편지</a>
+            <div class="post-meta-line">
+              <time datetime="2026-11-08T18:00:00+09:00">2일 전</time>
+              <span>·</span>
+              <span>이용권 충전완료</span>
+              <span>·</span>
+              <span>별점 9.88</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post 41 -->
+        <li class="post-item" data-post-id="41">
+          <div class="post-thumb">📖</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">무료 공개</span>
+            </div>
+            <a href="../../posts/webtoon-150.html" class="post-title">심야 공방의 비밀 - 제 41화 : 은밀한 거래</a>
+            <div class="post-meta-line">
+              <time datetime="2026-11-07T18:00:00+09:00">3일 전</time>
+              <span>·</span>
+              <span>무료</span>
+              <span>·</span>
+              <span>별점 9.85</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post 10 -->
+        <li class="post-item" data-post-id="10">
+          <div class="post-thumb">💻</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">신작 연재</span>
+            </div>
+            <a href="../../posts/webtoon-150.html" class="post-title">회귀한 개발자의 무한 코딩 - 제 10화</a>
+            <div class="post-meta-line">
+              <time datetime="2026-11-05T10:00:00+09:00">5일 전</time>
+              <span>·</span>
+              <span>무료</span>
+              <span>·</span>
+              <span>별점 9.91</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="../../index.html">홈</a>
+      <a href="./index.html">웹툰·연재</a>
+      <a href="../career/index.html">채용·공고</a>
+      <a href="../tech/index.html">기술·공지</a>
+      <a href="../../feeds/rss.xml">RSS</a>
+    </div>
+    <p>© 2026 StoryLab. Cachi App & Server Test Dummy Project.</p>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/demo-toolbar.js"></script>
+</body>
+</html>

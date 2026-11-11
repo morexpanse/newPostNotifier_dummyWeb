@@ -1,0 +1,19 @@
+{
+  "name": "storylab-dummy-web",
+  "version": "2.0.0",
+  "description": "Dummy website for cachi app and cachi server testing and promotion",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/verify.js"
+  },
+  "keywords": [
+    "cachi",
+    "crawler-test",
+    "dummy-web",
+    "storylab",
+    "notifier-test"
+  ],
+  "author": "agilinger",
+  "license": "MIT"
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기술·공지 - 스토리랩 (StoryLab)</title>
+  <meta name="description" content="스토리랩 기술 블로그 및 릴리즈 노트 소식 (카드형 아티클 구조)">
+  <meta property="og:title" content="스토리랩 - 기술·공지 게시판">
+  <meta property="og:description" content="엔지니어링 블로그 및 제품 릴리즈 소식 (cachi 알림 테스트용)">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236D28D9'%3E%3Cpath d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/></svg>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h13v12H6V4zm0 16v-2h13v2H6z"/></svg>
+        </div>
+        <div>
+          <span class="brand-name">StoryLab</span>
+          <span class="brand-tagline">cachi 알림 테스트 더미 사이트</span>
+        </div>
+      </a>
+      <div class="header-sub-links">
+        <a href="../../feeds/rss.xml" target="_blank">RSS 피드</a>
+        <a href="../../feeds/posts.json" target="_blank">JSON API</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Board Navigation Tabs -->
+  <nav class="board-tabs">
+    <div class="board-tabs-inner">
+      <a href="../../index.html" class="board-tab">홈 (전체)</a>
+      <a href="../webtoon/index.html" class="board-tab">웹툰·연재 <span class="tab-badge">리스트형</span></a>
+      <a href="../career/index.html" class="board-tab">채용·공고 <span class="tab-badge">테이블형</span></a>
+      <a href="./index.html" class="board-tab active">기술·공지 <span class="tab-badge">카드형</span></a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="board-intro">
+      <div class="board-title-group">
+        <h1>기술·공지 게시판</h1>
+        <p>기술 블로그 및 릴리즈 노트의 카드(section > article) 형태 구조 게시판입니다.</p>
+      </div>
+      <div class="board-url-display">
+        <span>URL: /boards/tech/</span>
+      </div>
+    </div>
+
+    <!-- Cachi Guide Banner -->
+    <div class="info-card cachi-guide">
+      <svg class="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="info-card-content">
+        <h3>cachi app 등록 안내</h3>
+        <p>cachi app의 <strong>[+ 새 알림 추가]</strong>에 현재 페이지 주소를 등록하세요. 카드 크롤러 셀렉터: <code>article.card-article .card-title</code> 또는 <code>.card-article a</code></p>
+      </div>
+    </div>
+
+    <!-- Tech Cards View (기본 상태) -->
+    <section class="board-cards-grid">
+      <!-- Card 301 -->
+      <article class="card-article" data-post-id="tech-301">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-tag">Release</span>
+            <span class="card-tag">Engine</span>
+          </div>
+          <span class="badge badge-tech">기술공지</span>
+        </div>
+        <h2 class="card-title">
+          <a href="../../posts/tech-301.html" class="post-title">v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</a>
+        </h2>
+        <p class="card-desc">
+          대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다.
+        </p>
+        <div class="card-footer">
+          <time datetime="2026-11-08">2026-11-08</time>
+          <span>·</span>
+          <span>엔지니어링 팀</span>
+          <span>·</span>
+          <span>읽는 시간 4분</span>
+        </div>
+      </article>
+
+      <!-- Card 298 -->
+      <article class="card-article" data-post-id="tech-298">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-tag">Flutter</span>
+            <span class="card-tag">Database</span>
+          </div>
+          <span class="badge badge-tech">아키텍처</span>
+        </div>
+        <h2 class="card-title">
+          <a href="../../posts/tech-301.html" class="post-title">플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처</a>
+        </h2>
+        <p class="card-desc">
+          모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다.
+        </p>
+        <div class="card-footer">
+          <time datetime="2026-11-04">2026-11-04</time>
+          <span>·</span>
+          <span>모바일 랩</span>
+          <span>·</span>
+          <span>읽는 시간 6분</span>
+        </div>
+      </article>
+
+      <!-- Card 295 -->
+      <article class="card-article" data-post-id="tech-295">
+        <div class="card-top">
+          <div class="card-tags">
+            <span class="card-tag">Crawler</span>
+            <span class="card-tag">Infra</span>
+          </div>
+          <span class="badge badge-tech">가이드</span>
+        </div>
+        <h2 class="card-title">
+          <a href="../../posts/tech-301.html" class="post-title">웹 크롤러 차단 우회와 헤드리스 브라우저 자원 관리 가이드</a>
+        </h2>
+        <p class="card-desc">
+          주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다.
+        </p>
+        <div class="card-footer">
+          <time datetime="2026-10-25">2026-10-25</time>
+          <span>·</span>
+          <span>인프라 팀</span>
+          <span>·</span>
+          <span>읽는 시간 8분</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="../../index.html">홈</a>
+      <a href="../webtoon/index.html">웹툰·연재</a>
+      <a href="../career/index.html">채용·공고</a>
+      <a href="./index.html">기술·공지</a>
+      <a href="../../feeds/rss.xml">RSS</a>
+    </div>
+    <p>© 2026 StoryLab. Cachi App & Server Test Dummy Project.</p>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/demo-toolbar.js"></script>
+</body>
+</html>
