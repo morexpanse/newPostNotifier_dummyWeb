@@ -4,10 +4,10 @@
       "id": "webtoon",
       "title": "스토리랩 웹툰 (StoryLab)",
       "siteName": "StoryLab Webtoon",
-      "feedTitle": "스토리랩 웹툰 (StoryLab) - 피드",
-      "description": "스토리랩 웹툰·연재 게시판 전용 RSS 2.0 피드",
+      "feedTitle": "스토리랩 웹툰 (StoryLab) - JSON API",
+      "description": "스토리랩 웹툰·연재 게시판 전용 JSON API",
       "url": "boards/webtoon/",
-      "rssUrl": "boards/webtoon/rss.xml"
+      "apiUrl": "boards/webtoon/episodes.json"
     },
     "career": {
       "id": "career",

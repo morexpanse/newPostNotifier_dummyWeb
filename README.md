@@ -15,11 +15,11 @@
    - **기술·공지**: `<section>` / `<article>` 카드형 블로그 구조
 3. **실제 상세 글(Post Detail) 페이지 및 딥링크**:
    - 각 글마다 `/posts/*.html` 본문 페이지를 제공하여, cachi app에서 푸시 알림 클릭 시 인앱 브라우저로 실제 본문이 정상 열람되는 엔드투엔드 UX를 검증할 수 있습니다.
-4. **크롤러 친화적 시뮬레이션 환경 (정적 & 동적 하이브리드)**:
-   - **GitHub Pages 정적 배포 호환**: 빌드 없이 정적 호스팅 가능하며, 새 글이 HTML 소스에 실제 반영된 `new-post.html` 프리셋 제공.
+4. **크롤러 친화적 환경 (정적 & 동적 하이브리드)**:
+   - **GitHub Pages 정적 배포 호환**: 빌드 없이 정적 호스팅 가능하며, 웹툰 게시판은 JSON API(`episodes.json`) CSR을 지원.
    - **로컬 실시간 서버(`server.js`)**: 의존성 없는 내장 HTTP 서버로 구동되어 REST API(`POST /api/posts`)를 통해 실시간 새 글 주입 가능.
-5. **Cachi 전용 데모 툴바 탑재**:
-   - 상단 고정 툴바로 "📋 게시판 URL 복사", "⚡ 새 글 발생 시뮬레이션", "🔄 원복" 버튼 제공.
+5. **Cachi 전용 데모 도우미 탑재**:
+   - 상단 도우미 바로 "📋 게시판 URL 복사" 및 클립보드 간편 등록 지원.
 
 ---
 
@@ -28,35 +28,31 @@
 | 게시판명 | 서브 URL | 레이아웃 형태 | 추천 크롤러 셀렉터 (Title / Link) |
 | :--- | :--- | :--- | :--- |
 | **메인 포털** | `/` (`index.html`) | 통합 피드 & 허브 | `ul.board-list li a.post-title` |
-| **웹툰·연재** | `/boards/webtoon/` | 리스트 (`ul > li`) | `.post-item .post-title`, `li[data-post-id] a` |
-| **웹툰 RSS** | `/boards/webtoon/rss.xml` | XML RSS 2.0 (웹툰 전용) | `//item/title`, `//item/link` |
+| **웹툰·연재** | `/boards/webtoon/` | CSR 동적 리스트 (`episodes.json`) | `json_api` 자동 탐색 또는 `.post-item .post-title` |
+| **웹툰 API** | `/boards/webtoon/episodes.json` | JSON REST API (회차 전용) | `$.episodes[*].title`, `$.episodes[*].url` |
 | **채용·공고** | `/boards/career/` | 테이블 (`table > tr > td`) | `.board-table tbody tr td.col-title a` |
 | **채용 RSS** | `/boards/career/rss.xml` | XML RSS 2.0 (채용 전용) | `//item/title`, `//item/link` |
 | **기술·공지** | `/boards/tech/` | 카드 (`section > article`) | `article.card-article .card-title a` |
 | **기술 RSS** | `/boards/tech/rss.xml` | XML RSS 2.0 (기술 전용) | `//item/title`, `//item/link` |
 | **전체 통합 RSS** | `/feeds/rss.xml` | XML RSS 2.0 (전체 피드) | `//item/title`, `//item/link` |
-| **JSON API** | `/feeds/posts.json` | JSON REST API | `$.items[*].title`, `$.items[*].url` |
+| **전체 JSON API** | `/feeds/posts.json` | JSON REST API | `$.items[*].title`, `$.items[*].url` |
 
-### 🔒 카카오 웹툰 유·무료(`determineAccessType`) 완벽 호환 가이드
-웹툰 회차 목록의 HTML 요소(`li.post-item`), RSS 피드(`boards/webtoon/rss.xml`, `feeds/rss.xml`), JSON 피드(`feeds/posts.json`, `data/posts.json`)에 카카오 웹툰/카카오페이지 파싱 패턴을 100% 반영하여 `determineAccessType(record)`로 즉시 유·무료를 판별할 수 있습니다:
-- **`paid` (선공개/유료)**: `useType="EARLY_ACCESS"`, `accessType="paid"`, `is_free=false`, `charge=true`, `waitfree_blocked=true`, `free_change_dt="..."` (예: 152화 대여 200캐시)
-- **`wait_free` (기다무)**: `useType="WAIT_FREE"`, `accessType="wait_free"`, `is_free=false`, `charge=true`, `waitfree_blocked=false` (예: 149화, 148화, 147화, 141화)
-- **`free` (무료 공개)**: `useType="FREE"`, `accessType="free"`, `is_free=true`, `charge=false`, `waitfree_blocked=false` (예: 151화, 150화 등)
+### 🔒 웹툰 동적 탐색(`json_api`) 및 유·무료(`determineAccessType`) 호환 가이드
+웹툰 게시판(`/boards/webtoon/`)은 RSS/XML 링크가 일절 존재하지 않으며, 초기 HTML에는 회차 링크가 비어 있어 크롤러가 `json_api` 데이터 소스(`/boards/webtoon/episodes.json`)를 자동으로 탐색하도록 설계되었습니다.
 
-RSS 피드(`<item>`) 내부에도 `<accessType>`, `<access_type>`, `<useType>`, `<isFree>`, `<is_free>`, `<charge>`, `<waitfree_blocked>`, `<cachi:accessType>`, `<category>` 태그가 모두 기본 포함되어 있어, XML 파서 객체를 그대로 넘기더라도 정확히 판별됩니다.
+`episodes.json` 내부에는 카카오 웹툰/카카오페이지 규격에 맞춘 메타데이터가 완벽하게 제공됩니다:
+- **`id`**: `ID_CANDIDATE_FIELDS` 매칭용 (`"webtoon-152"`)
+- **`no`**: `meta.sequence` 추출용 숫자 회차 (`152`, `150`, `149` 등)
+- **`title`**: `TITLE_CANDIDATE_FIELDS` 매칭용
+- **`accessType`**: `"paid"` (선공개/유료) | `"wait_free"` (기다무) | `"free"` (무료 공개)
+- **`freeAt`**: 유료 회차 무료 전환 예정 시각 (`"2026-11-17T22:00:00+09:00"`)
+- **`publishedAt`**: ISO 8601 발행 시각
 
 ---
 
-## ⚡ 새 글 알림 감지 테스트 시나리오
+## ⚡ 알림 감지 테스트 방법
 
-### 방법 1: GitHub Pages 및 정적 호스팅 환경에서 테스트
-1. cachi app의 **[+ 새 알림 추가]**에 기본 게시판 주소를 등록합니다. (예: `.../boards/webtoon/`)
-2. cachi server가 최초 수집을 완료하여 초기 상태(150화까지)를 저장합니다.
-3. 웹 브라우저에서 상단 툴바의 **[⚡ 새 글 발생 시뮬레이션]**을 누르거나, cachi app/server의 대상 URL을 `.../boards/webtoon/new-post.html`로 전환합니다.
-4. cachi server가 151화를 감지하고 스마트폰 cachi app으로 푸시 알림이 발송됩니다.
-5. 푸시 알림을 누르면 `/posts/webtoon-151.html` 상세 페이지로 이동하며 테스트가 성공합니다.
-
-### 방법 2: 로컬 동적 서버(`server.js`)를 통한 실시간 테스트
+### 로컬 동적 서버(`server.js`)를 통한 실시간 테스트
 ```bash
 # 로컬 서버 구동 (기본 포트: 3000, Node.js 기본 내장 모듈 사용 - npm install 불필요)
 npm start

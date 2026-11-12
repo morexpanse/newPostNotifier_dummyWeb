@@ -199,22 +199,65 @@ function sync() {
   const careerRegular = allPosts.filter(p => p.board === 'career' && !p.is_new_preview);
   const techRegular = allPosts.filter(p => p.board === 'tech' && !p.is_new_preview);
 
-  // 2. Sync Webtoon Board & RSS
-  console.log(`🎨 [Webtoon] Syncing ${webtoonRegular.length} posts between HTML and RSS...`);
-  const webtoonRssXml = generateRssXml(
-    data.boards.webtoon.feedTitle,
-    'boards/webtoon/',
-    data.boards.webtoon.description,
-    webtoonRegular
-  );
-  fs.writeFileSync(path.join(ROOT_DIR, 'boards', 'webtoon', 'rss.xml'), webtoonRssXml, 'utf8');
+  // 2. Sync Webtoon Board & JSON API (CSR)
+  console.log(`🎨 [Webtoon] Generating boards/webtoon/episodes.json with ${webtoonRegular.length} episodes...`);
+  const episodesData = {
+    episodes: webtoonRegular.map(p => {
+      const accessType = p.accessType || p.access_type || 'free';
+      const useType = p.useType || (accessType === 'paid' ? 'EARLY_ACCESS' : accessType === 'wait_free' ? 'WAIT_FREE' : 'FREE');
+      const isFree = p.isFree !== undefined ? p.isFree : (p.is_free !== undefined ? p.is_free : accessType === 'free');
+      const charge = p.charge !== undefined ? p.charge : (accessType !== 'free');
+      const waitfreeBlocked = p.waitfree_blocked !== undefined ? p.waitfree_blocked : (accessType === 'paid');
+      const no = parseInt(p.id.replace('webtoon-', ''), 10) || 0;
 
-  // Replace webtoon list inside boards/webtoon/index.html
+      return {
+        id: p.id,
+        no: no,
+        title: p.title,
+        url: p.url,
+        accessType: accessType,
+        access_type: accessType,
+        useType: useType,
+        isFree: isFree,
+        is_free: isFree,
+        charge: charge,
+        waitfree_blocked: waitfreeBlocked,
+        waitfreeBlocked: waitfreeBlocked,
+        ...(p.freeChangeDt ? {
+          freeAt: p.freeChangeDt,
+          freeChangeDt: p.freeChangeDt,
+          free_change_dt: p.free_change_dt || p.freeChangeDt
+        } : {}),
+        publishedAt: p.isoDate,
+        pubDate: p.pubDate,
+        badge: p.badge,
+        badgeClass: p.badgeClass || (accessType === 'paid' ? 'badge-pay' : accessType === 'wait_free' ? 'badge-waitfree' : 'badge-free'),
+        timeDisplay: p.timeDisplay,
+        meta: p.meta,
+        thumb: p.thumb || '🎨',
+        description: p.description
+      };
+    })
+  };
+
+  fs.writeFileSync(
+    path.join(ROOT_DIR, 'boards', 'webtoon', 'episodes.json'),
+    JSON.stringify(episodesData, null, 2),
+    'utf8'
+  );
+
+  // Remove stale boards/webtoon/rss.xml if it exists
+  const webtoonRssPath = path.join(ROOT_DIR, 'boards', 'webtoon', 'rss.xml');
+  if (fs.existsSync(webtoonRssPath)) {
+    fs.unlinkSync(webtoonRssPath);
+  }
+
+  // Ensure boards/webtoon/index.html has empty <ul class="board-list">
   const webtoonHtmlPath = path.join(ROOT_DIR, 'boards', 'webtoon', 'index.html');
   let webtoonHtml = fs.readFileSync(webtoonHtmlPath, 'utf8');
   webtoonHtml = webtoonHtml.replace(
     /(<ul class="board-list">)[\s\S]*?(<\/ul>)/,
-    `$1\n${renderWebtoonHtmlItems(webtoonRegular)}\n      $2`
+    `$1\n        <!-- Episodes dynamically loaded via fetch('./episodes.json') -->\n      $2`
   );
   fs.writeFileSync(webtoonHtmlPath, webtoonHtml, 'utf8');
 

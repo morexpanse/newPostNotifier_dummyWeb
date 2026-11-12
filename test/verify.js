@@ -80,16 +80,13 @@ async function runTests() {
   const expectedFiles = [
     'index.html',
     'boards/webtoon/index.html',
-    'boards/webtoon/new-post.html',
+    'boards/webtoon/episodes.json',
     'boards/career/index.html',
-    'boards/career/new-post.html',
     'boards/tech/index.html',
-    'boards/tech/new-post.html',
     'data/posts.json',
     'scripts/sync.js',
     'feeds/rss.xml',
     'feeds/posts.json',
-    'boards/webtoon/rss.xml',
     'boards/career/rss.xml',
     'boards/tech/rss.xml',
     'assets/css/style.css',
@@ -103,6 +100,12 @@ async function runTests() {
     const fullPath = path.join(BASE_DIR, file);
     assert(fs.existsSync(fullPath), `File exists: ${file}`);
   }
+
+  // Ensure removed files do not exist
+  assert(!fs.existsSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml')), 'boards/webtoon/rss.xml is removed');
+  assert(!fs.existsSync(path.join(BASE_DIR, 'boards/webtoon/new-post.html')), 'boards/webtoon/new-post.html is removed');
+  assert(!fs.existsSync(path.join(BASE_DIR, 'boards/career/new-post.html')), 'boards/career/new-post.html is removed');
+  assert(!fs.existsSync(path.join(BASE_DIR, 'boards/tech/new-post.html')), 'boards/tech/new-post.html is removed');
 
   // Test 2: Title & OG:Title Isolation across Boards
   console.log('\n🏷️ 2. Verifying Title & OG:Title Isolation across Boards...');
@@ -122,10 +125,11 @@ async function runTests() {
   assert(techHtml.includes('property="og:title" content="테크로그 엔지니어링 (TechLog)"'), 'Tech og:title is isolated');
   assert(techHtml.includes('TechLog'), 'Tech brand name is updated in header');
 
-  // Test 3: Issue 3 - Link Uniqueness in HTML Boards
-  console.log('\n🔗 3. Verifying Unique URLs and Zero Broken Links in Boards...');
+  // Test 3: Issue 3 - Link Uniqueness in HTML Boards & Webtoon CSR
+  console.log('\n🔗 3. Verifying Unique URLs, Zero Broken Links, and Webtoon CSR Static Links Empty...');
   function extractPostLinks(html, boardDir) {
-    const matches = [...html.matchAll(/href="(\.\.\/\.\.\/posts\/[^"]+)"/g)];
+    const cleanHtml = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+    const matches = [...cleanHtml.matchAll(/href="(\.\.\/\.\.\/posts\/[^"]+)"/g)];
     return matches.map(m => {
       const relPath = m[1];
       const absPath = path.resolve(path.join(BASE_DIR, boardDir), relPath);
@@ -133,9 +137,18 @@ async function runTests() {
     });
   }
 
-  const webtoonLinks = extractPostLinks(webtoonHtml, 'boards/webtoon');
+  const webtoonStaticLinks = extractPostLinks(webtoonHtml, 'boards/webtoon');
   const careerLinks = extractPostLinks(careerHtml, 'boards/career');
   const techLinks = extractPostLinks(techHtml, 'boards/tech');
+
+  // Webtoon must have 0 static post links in HTML so crawler falls back to dynamic JSON API discovery
+  assert(webtoonStaticLinks.length === 0, 'Webtoon index.html has 0 static post links in HTML (CSR mode)');
+
+  // Webtoon episodes.json link check
+  const webtoonEpisodesJson = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/episodes.json'), 'utf8'));
+  const webtoonEpisodeUrls = webtoonEpisodesJson.episodes.map(e => `../../${e.url}`);
+  const webtoonEpisodeSet = new Set(webtoonEpisodeUrls);
+  assert(webtoonEpisodeSet.size === webtoonEpisodeUrls.length && webtoonEpisodeUrls.length > 0, `Webtoon episodes.json has ${webtoonEpisodeUrls.length} episodes, all 100% unique`);
 
   const checkUniqueness = (links, name) => {
     const hrefs = links.map(l => l.relPath);
@@ -143,12 +156,15 @@ async function runTests() {
     assert(set.size === hrefs.length && hrefs.length > 0, `${name} has ${hrefs.length} total links, all 100% unique`);
   };
 
-  checkUniqueness(webtoonLinks, 'Webtoon Board');
   checkUniqueness(careerLinks, 'Career Board');
   checkUniqueness(techLinks, 'Tech Board');
 
-  // Broken link check
-  const allBoardLinks = [...webtoonLinks, ...careerLinks, ...techLinks];
+  // Broken link check for static boards + webtoon JSON episodes
+  const webtoonAbsLinks = webtoonEpisodesJson.episodes.map(e => ({
+    relPath: e.url,
+    absPath: path.resolve(BASE_DIR, e.url)
+  }));
+  const allBoardLinks = [...webtoonAbsLinks, ...careerLinks, ...techLinks];
   let brokenCount = 0;
   for (const link of allBoardLinks) {
     if (!fs.existsSync(link.absPath)) {
@@ -158,8 +174,8 @@ async function runTests() {
   }
   assert(brokenCount === 0, `All post links point to existing static HTML files (${allBoardLinks.length}/${allBoardLinks.length} valid, zero 404)`);
 
-  // Test 4: RSS Link Uniqueness (No duplicate links in ANY RSS feed)
-  console.log('\n📡 4. Verifying RSS Feed Link Uniqueness (No Duplicate URLs in RSS)...');
+  // Test 4: RSS Link Uniqueness
+  console.log('\n📡 4. Verifying RSS Feed Link Uniqueness (Career, Tech, Total)...');
   const checkRssUniqueness = (filePath, feedName) => {
     const content = fs.readFileSync(path.join(BASE_DIR, filePath), 'utf8');
     const items = extractRssItems(content);
@@ -168,13 +184,12 @@ async function runTests() {
     assert(set.size === links.length && links.length > 0, `${feedName} (${filePath}) has ${links.length} items, all links 100% unique`);
   };
 
-  checkRssUniqueness('boards/webtoon/rss.xml', 'Webtoon RSS Feed');
   checkRssUniqueness('boards/career/rss.xml', 'Career RSS Feed');
   checkRssUniqueness('boards/tech/rss.xml', 'Tech RSS Feed');
   checkRssUniqueness('feeds/rss.xml', 'Total Combined RSS Feed');
 
-  // Test 5: Exact 1:1 Board-to-RSS Synchronization
-  console.log('\n🔄 5. Verifying Exact 1:1 Board HTML <-> RSS XML Synchronization...');
+  // Test 5: Exact 1:1 Board Synchronization (Career & Tech with RSS, Webtoon with episodes.json)
+  console.log('\n🔄 5. Verifying Board Synchronization (Career/Tech with RSS, Webtoon with episodes.json)...');
   const verifyBoardRssSync = (boardName, htmlContent, boardType, rssPath) => {
     const rssContent = fs.readFileSync(path.join(BASE_DIR, rssPath), 'utf8');
     const htmlItems = extractHtmlItems(htmlContent, boardType);
@@ -198,7 +213,11 @@ async function runTests() {
     assert(syncErrors === 0, `${boardName}: All ${htmlItems.length} items have identical URLs and sequence in HTML and RSS`);
   };
 
-  verifyBoardRssSync('Webtoon', webtoonHtml, 'webtoon', 'boards/webtoon/rss.xml');
+  // Webtoon sync: verify episodes.json count and data/posts.json webtoon items count match 1:1
+  const rawPostsData = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'data/posts.json'), 'utf8'));
+  const webtoonSsot = rawPostsData.posts.filter(p => p.board === 'webtoon' && !p.is_new_preview);
+  assert(webtoonEpisodesJson.episodes.length === webtoonSsot.length, `Webtoon: episodes.json count (${webtoonEpisodesJson.episodes.length}) matches SSOT count (${webtoonSsot.length}) 1:1`);
+
   verifyBoardRssSync('Career', careerHtml, 'career', 'boards/career/rss.xml');
   verifyBoardRssSync('Tech', techHtml, 'tech', 'boards/tech/rss.xml');
 
@@ -214,14 +233,15 @@ async function runTests() {
   const jsonSet = new Set(jsonUrls);
   assert(jsonSet.size === jsonUrls.length && jsonUrls.length > 0, `feeds/posts.json has ${jsonUrls.length} items, all URLs 100% unique`);
 
-  // Test 7: Clean Recording View (No simulation toolbar / guide banner by default)
-  console.log('\n🎬 7. Verifying Clean Recording Presentation...');
+  // Test 7: Clean Recording View & Zero XML Links in Webtoon Index
+  console.log('\n🎬 7. Verifying Clean Presentation & Zero XML Links in Webtoon Index...');
   assert(!webtoonHtml.includes('demo-toolbar.js'), 'Webtoon index does NOT load demo toolbar script by default');
   assert(!careerHtml.includes('demo-toolbar.js'), 'Career index does NOT load demo toolbar script by default');
   assert(!techHtml.includes('demo-toolbar.js'), 'Tech index does NOT load demo toolbar script by default');
   assert(!webtoonHtml.includes('cachi-guide'), 'Webtoon index does NOT show cachi guide banner');
   assert(!careerHtml.includes('cachi-guide'), 'Career index does NOT show cachi guide banner');
   assert(!techHtml.includes('cachi-guide'), 'Tech index does NOT show cachi guide banner');
+  assert(!webtoonHtml.toLowerCase().includes('.xml'), 'Webtoon index does NOT contain any .xml links (prevents crawler RSS lock)');
 
   // Test 8: Local Server HTTP Responses
   console.log('\n🚀 8. Verifying Server HTTP Responses...');
@@ -244,7 +264,7 @@ async function runTests() {
       }, (res) => {
         let data = '';
         res.on('data', chunk => { data += chunk; });
-        res.on('end', () => resolve({ statusCode: res.statusCode, data }));
+        res.on('end', () => resolve({ statusCode: res.statusCode, headers: res.headers, data }));
       });
       req.on('error', reject);
       req.end();
@@ -267,8 +287,12 @@ async function runTests() {
     assert(resTech.statusCode === 200, 'GET /boards/tech/ returns 200 OK');
     assert(resTech.data.includes('테크로그 엔지니어링 (TechLog)'), 'GET /boards/tech/ returns isolated title');
 
+    const resEpisodesJson = await fetchUrl('/boards/webtoon/episodes.json');
+    assert(resEpisodesJson.statusCode === 200, 'GET /boards/webtoon/episodes.json returns 200 OK');
+    assert(resEpisodesJson.headers['content-type']?.includes('application/json'), 'GET /boards/webtoon/episodes.json returns application/json Content-Type');
+
     const resWebtoonRss = await fetchUrl('/boards/webtoon/rss.xml');
-    assert(resWebtoonRss.statusCode === 200, 'GET /boards/webtoon/rss.xml returns 200 OK');
+    assert(resWebtoonRss.statusCode === 404, 'GET /boards/webtoon/rss.xml returns 404 Not Found (safely removed)');
 
     const resCareerRss = await fetchUrl('/boards/career/rss.xml');
     assert(resCareerRss.statusCode === 200, 'GET /boards/career/rss.xml returns 200 OK');
@@ -392,49 +416,28 @@ async function runTests() {
   }
   assert(feedsJsonFailures === 0, `All ${feedsJsonData.items.length} items in feeds/posts.json resolve correctly with determineAccessType()`);
 
-  // 9-3. Test determineAccessType on parsed HTML data-attributes
-  const webtoonIndexHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/index.html'), 'utf8');
-  const liMatches = [...webtoonIndexHtml.matchAll(/<li class="post-item"([^>]*)>/g)];
-  let htmlAttrFailures = 0;
-  for (const m of liMatches) {
-    const attrStr = m[1];
-    const extractAttr = (name) => {
-      const match = attrStr.match(new RegExp(`${name}="([^"]*)"`));
-      return match ? match[1] : undefined;
-    };
-    const htmlRecord = {
-      postId: extractAttr('data-post-id'),
-      accessType: extractAttr('data-access-type'),
-      access_type: extractAttr('data-access_type'),
-      useType: extractAttr('data-use-type'),
-      isFree: extractAttr('data-is-free'),
-      is_free: extractAttr('data-is_free'),
-      charge: extractAttr('data-charge'),
-      waitfree_blocked: extractAttr('data-waitfree-blocked'),
-      freeChangeDt: extractAttr('data-free-change-dt'),
-      free_change_dt: extractAttr('data-free_change_dt')
-    };
-
-    const determined = determineAccessType(htmlRecord);
-    if (!determined) {
-      htmlAttrFailures++;
-      console.error(`  ❌ Failed to determine access type from HTML for post ${htmlRecord.postId}`);
+  // 9-3. Test determineAccessType on boards/webtoon/episodes.json
+  const episodesJsonData = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/episodes.json'), 'utf8'));
+  let episodesFailures = 0;
+  for (const ep of episodesJsonData.episodes) {
+    const determined = determineAccessType(ep);
+    if (!determined || determined !== ep.accessType) {
+      episodesFailures++;
+      console.error(`  ❌ Mismatch for episode ${ep.id}: determined=${determined} vs expected=${ep.accessType}`);
     }
   }
-  assert(htmlAttrFailures === 0 && liMatches.length > 0, `All ${liMatches.length} items parsed from boards/webtoon/index.html HTML attributes resolve via determineAccessType()`);
+  assert(episodesFailures === 0 && episodesJsonData.episodes.length > 0, `All ${episodesJsonData.episodes.length} episodes in boards/webtoon/episodes.json resolve via determineAccessType()`);
 
-  // 9-4. Test determineAccessType on parsed RSS XML items (boards/webtoon/rss.xml)
-  const webtoonRssXml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml'), 'utf8');
-  const webtoonRssItems = extractRssItems(webtoonRssXml);
-  let rssFailures = 0;
-  for (const item of webtoonRssItems) {
-    const determined = determineAccessType(item);
-    if (!determined) {
-      rssFailures++;
-      console.error(`  ❌ Failed to determine access type from RSS for item ${item.title}`);
-    }
-  }
-  assert(rssFailures === 0 && webtoonRssItems.length > 0, `All ${webtoonRssItems.length} items parsed from boards/webtoon/rss.xml XML tags resolve via determineAccessType()`);
+  // 9-4. Verify crawler discovery field compatibility for episodes.json
+  const ep152 = episodesJsonData.episodes.find(e => e.id === 'webtoon-152');
+  const ep150 = episodesJsonData.episodes.find(e => e.id === 'webtoon-150');
+  const ep149 = episodesJsonData.episodes.find(e => e.id === 'webtoon-149');
+
+  assert(ep152 && ep152.no === 152 && ep152.id === 'webtoon-152', 'webtoon-152 has valid id and numeric sequence no (152)');
+  assert(determineAccessType(ep152) === 'paid', 'episodes.json ep152 resolves to "paid"');
+  assert(ep152.freeAt === '2026-11-17T22:00:00+09:00', 'ep152 has ISO 8601 freeAt property for free filter schedule');
+  assert(determineAccessType(ep150) === 'free', 'episodes.json ep150 resolves to "free"');
+  assert(determineAccessType(ep149) === 'wait_free', 'episodes.json ep149 resolves to "wait_free"');
 
   // 9-5. Test determineAccessType on total combined feeds/rss.xml
   const totalRssXml = fs.readFileSync(path.join(BASE_DIR, 'feeds/rss.xml'), 'utf8');
@@ -449,23 +452,10 @@ async function runTests() {
   }
   assert(totalRssFailures === 0 && totalRssItems.length > 0, `All ${totalRssItems.length} items parsed from feeds/rss.xml XML tags resolve via determineAccessType()`);
 
-  // 9-6. Verify specific types: webtoon-152 is paid, webtoon-150 is free, webtoon-149 is wait_free
-  const p152 = postsJsonData.posts.find(p => p.id === 'webtoon-152');
-  const p150 = postsJsonData.posts.find(p => p.id === 'webtoon-150');
-  const p149 = postsJsonData.posts.find(p => p.id === 'webtoon-149');
-  assert(determineAccessType(p152) === 'paid', 'webtoon-152 resolves to "paid"');
-  assert(determineAccessType(p150) === 'free', 'webtoon-150 resolves to "free"');
-  assert(determineAccessType(p149) === 'wait_free', 'webtoon-149 resolves to "wait_free"');
-
-  // 9-7. Verify specific types from RSS: first item is paid (152), second is free (150), third is wait_free (149)
-  assert(determineAccessType(webtoonRssItems[0]) === 'paid', 'webtoon RSS first item (152) resolves to "paid"');
-  assert(determineAccessType(webtoonRssItems[1]) === 'free', 'webtoon RSS second item (150) resolves to "free"');
-  assert(determineAccessType(webtoonRssItems[2]) === 'wait_free', 'webtoon RSS third item (149) resolves to "wait_free"');
-
-  // 9-8. Verify no remaining Naver 'cookie' terms in webtoon files
-  assert(!webtoonIndexHtml.includes('쿠키'), 'boards/webtoon/index.html does not contain Naver "쿠키" term');
+  // 9-6. Verify no remaining Naver 'cookie' terms in webtoon files
+  assert(!webtoonHtml.includes('쿠키'), 'boards/webtoon/index.html does not contain Naver "쿠키" term');
   assert(!JSON.stringify(postsJsonData).includes('쿠키'), 'data/posts.json does not contain Naver "쿠키" term');
-  assert(!webtoonRssXml.includes('쿠키'), 'boards/webtoon/rss.xml does not contain Naver "쿠키" term');
+  assert(!JSON.stringify(episodesJsonData).includes('쿠키'), 'boards/webtoon/episodes.json does not contain Naver "쿠키" term');
 
   console.log(`\n========================================`);
   console.log(`🎯 Test Summary: ${passedTests}/${totalTests} tests passed.`);

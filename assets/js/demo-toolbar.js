@@ -12,7 +12,6 @@
       return;
     }
 
-    const isNewPostPage = window.location.pathname.endsWith('new-post.html');
     const isDetailPage = window.location.pathname.includes('/posts/');
     
     // Determine path relative to root
@@ -31,16 +30,7 @@
     
     let actionButtons = '';
     
-    if (isNewPostPage) {
-      actionButtons = `
-        <button class="cachi-btn highlight" onclick="window.location.href='./index.html'">
-          🔄 초기 상태로 원복 (새 글 제거)
-        </button>
-        <button class="cachi-btn" onclick="copyUrl(window.location.href, '📋 새 글이 반영된 URL이 복사되었습니다!')">
-          📋 현재 URL 복사
-        </button>
-      `;
-    } else if (isDetailPage) {
+    if (isDetailPage) {
       actionButtons = `
         <button class="cachi-btn" onclick="copyUrl(window.location.href, '📋 게시글 상세 URL이 복사되었습니다!')">
           📋 상세 글 URL 복사
@@ -50,9 +40,6 @@
       actionButtons = `
         <button class="cachi-btn" onclick="copyUrl(window.location.href, '📋 현재 게시판 URL이 복사되었습니다! cachi app에 등록하세요.')">
           📋 게시판 URL 복사
-        </button>
-        <button class="cachi-btn highlight" onclick="window.location.href='./new-post.html'">
-          ⚡ 새 글 발생 시뮬레이션 (NEW)
         </button>
       `;
     }
