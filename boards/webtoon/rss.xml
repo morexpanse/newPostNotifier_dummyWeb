@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cachi="https://cachi.app/rss/1.0">
 <channel>
   <title>스토리랩 웹툰 (StoryLab) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/</link>
@@ -14,7 +14,23 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-152.html</guid>
     <pubDate>Tue, 10 Nov 2026 12:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>paid</category>
     <description>달빛 아뜰리에 제 152화 200캐시 유료 선공개 회차 - 운명의 갈림길</description>
+    <accessType>paid</accessType>
+    <access_type>paid</access_type>
+    <useType>EARLY_ACCESS</useType>
+    <isFree>false</isFree>
+    <is_free>false</is_free>
+    <charge>true</charge>
+    <waitfree_blocked>true</waitfree_blocked>
+    <cachi:accessType>paid</cachi:accessType>
+    <cachi:useType>EARLY_ACCESS</cachi:useType>
+    <cachi:isFree>false</cachi:isFree>
+    <cachi:charge>true</cachi:charge>
+    <cachi:waitfreeBlocked>true</cachi:waitfreeBlocked>
+    <freeChangeDt>2026-11-17T22:00:00+09:00</freeChangeDt>
+    <free_change_dt>2026-11-17T22:00:00+09:00</free_change_dt>
+    <cachi:freeChangeDt>2026-11-17T22:00:00+09:00</cachi:freeChangeDt>
   </item>
 
   <item>
@@ -23,7 +39,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</guid>
     <pubDate>Mon, 09 Nov 2026 23:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 150화 무료 공개 - 새로운 시작</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -32,7 +61,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-149.html</guid>
     <pubDate>Sun, 08 Nov 2026 18:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>wait_free</category>
     <description>달빛 아뜰리에 제 149화 기다무 회차 - 안개 자욱한 새벽, 후드를 푹 눌러쓴 수상한 손님</description>
+    <accessType>wait_free</accessType>
+    <access_type>wait_free</access_type>
+    <useType>WAIT_FREE</useType>
+    <isFree>false</isFree>
+    <is_free>false</is_free>
+    <charge>true</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>wait_free</cachi:accessType>
+    <cachi:useType>WAIT_FREE</cachi:useType>
+    <cachi:isFree>false</cachi:isFree>
+    <cachi:charge>true</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -41,7 +83,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-148.html</guid>
     <pubDate>Sat, 07 Nov 2026 18:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>wait_free</category>
     <description>달빛 아뜰리에 제 148화 기다무 회차 - 밤의 뒷골목에서 성사되는 신비한 유리병과 마법 재료 거래</description>
+    <accessType>wait_free</accessType>
+    <access_type>wait_free</access_type>
+    <useType>WAIT_FREE</useType>
+    <isFree>false</isFree>
+    <is_free>false</is_free>
+    <charge>true</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>wait_free</cachi:accessType>
+    <cachi:useType>WAIT_FREE</cachi:useType>
+    <cachi:isFree>false</cachi:isFree>
+    <cachi:charge>true</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -50,7 +105,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-147.html</guid>
     <pubDate>Thu, 05 Nov 2026 10:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>wait_free</category>
     <description>달빛 아뜰리에 제 147화 기다무 회차 - 낡은 양장본 서책 속에서 발견한 잊혀진 고대 레시피</description>
+    <accessType>wait_free</accessType>
+    <access_type>wait_free</access_type>
+    <useType>WAIT_FREE</useType>
+    <isFree>false</isFree>
+    <is_free>false</is_free>
+    <charge>true</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>wait_free</cachi:accessType>
+    <cachi:useType>WAIT_FREE</cachi:useType>
+    <cachi:isFree>false</cachi:isFree>
+    <cachi:charge>true</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -59,7 +127,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-146.html</guid>
     <pubDate>Thu, 29 Oct 2026 10:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 146화 무료 공개 - 금지된 지식이 잠들어 있는 왕립 별빛 도서관 지하 서고</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -68,7 +149,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-145.html</guid>
     <pubDate>Wed, 28 Oct 2026 22:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 145화 무료 공개 - 눈보라가 몰아치는 북부 국경 설원에서 마주친 옛 스승의 흔적</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -77,7 +171,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-144.html</guid>
     <pubDate>Wed, 21 Oct 2026 22:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 144화 무료 공개 - 북부 국경 수비대를 거쳐 아뜰리에로 도착한 밀랍 비밀 편지</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -86,7 +193,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-143.html</guid>
     <pubDate>Sun, 18 Oct 2026 14:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 143화 무료 공개 - 쌀쌀한 가을 저녁 아뜰리에 난로 곁에서 나누는 따스한 온기</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -95,7 +215,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-142.html</guid>
     <pubDate>Sun, 11 Oct 2026 14:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 142화 무료 공개 - 빗소리가 음악처럼 흐르는 오후, 새로운 마법 펜촉 시험</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -104,7 +237,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-141.html</guid>
     <pubDate>Mon, 05 Oct 2026 09:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>wait_free</category>
     <description>달빛 아뜰리에 제 141화 기다무 회차 - 고대 유적지 지하에서 방향을 잃고 맴도는 마법 나침반의 수수께끼</description>
+    <accessType>wait_free</accessType>
+    <access_type>wait_free</access_type>
+    <useType>WAIT_FREE</useType>
+    <isFree>false</isFree>
+    <is_free>false</is_free>
+    <charge>true</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>wait_free</cachi:accessType>
+    <cachi:useType>WAIT_FREE</cachi:useType>
+    <cachi:isFree>false</cachi:isFree>
+    <cachi:charge>true</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -113,7 +259,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-140.html</guid>
     <pubDate>Mon, 28 Sep 2026 09:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
+    <category>free</category>
     <description>달빛 아뜰리에 제 140화 무료 공개 - 육중한 철제 문 너머 봉인되었던 제3 마법 격리 구역의 첫 번째 탐사</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 </channel>
 </rss>

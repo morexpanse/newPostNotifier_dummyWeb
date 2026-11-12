@@ -35,17 +35,41 @@ function generateRssXml(title, link, description, items) {
   const lastBuildDate = items.length > 0 ? items[0].pubDate : 'Tue, 10 Nov 2026 22:50:00 +0900';
   const atomLink = `${BASE_DOMAIN}/${link.replace(/^\//, '')}rss.xml`;
 
-  let itemsXml = items.map(p => `  <item>
+  let itemsXml = items.map(p => {
+    const accessType = p.accessType || p.access_type || 'free';
+    const useType = p.useType || 'FREE';
+    const isFree = p.isFree !== undefined ? p.isFree : (p.is_free !== undefined ? p.is_free : true);
+    const charge = p.charge !== undefined ? p.charge : false;
+    const waitfreeBlocked = p.waitfree_blocked !== undefined ? p.waitfree_blocked : false;
+    const freeChangeDtXml = p.freeChangeDt
+      ? `\n    <freeChangeDt>${p.freeChangeDt}</freeChangeDt>\n    <free_change_dt>${p.free_change_dt || p.freeChangeDt}</free_change_dt>\n    <cachi:freeChangeDt>${p.freeChangeDt}</cachi:freeChangeDt>`
+      : '';
+
+    return `  <item>
     <title>${escapeXml(p.title)}</title>
     <link>${BASE_DOMAIN}/${p.url}</link>
     <guid isPermaLink="true">${BASE_DOMAIN}/${p.url}</guid>
     <pubDate>${p.pubDate}</pubDate>
     <category>${escapeXml(p.board === 'webtoon' ? '웹툰·연재' : p.board === 'career' ? '채용·공고' : '기술·공지')}</category>
+    <category>${escapeXml(accessType)}</category>
     <description>${escapeXml(p.description)}</description>
-  </item>`).join('\n\n');
+    <accessType>${accessType}</accessType>
+    <access_type>${accessType}</access_type>
+    <useType>${useType}</useType>
+    <isFree>${isFree}</isFree>
+    <is_free>${isFree}</is_free>
+    <charge>${charge}</charge>
+    <waitfree_blocked>${waitfreeBlocked}</waitfree_blocked>
+    <cachi:accessType>${accessType}</cachi:accessType>
+    <cachi:useType>${useType}</cachi:useType>
+    <cachi:isFree>${isFree}</cachi:isFree>
+    <cachi:charge>${charge}</cachi:charge>
+    <cachi:waitfreeBlocked>${waitfreeBlocked}</cachi:waitfreeBlocked>${freeChangeDtXml}
+  </item>`;
+  }).join('\n\n');
 
   return `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cachi="https://cachi.app/rss/1.0">
 <channel>
   <title>${escapeXml(title)}</title>
   <link>${BASE_DOMAIN}/${link}</link>

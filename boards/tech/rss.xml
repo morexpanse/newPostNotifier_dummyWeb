@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cachi="https://cachi.app/rss/1.0">
 <channel>
   <title>테크로그 엔지니어링 (TechLog) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/</link>
@@ -14,7 +14,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</guid>
     <pubDate>Sun, 08 Nov 2026 15:00:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -23,7 +36,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-298.html</guid>
     <pubDate>Wed, 04 Nov 2026 16:30:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -32,7 +58,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-295.html</guid>
     <pubDate>Sun, 25 Oct 2026 11:20:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -41,7 +80,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-290.html</guid>
     <pubDate>Sun, 18 Oct 2026 13:40:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 알림 도달 지연 시간을 200ms 미만으로 단축한 노하우입니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -50,7 +102,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-285.html</guid>
     <pubDate>Fri, 09 Oct 2026 17:15:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>모바일 앱 내 인앱 브라우저에서 사용자 인증 토큰 전달 및 딥링크 라우팅 시 발생할 수 있는 XSS 보안 취약점을 차단하는 인터페이스 설계.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -59,7 +124,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-280.html</guid>
     <pubDate>Fri, 02 Oct 2026 10:00:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>다양한 게시판 레이아웃에서 복잡한 CSS 셀렉터 없이도 최신 글 목록을 정확히 인식하는 경량 파서 모델 실험기입니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 
   <item>
@@ -68,7 +146,20 @@
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-275.html</guid>
     <pubDate>Thu, 24 Sep 2026 14:00:00 +0900</pubDate>
     <category>기술·공지</category>
+    <category>free</category>
     <description>모놀리식 분해 과정에서 Kafka와 이벤트 소싱을 적용하여 서비스 간 결합도를 낮추고 데이터 일관성을 확보한 실제 구현 사례입니다.</description>
+    <accessType>free</accessType>
+    <access_type>free</access_type>
+    <useType>FREE</useType>
+    <isFree>true</isFree>
+    <is_free>true</is_free>
+    <charge>false</charge>
+    <waitfree_blocked>false</waitfree_blocked>
+    <cachi:accessType>free</cachi:accessType>
+    <cachi:useType>FREE</cachi:useType>
+    <cachi:isFree>true</cachi:isFree>
+    <cachi:charge>false</cachi:charge>
+    <cachi:waitfreeBlocked>false</cachi:waitfreeBlocked>
   </item>
 </channel>
 </rss>

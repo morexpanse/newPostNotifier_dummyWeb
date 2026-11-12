@@ -28,13 +28,24 @@ function extractRssItems(xmlContent) {
   const itemMatches = [...xmlContent.matchAll(/<item>([\s\S]*?)<\/item>/g)];
   for (const m of itemMatches) {
     const itemBlock = m[1];
-    const titleMatch = itemBlock.match(/<title>(.*?)<\/title>/);
-    const linkMatch = itemBlock.match(/<link>(.*?)<\/link>/);
-    const guidMatch = itemBlock.match(/<guid[^>]*>(.*?)<\/guid>/);
+    const extractTag = (tag) => {
+      const match = itemBlock.match(new RegExp(`<${tag}>(.*?)</${tag}>`));
+      return match ? match[1].trim() : undefined;
+    };
+
     items.push({
-      title: titleMatch ? titleMatch[1].trim() : '',
-      link: linkMatch ? linkMatch[1].trim() : '',
-      guid: guidMatch ? guidMatch[1].trim() : ''
+      title: extractTag('title') || '',
+      link: extractTag('link') || '',
+      guid: extractTag('guid') || '',
+      accessType: extractTag('accessType'),
+      access_type: extractTag('access_type'),
+      useType: extractTag('useType'),
+      isFree: extractTag('isFree'),
+      is_free: extractTag('is_free'),
+      charge: extractTag('charge'),
+      waitfree_blocked: extractTag('waitfree_blocked'),
+      freeChangeDt: extractTag('freeChangeDt'),
+      free_change_dt: extractTag('free_change_dt')
     });
   }
   return items;
@@ -412,7 +423,33 @@ async function runTests() {
   }
   assert(htmlAttrFailures === 0 && liMatches.length > 0, `All ${liMatches.length} items parsed from boards/webtoon/index.html HTML attributes resolve via determineAccessType()`);
 
-  // 9-4. Verify specific types: webtoon-152 is paid, webtoon-150 is free, webtoon-149 is wait_free
+  // 9-4. Test determineAccessType on parsed RSS XML items (boards/webtoon/rss.xml)
+  const webtoonRssXml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml'), 'utf8');
+  const webtoonRssItems = extractRssItems(webtoonRssXml);
+  let rssFailures = 0;
+  for (const item of webtoonRssItems) {
+    const determined = determineAccessType(item);
+    if (!determined) {
+      rssFailures++;
+      console.error(`  ❌ Failed to determine access type from RSS for item ${item.title}`);
+    }
+  }
+  assert(rssFailures === 0 && webtoonRssItems.length > 0, `All ${webtoonRssItems.length} items parsed from boards/webtoon/rss.xml XML tags resolve via determineAccessType()`);
+
+  // 9-5. Test determineAccessType on total combined feeds/rss.xml
+  const totalRssXml = fs.readFileSync(path.join(BASE_DIR, 'feeds/rss.xml'), 'utf8');
+  const totalRssItems = extractRssItems(totalRssXml);
+  let totalRssFailures = 0;
+  for (const item of totalRssItems) {
+    const determined = determineAccessType(item);
+    if (!determined) {
+      totalRssFailures++;
+      console.error(`  ❌ Failed to determine access type from total RSS for item ${item.title}`);
+    }
+  }
+  assert(totalRssFailures === 0 && totalRssItems.length > 0, `All ${totalRssItems.length} items parsed from feeds/rss.xml XML tags resolve via determineAccessType()`);
+
+  // 9-6. Verify specific types: webtoon-152 is paid, webtoon-150 is free, webtoon-149 is wait_free
   const p152 = postsJsonData.posts.find(p => p.id === 'webtoon-152');
   const p150 = postsJsonData.posts.find(p => p.id === 'webtoon-150');
   const p149 = postsJsonData.posts.find(p => p.id === 'webtoon-149');
@@ -420,9 +457,15 @@ async function runTests() {
   assert(determineAccessType(p150) === 'free', 'webtoon-150 resolves to "free"');
   assert(determineAccessType(p149) === 'wait_free', 'webtoon-149 resolves to "wait_free"');
 
-  // 9-5. Verify no remaining Naver 'cookie' terms in webtoon files
+  // 9-7. Verify specific types from RSS: first item is paid (152), second is free (150), third is wait_free (149)
+  assert(determineAccessType(webtoonRssItems[0]) === 'paid', 'webtoon RSS first item (152) resolves to "paid"');
+  assert(determineAccessType(webtoonRssItems[1]) === 'free', 'webtoon RSS second item (150) resolves to "free"');
+  assert(determineAccessType(webtoonRssItems[2]) === 'wait_free', 'webtoon RSS third item (149) resolves to "wait_free"');
+
+  // 9-8. Verify no remaining Naver 'cookie' terms in webtoon files
   assert(!webtoonIndexHtml.includes('쿠키'), 'boards/webtoon/index.html does not contain Naver "쿠키" term');
   assert(!JSON.stringify(postsJsonData).includes('쿠키'), 'data/posts.json does not contain Naver "쿠키" term');
+  assert(!webtoonRssXml.includes('쿠키'), 'boards/webtoon/rss.xml does not contain Naver "쿠키" term');
 
   console.log(`\n========================================`);
   console.log(`🎯 Test Summary: ${passedTests}/${totalTests} tests passed.`);
