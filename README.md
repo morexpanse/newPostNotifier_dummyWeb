@@ -37,6 +37,12 @@
 | **전체 통합 RSS** | `/feeds/rss.xml` | XML RSS 2.0 (전체 피드) | `//item/title`, `//item/link` |
 | **JSON API** | `/feeds/posts.json` | JSON REST API | `$.items[*].title`, `$.items[*].url` |
 
+### 🔒 카카오 웹툰 유·무료(`determineAccessType`) 완벽 호환 가이드
+웹툰 회차 목록의 HTML 요소(`li.post-item`) 및 JSON 피드(`feeds/posts.json`, `data/posts.json`)에 카카오 웹툰/카카오페이지 파싱 패턴을 100% 반영하여 `determineAccessType(record)`로 즉시 유·무료를 판별할 수 있습니다:
+- **`paid` (선공개/유료)**: `useType="EARLY_ACCESS"`, `is_free=false`, `charge=true`, `waitfree_blocked=true`, `free_change_dt="..."` (예: 152화 대여 200캐시)
+- **`wait_free` (기다무)**: `useType="WAIT_FREE"`, `is_free=false`, `charge=true`, `waitfree_blocked=false` (예: 149화, 148화, 147화, 141화)
+- **`free` (무료 공개)**: `useType="FREE"`, `is_free=true`, `charge=false`, `waitfree_blocked=false` (예: 151화, 150화 등)
+
 ---
 
 ## ⚡ 새 글 알림 감지 테스트 시나리오

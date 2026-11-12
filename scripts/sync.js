@@ -73,8 +73,16 @@ function escapeXml(unsafe) {
 }
 
 function renderWebtoonHtmlItems(posts) {
-  return posts.map(p => `        <!-- Post ${p.id} -->
-        <li class="post-item" data-post-id="${p.id.replace('webtoon-', '')}">
+  return posts.map(p => {
+    const accessType = p.accessType || p.access_type || 'free';
+    const useType = p.useType || 'FREE';
+    const isFree = p.isFree !== undefined ? p.isFree : (p.is_free !== undefined ? p.is_free : true);
+    const charge = p.charge !== undefined ? p.charge : false;
+    const waitfreeBlocked = p.waitfree_blocked !== undefined ? p.waitfree_blocked : false;
+    const freeChangeDtAttr = p.freeChangeDt ? ` data-free-change-dt="${p.freeChangeDt}" data-free_change_dt="${p.freeChangeDt}"` : '';
+
+    return `        <!-- Post ${p.id} -->
+        <li class="post-item" data-post-id="${p.id.replace('webtoon-', '')}" data-access-type="${accessType}" data-access_type="${accessType}" data-use-type="${useType}" data-is-free="${isFree}" data-is_free="${isFree}" data-charge="${charge}" data-waitfree-blocked="${waitfreeBlocked}" data-waitfree_blocked="${waitfreeBlocked}"${freeChangeDtAttr}>
           <div class="post-thumb">${p.thumb || '🎨'}</div>
           <div class="post-main-content">
             <div class="post-header-line">
@@ -87,7 +95,8 @@ function renderWebtoonHtmlItems(posts) {
               <span>${p.meta}</span>
             </div>
           </div>
-        </li>`).join('\n\n');
+        </li>`;
+  }).join('\n\n');
 }
 
 function renderCareerHtmlItems(posts) {
@@ -245,6 +254,14 @@ function sync() {
       title: p.title,
       url: `/${p.url}`,
       badge: p.badge,
+      accessType: p.accessType || 'free',
+      access_type: p.access_type || p.accessType || 'free',
+      useType: p.useType || 'FREE',
+      isFree: p.isFree !== undefined ? p.isFree : true,
+      is_free: p.is_free !== undefined ? p.is_free : true,
+      charge: p.charge !== undefined ? p.charge : false,
+      waitfree_blocked: p.waitfree_blocked !== undefined ? p.waitfree_blocked : false,
+      ...(p.freeChangeDt ? { freeChangeDt: p.freeChangeDt, free_change_dt: p.free_change_dt || p.freeChangeDt } : {}),
       is_new: false,
       published_at: p.isoDate
     }))

@@ -274,6 +274,156 @@ async function runTests() {
     server.close();
   }
 
+  // Test 9: Kakao Webtoon determineAccessType Compatibility
+  console.log('\n🔒 9. Verifying Kakao Webtoon determineAccessType Compatibility...');
+  function determineAccessType(record) {
+    if (
+      record.accessType === 'free' ||
+      record.accessType === 'wait_free' ||
+      record.accessType === 'paid'
+    ) {
+      return record.accessType;
+    }
+    if (
+      record.access_type === 'free' ||
+      record.access_type === 'wait_free' ||
+      record.access_type === 'paid'
+    ) {
+      return record.access_type;
+    }
+
+    if (record.useType === 'FREE') {
+      return 'free';
+    }
+    if (record.useType === 'WAIT_FREE' || record.useType === 'WAIT_FOR_FREE') {
+      return 'wait_free';
+    }
+    if (record.useType === 'EARLY_ACCESS' || record.useType === 'PAY') {
+      return 'paid';
+    }
+
+    const isFree =
+      record.is_free === true ||
+      record.is_free === 'true' ||
+      record.isFree === true ||
+      record.isFree === 'true' ||
+      record.charge === false ||
+      record.charge === 'false';
+
+    if (isFree) {
+      return 'free';
+    }
+
+    const isNotFree =
+      record.is_free === false ||
+      record.is_free === 'false' ||
+      record.isFree === false ||
+      record.isFree === 'false' ||
+      record.charge === true ||
+      record.charge === 'true';
+
+    if (isNotFree) {
+      if (
+        record.waitfree_blocked === true ||
+        record.waitfree_blocked === 'true'
+      ) {
+        return 'paid';
+      }
+
+      const freeChangeDt =
+        typeof record.free_change_dt === 'string'
+          ? record.free_change_dt
+          : typeof record.freeChangeDt === 'string'
+            ? record.freeChangeDt
+            : undefined;
+
+      if (freeChangeDt) {
+        const parsedFreeTime = Date.parse(freeChangeDt);
+        if (!isNaN(parsedFreeTime) && parsedFreeTime > Date.now()) {
+          return 'paid';
+        }
+      }
+
+      if (
+        record.waitfree_blocked === false ||
+        record.waitfree_blocked === 'false'
+      ) {
+        return 'wait_free';
+      }
+
+      return 'paid';
+    }
+
+    return undefined;
+  }
+
+  // 9-1. Test determineAccessType on data/posts.json
+  const postsJsonData = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'data/posts.json'), 'utf8'));
+  let postsJsonFailures = 0;
+  for (const post of postsJsonData.posts) {
+    const determined = determineAccessType(post);
+    if (!determined || determined !== post.accessType) {
+      postsJsonFailures++;
+      console.error(`  ❌ Mismatch for post ${post.id}: determined=${determined} vs expected=${post.accessType}`);
+    }
+  }
+  assert(postsJsonFailures === 0, `All ${postsJsonData.posts.length} posts in data/posts.json resolve correctly with determineAccessType()`);
+
+  // 9-2. Test determineAccessType on feeds/posts.json
+  const feedsJsonData = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'feeds/posts.json'), 'utf8'));
+  let feedsJsonFailures = 0;
+  for (const item of feedsJsonData.items) {
+    const determined = determineAccessType(item);
+    if (!determined || determined !== item.accessType) {
+      feedsJsonFailures++;
+      console.error(`  ❌ Mismatch for feed item ${item.id}: determined=${determined} vs expected=${item.accessType}`);
+    }
+  }
+  assert(feedsJsonFailures === 0, `All ${feedsJsonData.items.length} items in feeds/posts.json resolve correctly with determineAccessType()`);
+
+  // 9-3. Test determineAccessType on parsed HTML data-attributes
+  const webtoonIndexHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/index.html'), 'utf8');
+  const liMatches = [...webtoonIndexHtml.matchAll(/<li class="post-item"([^>]*)>/g)];
+  let htmlAttrFailures = 0;
+  for (const m of liMatches) {
+    const attrStr = m[1];
+    const extractAttr = (name) => {
+      const match = attrStr.match(new RegExp(`${name}="([^"]*)"`));
+      return match ? match[1] : undefined;
+    };
+    const htmlRecord = {
+      postId: extractAttr('data-post-id'),
+      accessType: extractAttr('data-access-type'),
+      access_type: extractAttr('data-access_type'),
+      useType: extractAttr('data-use-type'),
+      isFree: extractAttr('data-is-free'),
+      is_free: extractAttr('data-is_free'),
+      charge: extractAttr('data-charge'),
+      waitfree_blocked: extractAttr('data-waitfree-blocked'),
+      freeChangeDt: extractAttr('data-free-change-dt'),
+      free_change_dt: extractAttr('data-free_change_dt')
+    };
+
+    const determined = determineAccessType(htmlRecord);
+    if (!determined) {
+      htmlAttrFailures++;
+      console.error(`  ❌ Failed to determine access type from HTML for post ${htmlRecord.postId}`);
+    }
+  }
+  assert(htmlAttrFailures === 0 && liMatches.length > 0, `All ${liMatches.length} items parsed from boards/webtoon/index.html HTML attributes resolve via determineAccessType()`);
+
+  // 9-4. Verify specific types: webtoon-152 is paid, webtoon-150 is free, webtoon-149 is wait_free
+  const p152 = postsJsonData.posts.find(p => p.id === 'webtoon-152');
+  const p150 = postsJsonData.posts.find(p => p.id === 'webtoon-150');
+  const p149 = postsJsonData.posts.find(p => p.id === 'webtoon-149');
+  assert(determineAccessType(p152) === 'paid', 'webtoon-152 resolves to "paid"');
+  assert(determineAccessType(p150) === 'free', 'webtoon-150 resolves to "free"');
+  assert(determineAccessType(p149) === 'wait_free', 'webtoon-149 resolves to "wait_free"');
+
+  // 9-5. Verify no remaining Naver 'cookie' terms in webtoon files
+  assert(!webtoonIndexHtml.includes('쿠키'), 'boards/webtoon/index.html does not contain Naver "쿠키" term');
+  assert(!JSON.stringify(postsJsonData).includes('쿠키'), 'data/posts.json does not contain Naver "쿠키" term');
+
   console.log(`\n========================================`);
   console.log(`🎯 Test Summary: ${passedTests}/${totalTests} tests passed.`);
   console.log(`========================================\n`);

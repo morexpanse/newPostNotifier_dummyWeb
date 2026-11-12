@@ -37,12 +37,21 @@
       "pubDate": "Tue, 10 Nov 2026 12:00:00 +0900",
       "isoDate": "2026-11-10T12:00:00+09:00",
       "author": "루나 작가",
-      "badge": "미리보기",
+      "badge": "선공개",
       "badgeClass": "badge-pay",
       "timeDisplay": "오늘 12:00",
-      "meta": "쿠키 3개 · 별점 9.95",
+      "meta": "대여 200캐시 · 별점 9.95",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 152화 쿠키 3개 유료 미리보기 회차 - 운명의 갈림길"
+      "description": "달빛 아뜰리에 제 152화 200캐시 유료 선공개 회차 - 운명의 갈림길",
+      "accessType": "paid",
+      "access_type": "paid",
+      "useType": "EARLY_ACCESS",
+      "isFree": false,
+      "is_free": false,
+      "charge": true,
+      "waitfree_blocked": true,
+      "freeChangeDt": "2026-11-17T22:00:00+09:00",
+      "free_change_dt": "2026-11-17T22:00:00+09:00"
     },
     {
       "id": "webtoon-150",
@@ -57,7 +66,14 @@
       "timeDisplay": "어제",
       "meta": "무료 · 별점 9.92",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 150화 무료 공개 - 새로운 시작"
+      "description": "달빛 아뜰리에 제 150화 무료 공개 - 새로운 시작",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-149",
@@ -68,11 +84,18 @@
       "isoDate": "2026-11-08T18:00:00+09:00",
       "author": "루나 작가",
       "badge": "기다무",
-      "badgeClass": "badge-free",
+      "badgeClass": "badge-waitfree",
       "timeDisplay": "2일 전",
-      "meta": "이용권 충전완료 · 별점 9.91",
+      "meta": "기다무 이용가능 · 별점 9.91",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 149화 - 안개 자욱한 새벽, 후드를 푹 눌러쓴 수상한 손님"
+      "description": "달빛 아뜰리에 제 149화 기다무 회차 - 안개 자욱한 새벽, 후드를 푹 눌러쓴 수상한 손님",
+      "accessType": "wait_free",
+      "access_type": "wait_free",
+      "useType": "WAIT_FREE",
+      "isFree": false,
+      "is_free": false,
+      "charge": true,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-148",
@@ -82,12 +105,19 @@
       "pubDate": "Sat, 07 Nov 2026 18:00:00 +0900",
       "isoDate": "2026-11-07T18:00:00+09:00",
       "author": "루나 작가",
-      "badge": "무료 공개",
-      "badgeClass": "badge-free",
+      "badge": "기다무",
+      "badgeClass": "badge-waitfree",
       "timeDisplay": "3일 전",
-      "meta": "무료 · 별점 9.89",
+      "meta": "기다무 이용가능 · 별점 9.89",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 148화 - 밤의 뒷골목에서 성사되는 신비한 유리병과 마법 재료 거래"
+      "description": "달빛 아뜰리에 제 148화 기다무 회차 - 밤의 뒷골목에서 성사되는 신비한 유리병과 마법 재료 거래",
+      "accessType": "wait_free",
+      "access_type": "wait_free",
+      "useType": "WAIT_FREE",
+      "isFree": false,
+      "is_free": false,
+      "charge": true,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-147",
@@ -97,12 +127,19 @@
       "pubDate": "Thu, 05 Nov 2026 10:00:00 +0900",
       "isoDate": "2026-11-05T10:00:00+09:00",
       "author": "루나 작가",
-      "badge": "무료 공개",
-      "badgeClass": "badge-free",
+      "badge": "기다무",
+      "badgeClass": "badge-waitfree",
       "timeDisplay": "5일 전",
-      "meta": "무료 · 별점 9.93",
+      "meta": "기다무 이용가능 · 별점 9.93",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 147화 - 낡은 양장본 서책 속에서 발견한 잊혀진 고대 레시피"
+      "description": "달빛 아뜰리에 제 147화 기다무 회차 - 낡은 양장본 서책 속에서 발견한 잊혀진 고대 레시피",
+      "accessType": "wait_free",
+      "access_type": "wait_free",
+      "useType": "WAIT_FREE",
+      "isFree": false,
+      "is_free": false,
+      "charge": true,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-146",
@@ -117,7 +154,14 @@
       "timeDisplay": "2026-10-29",
       "meta": "무료 · 별점 9.88",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 146화 - 금지된 지식이 잠들어 있는 왕립 별빛 도서관 지하 서고"
+      "description": "달빛 아뜰리에 제 146화 무료 공개 - 금지된 지식이 잠들어 있는 왕립 별빛 도서관 지하 서고",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-145",
@@ -132,7 +176,14 @@
       "timeDisplay": "2026-10-28",
       "meta": "무료 · 별점 9.85",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 145화 - 눈보라가 몰아치는 북부 국경 설원에서 마주친 옛 스승의 흔적"
+      "description": "달빛 아뜰리에 제 145화 무료 공개 - 눈보라가 몰아치는 북부 국경 설원에서 마주친 옛 스승의 흔적",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-144",
@@ -147,7 +198,14 @@
       "timeDisplay": "2026-10-21",
       "meta": "무료 · 별점 9.87",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 144화 - 북부 국경 수비대를 거쳐 아뜰리에로 도착한 밀랍 비밀 편지"
+      "description": "달빛 아뜰리에 제 144화 무료 공개 - 북부 국경 수비대를 거쳐 아뜰리에로 도착한 밀랍 비밀 편지",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-143",
@@ -157,12 +215,19 @@
       "pubDate": "Sun, 18 Oct 2026 14:00:00 +0900",
       "isoDate": "2026-10-18T14:00:00+09:00",
       "author": "루나 작가",
-      "badge": "일상/힐링",
+      "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-18",
       "meta": "무료 · 별점 9.96",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 143화 - 쌀쌀한 가을 저녁 아뜰리에 난로 곁에서 나누는 따스한 온기"
+      "description": "달빛 아뜰리에 제 143화 무료 공개 - 쌀쌀한 가을 저녁 아뜰리에 난로 곁에서 나누는 따스한 온기",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-142",
@@ -177,7 +242,14 @@
       "timeDisplay": "2026-10-11",
       "meta": "무료 · 별점 9.94",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 142화 - 빗소리가 음악처럼 흐르는 오후, 새로운 마법 펜촉 시험"
+      "description": "달빛 아뜰리에 제 142화 무료 공개 - 빗소리가 음악처럼 흐르는 오후, 새로운 마법 펜촉 시험",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-141",
@@ -188,11 +260,18 @@
       "isoDate": "2026-10-05T09:00:00+09:00",
       "author": "루나 작가",
       "badge": "기다무",
-      "badgeClass": "badge-free",
+      "badgeClass": "badge-waitfree",
       "timeDisplay": "2026-10-05",
-      "meta": "이용권 충전완료 · 별점 9.82",
+      "meta": "기다무 이용가능 · 별점 9.82",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 141화 - 고대 유적지 지하에서 방향을 잃고 맴도는 마법 나침반의 수수께끼"
+      "description": "달빛 아뜰리에 제 141화 기다무 회차 - 고대 유적지 지하에서 방향을 잃고 맴도는 마법 나침반의 수수께끼",
+      "accessType": "wait_free",
+      "access_type": "wait_free",
+      "useType": "WAIT_FREE",
+      "isFree": false,
+      "is_free": false,
+      "charge": true,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-140",
@@ -207,7 +286,14 @@
       "timeDisplay": "2026-09-28",
       "meta": "무료 · 별점 9.80",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 140화 - 육중한 철제 문 너머 봉인되었던 제3 마법 격리 구역의 첫 번째 탐사"
+      "description": "달빛 아뜰리에 제 140화 무료 공개 - 육중한 철제 문 너머 봉인되었던 제3 마법 격리 구역의 첫 번째 탐사",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "webtoon-151",
@@ -222,8 +308,15 @@
       "timeDisplay": "방금 전 (22:50)",
       "meta": "무료 · 별점 9.98",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 151화 - 마침내 밝혀지는 고대 연금술사의 푸른 불꽃과 유산",
-      "is_new_preview": true
+      "description": "달빛 아뜰리에 제 151화 무료 공개 - 마침내 밝혀지는 고대 연금술사의 푸른 불꽃과 유산",
+      "is_new_preview": true,
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-notice-1",
@@ -237,7 +330,14 @@
       "numDisplay": "공지",
       "typeBadge": "안내",
       "is_pinned": true,
-      "description": "2026년도 전체 채용 프로세스 및 지원자 자주 묻는 질문(FAQ) 종합 가이드"
+      "description": "2026년도 전체 채용 프로세스 및 지원자 자주 묻는 질문(FAQ) 종합 가이드",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-104",
@@ -250,7 +350,14 @@
       "badge": "접수중 (~11/30)",
       "numDisplay": "104",
       "typeBadge": "채용공고",
-      "description": "Flutter/iOS 기반 크로스플랫폼 모바일 앱 개발자 공개 채용 공고 (접수중 ~11/30)"
+      "description": "Flutter/iOS 기반 크로스플랫폼 모바일 앱 개발자 공개 채용 공고 (접수중 ~11/30)",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-103",
@@ -263,7 +370,14 @@
       "badge": "D-5 마감",
       "numDisplay": "103",
       "typeBadge": "지원사업",
-      "description": "최대 5,000만원 사업화 자금 지원 디지털 창업 패키지 참여기업 모집"
+      "description": "최대 5,000만원 사업화 자금 지원 디지털 창업 패키지 참여기업 모집",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-102",
@@ -276,7 +390,14 @@
       "badge": "마감",
       "numDisplay": "102",
       "typeBadge": "인턴십",
-      "description": "스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강"
+      "description": "스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-101",
@@ -289,7 +410,14 @@
       "badge": "마감",
       "numDisplay": "101",
       "typeBadge": "행사",
-      "description": "2026 글로벌 스타트업 채용 페어 참가 사전 신청 안내"
+      "description": "2026 글로벌 스타트업 채용 페어 참가 사전 신청 안내",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-100",
@@ -302,7 +430,14 @@
       "badge": "마감",
       "numDisplay": "100",
       "typeBadge": "채용공고",
-      "description": "웹툰 콘텐츠 사업기획 및 2차 저작권 IP 비즈니스 리드 채용"
+      "description": "웹툰 콘텐츠 사업기획 및 2차 저작권 IP 비즈니스 리드 채용",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-99",
@@ -315,7 +450,14 @@
       "badge": "마감",
       "numDisplay": "99",
       "typeBadge": "지원사업",
-      "description": "중소벤처기업을 대상으로 한 AI 솔루션 도입 바우처 지원 프로그램"
+      "description": "중소벤처기업을 대상으로 한 AI 솔루션 도입 바우처 지원 프로그램",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-98",
@@ -328,7 +470,14 @@
       "badge": "마감",
       "numDisplay": "98",
       "typeBadge": "채용공고",
-      "description": "사용자 관점에서 최적의 모바일 경험을 설계할 프로덕트 디자이너"
+      "description": "사용자 관점에서 최적의 모바일 경험을 설계할 프로덕트 디자이너",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-97",
@@ -341,7 +490,14 @@
       "badge": "마감",
       "numDisplay": "97",
       "typeBadge": "공모전",
-      "description": "총상금 1억원 규모의 오리지널 웹소설 신인 작가 발굴 공모전"
+      "description": "총상금 1억원 규모의 오리지널 웹소설 신인 작가 발굴 공모전",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-96",
@@ -354,7 +510,14 @@
       "badge": "접수중",
       "numDisplay": "96",
       "typeBadge": "채용공고",
-      "description": "대규모 트래픽을 지탱하는 클라우드 인프라 및 CI/CD 파이프라인 관리자"
+      "description": "대규모 트래픽을 지탱하는 클라우드 인프라 및 CI/CD 파이프라인 관리자",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-95",
@@ -367,7 +530,14 @@
       "badge": "마감",
       "numDisplay": "95",
       "typeBadge": "입찰공고",
-      "description": "글로벌 콘텐츠 전송을 위한 고성능 CDN 공급 파트너사 공개 입찰"
+      "description": "글로벌 콘텐츠 전송을 위한 고성능 CDN 공급 파트너사 공개 입찰",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "career-105",
@@ -381,7 +551,14 @@
       "numDisplay": "105",
       "typeBadge": "긴급채용",
       "description": "분산 크롤링 및 실시간 알림 파이프라인 엔지니어 긴급 채용",
-      "is_new_preview": true
+      "is_new_preview": true,
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-301",
@@ -397,7 +574,14 @@
       ],
       "badge": "기술공지",
       "readTime": "4분",
-      "description": "대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다."
+      "description": "대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-298",
@@ -413,7 +597,14 @@
       ],
       "badge": "아키텍처",
       "readTime": "6분",
-      "description": "모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다."
+      "description": "모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-295",
@@ -429,7 +620,14 @@
       ],
       "badge": "가이드",
       "readTime": "8분",
-      "description": "주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다."
+      "description": "주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-290",
@@ -445,7 +643,14 @@
       ],
       "badge": "네트워크",
       "readTime": "5분",
-      "description": "APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 알림 도달 지연 시간을 200ms 미만으로 단축한 노하우입니다."
+      "description": "APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 알림 도달 지연 시간을 200ms 미만으로 단축한 노하우입니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-285",
@@ -461,7 +666,14 @@
       ],
       "badge": "프론트엔드",
       "readTime": "7분",
-      "description": "모바일 앱 내 인앱 브라우저에서 사용자 인증 토큰 전달 및 딥링크 라우팅 시 발생할 수 있는 XSS 보안 취약점을 차단하는 인터페이스 설계."
+      "description": "모바일 앱 내 인앱 브라우저에서 사용자 인증 토큰 전달 및 딥링크 라우팅 시 발생할 수 있는 XSS 보안 취약점을 차단하는 인터페이스 설계.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-280",
@@ -477,7 +689,14 @@
       ],
       "badge": "머신러닝",
       "readTime": "6분",
-      "description": "다양한 게시판 레이아웃에서 복잡한 CSS 셀렉터 없이도 최신 글 목록을 정확히 인식하는 경량 파서 모델 실험기입니다."
+      "description": "다양한 게시판 레이아웃에서 복잡한 CSS 셀렉터 없이도 최신 글 목록을 정확히 인식하는 경량 파서 모델 실험기입니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-275",
@@ -493,7 +712,14 @@
       ],
       "badge": "아키텍처",
       "readTime": "9분",
-      "description": "모놀리식 분해 과정에서 Kafka와 이벤트 소싱을 적용하여 서비스 간 결합도를 낮추고 데이터 일관성을 확보한 실제 구현 사례입니다."
+      "description": "모놀리식 분해 과정에서 Kafka와 이벤트 소싱을 적용하여 서비스 간 결합도를 낮추고 데이터 일관성을 확보한 실제 구현 사례입니다.",
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     },
     {
       "id": "tech-302",
@@ -510,7 +736,14 @@
       "badge": "긴급보안",
       "readTime": "3분",
       "description": "외부 연동 API의 토큰 발급 및 리프레시 토큰 로테이션(RTR) 정책이 변경되었습니다. 연동 개발자 분들은 11월 30일까지 확인 부탁드립니다.",
-      "is_new_preview": true
+      "is_new_preview": true,
+      "accessType": "free",
+      "access_type": "free",
+      "useType": "FREE",
+      "isFree": true,
+      "is_free": true,
+      "charge": false,
+      "waitfree_blocked": false
     }
   ]
 }

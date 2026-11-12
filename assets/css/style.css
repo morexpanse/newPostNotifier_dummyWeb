@@ -18,8 +18,10 @@
 
   --badge-free-bg: #E0F2FE;
   --badge-free-txt: #0284C7;
-  --badge-pay-bg: #F1F5F9;
-  --badge-pay-txt: #475569;
+  --badge-waitfree-bg: #FEF3C7;
+  --badge-waitfree-txt: #D97706;
+  --badge-pay-bg: #FEE2E2;
+  --badge-pay-txt: #DC2626;
   --badge-job-bg: #DCFCE7;
   --badge-job-txt: #15803D;
   --badge-tech-bg: #EDE9FE;
@@ -491,7 +493,8 @@ main.container {
   display: inline-block;
 }
 .badge-free { background: var(--badge-free-bg); color: var(--badge-free-txt); }
-.badge-pay { background: var(--badge-pay-bg); color: var(--badge-pay-txt); }
+.badge-waitfree { background: var(--badge-waitfree-bg); color: var(--badge-waitfree-txt); font-weight: 700; border: 1px solid #FDE68A; }
+.badge-pay { background: var(--badge-pay-bg); color: var(--badge-pay-txt); font-weight: 700; border: 1px solid #FECACA; }
 .badge-job { background: var(--badge-job-bg); color: var(--badge-job-txt); }
 .badge-tech { background: var(--badge-tech-bg); color: var(--badge-tech-txt); }
 .badge-pin { background: var(--badge-pin-bg); color: var(--badge-pin-txt); font-weight: 800; }

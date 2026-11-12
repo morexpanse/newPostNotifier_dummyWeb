@@ -48,11 +48,21 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const data = JSON.parse(body || '{}');
+        const accessType = data.accessType || data.access_type || (data.category === 'webtoon' && (data.badgeClass === 'badge-pay' || data.title?.includes('유료')) ? 'paid' : 'free');
+        const useType = data.useType || (accessType === 'paid' ? 'EARLY_ACCESS' : accessType === 'wait_free' ? 'WAIT_FREE' : 'FREE');
         const newPost = {
           id: data.id || `custom-${Date.now()}`,
           category: data.category || 'webtoon',
           title: data.title || `[실시간 테스트 글] ${new Date().toLocaleTimeString('ko-KR')}`,
           url: data.url || '/posts/webtoon-151.html',
+          badge: data.badge || (accessType === 'paid' ? '선공개' : '무료 공개'),
+          accessType: accessType,
+          access_type: accessType,
+          useType: useType,
+          isFree: data.isFree !== undefined ? data.isFree : (accessType === 'free'),
+          is_free: data.is_free !== undefined ? data.is_free : (accessType === 'free'),
+          charge: data.charge !== undefined ? data.charge : (accessType !== 'free'),
+          waitfree_blocked: data.waitfree_blocked !== undefined ? data.waitfree_blocked : (accessType === 'paid'),
           published_at: new Date().toISOString()
         };
         dynamicPosts.unshift(newPost);
