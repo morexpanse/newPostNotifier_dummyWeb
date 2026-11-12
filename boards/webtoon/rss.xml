@@ -3,19 +3,10 @@
 <channel>
   <title>스토리랩 웹툰 (StoryLab) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/</link>
-  <description>스토리랩 웹툰·연재 게시판 전용 RSS 2.0 피드 (cachi 알림 테스트용)</description>
+  <description>스토리랩 웹툰·연재 게시판 전용 RSS 2.0 피드</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 10 Nov 2026 22:50:00 +0900</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 12:00:00 +0900</lastBuildDate>
   <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/rss.xml" rel="self" type="application/rss+xml" />
-
-  <item>
-    <title>달빛 아뜰리에 - 제 151화 : 푸른 불꽃의 비밀</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-151.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-151.html</guid>
-    <pubDate>Tue, 10 Nov 2026 22:50:00 +0900</pubDate>
-    <category>웹툰·연재</category>
-    <description>달빛 아뜰리에 제 151화 - 마침내 밝혀지는 고대 연금술사의 푸른 불꽃과 유산 (신규 등록)</description>
-  </item>
 
   <item>
     <title>달빛 아뜰리에 - 제 152화 (유료 선공개)</title>
@@ -37,8 +28,8 @@
 
   <item>
     <title>심야 공방의 비밀 - 제 42화 : 의뢰인의 편지</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-workshop-42.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-42.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-42.html</guid>
     <pubDate>Sun, 08 Nov 2026 18:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
     <description>심야 공방의 비밀 제 42화 기다무 무료 충전 완료 회차</description>
@@ -46,8 +37,8 @@
 
   <item>
     <title>심야 공방의 비밀 - 제 41화 : 은밀한 거래</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-workshop-41.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-41.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-41.html</guid>
     <pubDate>Sat, 07 Nov 2026 18:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
     <description>심야 공방의 비밀 제 41화 무료 공개</description>
@@ -55,29 +46,74 @@
 
   <item>
     <title>회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-dev-10.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-10.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-10.html</guid>
     <pubDate>Thu, 05 Nov 2026 10:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
-    <description>신작 인기 웹툰 회귀한 개발자의 무한 코딩 제 10화 무료 공개</description>
+    <description>회귀한 개발자의 무한 코딩 제 10화 - 10년 전 스타트업 첫 배포 당일로 돌아간 주인공</description>
+  </item>
+
+  <item>
+    <title>회귀한 개발자의 무한 코딩 - 제 9화 : 레거시 코드의 저주</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-9.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-9.html</guid>
+    <pubDate>Thu, 29 Oct 2026 10:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>회귀한 개발자의 무한 코딩 제 9화 - 복잡하게 얽힌 스파게티 코드를 마주하다</description>
   </item>
 
   <item>
     <title>차원 균열의 검성 - 제 88화 (유료)</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-sword-88.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-88.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-88.html</guid>
     <pubDate>Wed, 28 Oct 2026 22:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
-    <description>차원 균열의 검성 제 88화 액션/판타지 유료 미리보기</description>
+    <description>차원 균열의 검성 제 88화 - 북부 전선을 강타한 차원 포식자의 습격</description>
+  </item>
+
+  <item>
+    <title>차원 균열의 검성 - 제 87화 : 북부 국경 수비전</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-87.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-87.html</guid>
+    <pubDate>Wed, 21 Oct 2026 22:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>차원 균열의 검성 제 87화 - 필사의 결의로 맞서는 수비대</description>
   </item>
 
   <item>
     <title>골목길 끝 고양이 빵집 - 제 65화 : 가을 밤의 단호박 파이</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-cat-65.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-65.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-65.html</guid>
     <pubDate>Sun, 18 Oct 2026 14:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
-    <description>골목길 끝 고양이 빵집 제 65화 힐링/일상 웹툰 무료 공개</description>
+    <description>골목길 끝 고양이 빵집 제 65화 - 쌀쌀한 가을 저녁 따뜻하게 구워낸 단호박 파이</description>
+  </item>
+
+  <item>
+    <title>골목길 끝 고양이 빵집 - 제 64화 : 비 오는 날의 따뜻한 홍차</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-64.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-64.html</guid>
+    <pubDate>Sun, 11 Oct 2026 14:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>골목길 끝 고양이 빵집 제 64화 - 비 내리는 창가에서 나누는 따뜻한 온기</description>
+  </item>
+
+  <item>
+    <title>궤도 스테이션 09 - 제 20화 : 사라진 교신 신호</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-20.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-20.html</guid>
+    <pubDate>Mon, 05 Oct 2026 09:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>궤도 스테이션 09 제 20화 - 지구 관제소와의 모든 통신이 두절되다</description>
+  </item>
+
+  <item>
+    <title>궤도 스테이션 09 - 제 19화 : 밀폐 구역 탐사</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-19.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-19.html</guid>
+    <pubDate>Mon, 28 Sep 2026 09:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>궤도 스테이션 09 제 19화 - 봉인되었던 제3 격리 구역의 탐사 시작</description>
   </item>
 </channel>
 </rss>

@@ -5,52 +5,70 @@
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/</link>
   <description>기술과 성장을 기록하는 공식 테크로그 피드</description>
   <language>ko-kr</language>
-  <lastBuildDate>Tue, 10 Nov 2026 22:45:00 +0900</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 15:00:00 +0900</lastBuildDate>
   <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
-    <title>[보안 공지] OAuth 2.1 토큰 갱신 프로토콜 변경 및 마이그레이션 권고</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-302.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-302.html</guid>
-    <pubDate>Tue, 10 Nov 2026 22:45:00 +0900</pubDate>
+    <title>v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</guid>
+    <pubDate>Sun, 08 Nov 2026 15:00:00 +0900</pubDate>
     <category>기술·공지</category>
-    <description>스토리랩 OAuth 2.1 보안 표준 적용 및 RTR 토큰 교체 권고 안내 (신규 등록)</description>
+    <description>대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다.</description>
   </item>
 
   <item>
-    <title>v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</title>
+    <title>플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처</title>
     <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-298.html</link>
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-298.html</guid>
     <pubDate>Wed, 04 Nov 2026 16:30:00 +0900</pubDate>
     <category>기술·공지</category>
-    <description>모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시로 매끄럽게 렌더링하는 테크닉</description>
+    <description>모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다.</description>
   </item>
 
   <item>
     <title>웹 크롤러 차단 우회와 헤드리스 브라우저 자원 관리 가이드</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-crawler-resource.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-295.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-295.html</guid>
     <pubDate>Sun, 25 Oct 2026 11:20:00 +0900</pubDate>
     <category>기술·공지</category>
-    <description>분산 워커 노드 구성 및 지능형 폴링 설계기</description>
+    <description>주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다.</description>
   </item>
 
   <item>
     <title>초당 10만 건 푸시 알림 발송을 위한 비동기 큐 튜닝기</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-push-tuning.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-290.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-290.html</guid>
     <pubDate>Sun, 18 Oct 2026 13:40:00 +0900</pubDate>
     <category>기술·공지</category>
-    <description>APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 200ms 미만 단축</description>
+    <description>APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 알림 도달 지연 시간을 200ms 미만으로 단축한 노하우입니다.</description>
   </item>
 
   <item>
     <title>인앱 웹뷰와 네이티브 앱 간의 안전한 양방향 브릿지 통신</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-webview-bridge.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-285.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-285.html</guid>
     <pubDate>Fri, 09 Oct 2026 17:15:00 +0900</pubDate>
     <category>기술·공지</category>
-    <description>모바일 앱 내 인앱 브라우저에서 사용자 토큰 전달 및 딥링크 라우팅 시 XSS 보안 차단 설계</description>
+    <description>모바일 앱 내 인앱 브라우저에서 사용자 인증 토큰 전달 및 딥링크 라우팅 시 발생할 수 있는 XSS 보안 취약점을 차단하는 인터페이스 설계.</description>
+  </item>
+
+  <item>
+    <title>LLM을 활용한 비정형 웹페이지 새 글 영역 자동 추출 실험</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-280.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-280.html</guid>
+    <pubDate>Fri, 02 Oct 2026 10:00:00 +0900</pubDate>
+    <category>기술·공지</category>
+    <description>다양한 게시판 레이아웃에서 복잡한 CSS 셀렉터 없이도 최신 글 목록을 정확히 인식하는 경량 파서 모델 실험기입니다.</description>
+  </item>
+
+  <item>
+    <title>마이크로서비스 간 이벤트 드리븐 아키텍처 도입기</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-275.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-275.html</guid>
+    <pubDate>Thu, 24 Sep 2026 14:00:00 +0900</pubDate>
+    <category>기술·공지</category>
+    <description>모놀리식 분해 과정에서 Kafka와 이벤트 소싱을 적용하여 서비스 간 결합도를 낮추고 데이터 일관성을 확보한 실제 구현 사례입니다.</description>
   </item>
 </channel>
 </rss>

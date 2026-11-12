@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "sync": "node scripts/sync.js",
+    "pretest": "node scripts/sync.js",
     "test": "node test/verify.js"
   },
   "keywords": [

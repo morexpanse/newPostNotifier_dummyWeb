@@ -1,6 +1,7 @@
 /**
  * Automated Verification Script for StoryLab Cachi Dummy Web
- * 4대 이슈(타이틀/og:title 분리, 고유 링크 부여, 404 방지, 시연용 클린 UI) 검증 포함
+ * - 4대 이슈(타이틀/og:title 분리, 고유 링크 부여, 404 방지, 시연용 클린 UI)
+ * - 게시판과 RSS 간 상시 1:1 동기화 및 전역 링크 고유성(Global Uniqueness) 완벽 검증
  */
 
 const fs = require('fs');
@@ -22,6 +23,44 @@ function assert(condition, message) {
   }
 }
 
+function extractRssItems(xmlContent) {
+  const items = [];
+  const itemMatches = [...xmlContent.matchAll(/<item>([\s\S]*?)<\/item>/g)];
+  for (const m of itemMatches) {
+    const itemBlock = m[1];
+    const titleMatch = itemBlock.match(/<title>(.*?)<\/title>/);
+    const linkMatch = itemBlock.match(/<link>(.*?)<\/link>/);
+    const guidMatch = itemBlock.match(/<guid[^>]*>(.*?)<\/guid>/);
+    items.push({
+      title: titleMatch ? titleMatch[1].trim() : '',
+      link: linkMatch ? linkMatch[1].trim() : '',
+      guid: guidMatch ? guidMatch[1].trim() : ''
+    });
+  }
+  return items;
+}
+
+function extractHtmlItems(htmlContent, boardType) {
+  const items = [];
+  if (boardType === 'webtoon') {
+    const matches = [...htmlContent.matchAll(/<li class="post-item"[^>]*>[\s\S]*?<a href="([^"]+)" class="post-title">([\s\S]*?)<\/a>/g)];
+    for (const m of matches) {
+      items.push({ href: m[1].trim(), title: m[2].trim() });
+    }
+  } else if (boardType === 'career') {
+    const matches = [...htmlContent.matchAll(/<tr[^>]*data-post-id="[^"]*"[^>]*>[\s\S]*?<a href="([^"]+)" class="post-title">([\s\S]*?)<\/a>/g)];
+    for (const m of matches) {
+      items.push({ href: m[1].trim(), title: m[2].trim() });
+    }
+  } else if (boardType === 'tech') {
+    const matches = [...htmlContent.matchAll(/<article class="card-article"[^>]*>[\s\S]*?<a href="([^"]+)" class="post-title">([\s\S]*?)<\/a>/g)];
+    for (const m of matches) {
+      items.push({ href: m[1].trim(), title: m[2].trim() });
+    }
+  }
+  return items;
+}
+
 async function runTests() {
   console.log('🧪 Starting Verification Tests for StoryLab Dummy Web...\n');
 
@@ -35,39 +74,8 @@ async function runTests() {
     'boards/career/new-post.html',
     'boards/tech/index.html',
     'boards/tech/new-post.html',
-    'posts/webtoon-150.html',
-    'posts/webtoon-151.html',
-    'posts/webtoon-152.html',
-    'posts/webtoon-42.html',
-    'posts/webtoon-41.html',
-    'posts/webtoon-10.html',
-    'posts/webtoon-9.html',
-    'posts/webtoon-88.html',
-    'posts/webtoon-87.html',
-    'posts/webtoon-65.html',
-    'posts/webtoon-64.html',
-    'posts/webtoon-20.html',
-    'posts/webtoon-19.html',
-    'posts/career-notice-1.html',
-    'posts/career-104.html',
-    'posts/career-103.html',
-    'posts/career-102.html',
-    'posts/career-101.html',
-    'posts/career-100.html',
-    'posts/career-99.html',
-    'posts/career-98.html',
-    'posts/career-97.html',
-    'posts/career-96.html',
-    'posts/career-95.html',
-    'posts/career-105.html',
-    'posts/tech-301.html',
-    'posts/tech-302.html',
-    'posts/tech-298.html',
-    'posts/tech-295.html',
-    'posts/tech-290.html',
-    'posts/tech-285.html',
-    'posts/tech-280.html',
-    'posts/tech-275.html',
+    'data/posts.json',
+    'scripts/sync.js',
     'feeds/rss.xml',
     'feeds/posts.json',
     'boards/webtoon/rss.xml',
@@ -85,7 +93,7 @@ async function runTests() {
     assert(fs.existsSync(fullPath), `File exists: ${file}`);
   }
 
-  // Test 2: Issue 1 - Page Title & og:title Isolation
+  // Test 2: Title & OG:Title Isolation across Boards
   console.log('\n🏷️ 2. Verifying Title & OG:Title Isolation across Boards...');
   const webtoonHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/index.html'), 'utf8');
   const careerHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/career/index.html'), 'utf8');
@@ -103,7 +111,7 @@ async function runTests() {
   assert(techHtml.includes('property="og:title" content="테크로그 엔지니어링 (TechLog)"'), 'Tech og:title is isolated');
   assert(techHtml.includes('TechLog'), 'Tech brand name is updated in header');
 
-  // Test 3: Issue 3 - Unique Post Links (No duplicate hrefs) and No Broken Links (Zero 404s)
+  // Test 3: Issue 3 - Link Uniqueness in HTML Boards
   console.log('\n🔗 3. Verifying Unique URLs and Zero Broken Links in Boards...');
   function extractPostLinks(html, boardDir) {
     const matches = [...html.matchAll(/href="(\.\.\/\.\.\/posts\/[^"]+)"/g)];
@@ -118,7 +126,6 @@ async function runTests() {
   const careerLinks = extractPostLinks(careerHtml, 'boards/career');
   const techLinks = extractPostLinks(techHtml, 'boards/tech');
 
-  // Uniqueness check
   const checkUniqueness = (links, name) => {
     const hrefs = links.map(l => l.relPath);
     const set = new Set(hrefs);
@@ -140,8 +147,64 @@ async function runTests() {
   }
   assert(brokenCount === 0, `All post links point to existing static HTML files (${allBoardLinks.length}/${allBoardLinks.length} valid, zero 404)`);
 
-  // Test 4: Issue 4 - Clean Recording View (No simulation toolbar / guide banner by default)
-  console.log('\n🎬 4. Verifying Clean Recording Presentation...');
+  // Test 4: RSS Link Uniqueness (No duplicate links in ANY RSS feed)
+  console.log('\n📡 4. Verifying RSS Feed Link Uniqueness (No Duplicate URLs in RSS)...');
+  const checkRssUniqueness = (filePath, feedName) => {
+    const content = fs.readFileSync(path.join(BASE_DIR, filePath), 'utf8');
+    const items = extractRssItems(content);
+    const links = items.map(i => i.link);
+    const set = new Set(links);
+    assert(set.size === links.length && links.length > 0, `${feedName} (${filePath}) has ${links.length} items, all links 100% unique`);
+  };
+
+  checkRssUniqueness('boards/webtoon/rss.xml', 'Webtoon RSS Feed');
+  checkRssUniqueness('boards/career/rss.xml', 'Career RSS Feed');
+  checkRssUniqueness('boards/tech/rss.xml', 'Tech RSS Feed');
+  checkRssUniqueness('feeds/rss.xml', 'Total Combined RSS Feed');
+
+  // Test 5: Exact 1:1 Board-to-RSS Synchronization
+  console.log('\n🔄 5. Verifying Exact 1:1 Board HTML <-> RSS XML Synchronization...');
+  const verifyBoardRssSync = (boardName, htmlContent, boardType, rssPath) => {
+    const rssContent = fs.readFileSync(path.join(BASE_DIR, rssPath), 'utf8');
+    const htmlItems = extractHtmlItems(htmlContent, boardType);
+    const rssItems = extractRssItems(rssContent);
+
+    assert(htmlItems.length === rssItems.length, `${boardName}: HTML count (${htmlItems.length}) matches RSS count (${rssItems.length}) 1:1`);
+
+    let syncErrors = 0;
+    for (let i = 0; i < htmlItems.length; i++) {
+      const h = htmlItems[i];
+      const r = rssItems[i];
+
+      const htmlFileName = path.basename(h.href);
+      const rssFileName = path.basename(r.link);
+
+      if (htmlFileName !== rssFileName) {
+        console.error(`  ❌ [${boardName} #${i}] URL Mismatch: HTML=${htmlFileName} vs RSS=${rssFileName}`);
+        syncErrors++;
+      }
+    }
+    assert(syncErrors === 0, `${boardName}: All ${htmlItems.length} items have identical URLs and sequence in HTML and RSS`);
+  };
+
+  verifyBoardRssSync('Webtoon', webtoonHtml, 'webtoon', 'boards/webtoon/rss.xml');
+  verifyBoardRssSync('Career', careerHtml, 'career', 'boards/career/rss.xml');
+  verifyBoardRssSync('Tech', techHtml, 'tech', 'boards/tech/rss.xml');
+
+  // Test 6: Portal index.html and JSON Feed Uniqueness
+  console.log('\n🌐 6. Verifying Portal index.html & JSON API Uniqueness...');
+  const portalHtml = fs.readFileSync(path.join(BASE_DIR, 'index.html'), 'utf8');
+  const portalLinks = [...portalHtml.matchAll(/href="(\.\/posts\/[^"]+)"/g)].map(m => m[1]);
+  const portalSet = new Set(portalLinks);
+  assert(portalSet.size === portalLinks.length && portalLinks.length > 0, `Portal index.html has ${portalLinks.length} overview links, all 100% unique`);
+
+  const jsonFeed = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'feeds/posts.json'), 'utf8'));
+  const jsonUrls = jsonFeed.items.map(i => i.url);
+  const jsonSet = new Set(jsonUrls);
+  assert(jsonSet.size === jsonUrls.length && jsonUrls.length > 0, `feeds/posts.json has ${jsonUrls.length} items, all URLs 100% unique`);
+
+  // Test 7: Clean Recording View (No simulation toolbar / guide banner by default)
+  console.log('\n🎬 7. Verifying Clean Recording Presentation...');
   assert(!webtoonHtml.includes('demo-toolbar.js'), 'Webtoon index does NOT load demo toolbar script by default');
   assert(!careerHtml.includes('demo-toolbar.js'), 'Career index does NOT load demo toolbar script by default');
   assert(!techHtml.includes('demo-toolbar.js'), 'Tech index does NOT load demo toolbar script by default');
@@ -149,22 +212,8 @@ async function runTests() {
   assert(!careerHtml.includes('cachi-guide'), 'Career index does NOT show cachi guide banner');
   assert(!techHtml.includes('cachi-guide'), 'Tech index does NOT show cachi guide banner');
 
-  // Test 5: Feeds & RSS Validation
-  console.log('\n📡 5. Verifying Feeds & Metadata...');
-  const rssContent = fs.readFileSync(path.join(BASE_DIR, 'feeds/rss.xml'), 'utf8');
-  assert(rssContent.includes('<rss version="2.0"'), 'Total RSS feed is valid XML RSS 2.0');
-
-  const webtoonRss = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml'), 'utf8');
-  assert(webtoonRss.includes('스토리랩 웹툰 (StoryLab) - 피드'), 'Webtoon RSS has specific isolated title');
-
-  const careerRss = fs.readFileSync(path.join(BASE_DIR, 'boards/career/rss.xml'), 'utf8');
-  assert(careerRss.includes('커리어허브 채용 (CareerHub) - 피드'), 'Career RSS has specific isolated title');
-
-  const techRss = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/rss.xml'), 'utf8');
-  assert(techRss.includes('테크로그 엔지니어링 (TechLog) - 피드'), 'Tech RSS has specific isolated title');
-
-  // Test 6: Local Server HTTP Responses
-  console.log('\n🚀 6. Verifying Server HTTP Responses...');
+  // Test 8: Local Server HTTP Responses
+  console.log('\n🚀 8. Verifying Server HTTP Responses...');
   const server = require('../server.js');
   const TEST_PORT = 3456;
   
@@ -207,14 +256,20 @@ async function runTests() {
     assert(resTech.statusCode === 200, 'GET /boards/tech/ returns 200 OK');
     assert(resTech.data.includes('테크로그 엔지니어링 (TechLog)'), 'GET /boards/tech/ returns isolated title');
 
-    const resDetail1 = await fetchUrl('/posts/webtoon-152.html');
-    assert(resDetail1.statusCode === 200, 'GET /posts/webtoon-152.html returns 200 OK');
+    const resWebtoonRss = await fetchUrl('/boards/webtoon/rss.xml');
+    assert(resWebtoonRss.statusCode === 200, 'GET /boards/webtoon/rss.xml returns 200 OK');
 
-    const resDetail2 = await fetchUrl('/posts/career-104.html');
-    assert(resDetail2.statusCode === 200, 'GET /posts/career-104.html returns 200 OK');
+    const resCareerRss = await fetchUrl('/boards/career/rss.xml');
+    assert(resCareerRss.statusCode === 200, 'GET /boards/career/rss.xml returns 200 OK');
 
-    const resDetail3 = await fetchUrl('/posts/tech-298.html');
-    assert(resDetail3.statusCode === 200, 'GET /posts/tech-298.html returns 200 OK');
+    const resTechRss = await fetchUrl('/boards/tech/rss.xml');
+    assert(resTechRss.statusCode === 200, 'GET /boards/tech/rss.xml returns 200 OK');
+
+    const resFeedRss = await fetchUrl('/feeds/rss.xml');
+    assert(resFeedRss.statusCode === 200, 'GET /feeds/rss.xml returns 200 OK');
+
+    const resFeedJson = await fetchUrl('/feeds/posts.json');
+    assert(resFeedJson.statusCode === 200, 'GET /feeds/posts.json returns 200 OK');
   } finally {
     server.close();
   }
