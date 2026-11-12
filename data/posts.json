@@ -42,7 +42,7 @@
       "timeDisplay": "오늘 12:00",
       "meta": "쿠키 3개 · 별점 9.95",
       "thumb": "🎨",
-      "description": "달빛 아뜰리에 제 152화 쿠키 3개 유료 미리보기 회차"
+      "description": "달빛 아뜰리에 제 152화 쿠키 3개 유료 미리보기 회차 - 운명의 갈림길"
     },
     {
       "id": "webtoon-150",
@@ -60,154 +60,154 @@
       "description": "달빛 아뜰리에 제 150화 무료 공개 - 새로운 시작"
     },
     {
-      "id": "webtoon-42",
+      "id": "webtoon-149",
       "board": "webtoon",
-      "title": "심야 공방의 비밀 - 제 42화 : 의뢰인의 편지",
-      "url": "posts/webtoon-42.html",
+      "title": "달빛 아뜰리에 - 제 149화 : 새벽 공방의 손님",
+      "url": "posts/webtoon-149.html",
       "pubDate": "Sun, 08 Nov 2026 18:00:00 +0900",
       "isoDate": "2026-11-08T18:00:00+09:00",
-      "author": "케이 작가",
+      "author": "루나 작가",
       "badge": "기다무",
       "badgeClass": "badge-free",
       "timeDisplay": "2일 전",
-      "meta": "이용권 충전완료 · 별점 9.88",
-      "thumb": "📖",
-      "description": "심야 공방의 비밀 제 42화 기다무 무료 충전 완료 회차"
+      "meta": "이용권 충전완료 · 별점 9.91",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 149화 - 안개 자욱한 새벽, 후드를 푹 눌러쓴 수상한 손님"
     },
     {
-      "id": "webtoon-41",
+      "id": "webtoon-148",
       "board": "webtoon",
-      "title": "심야 공방의 비밀 - 제 41화 : 은밀한 거래",
-      "url": "posts/webtoon-41.html",
+      "title": "달빛 아뜰리에 - 제 148화 : 은밀한 유리병 거래",
+      "url": "posts/webtoon-148.html",
       "pubDate": "Sat, 07 Nov 2026 18:00:00 +0900",
       "isoDate": "2026-11-07T18:00:00+09:00",
-      "author": "케이 작가",
+      "author": "루나 작가",
       "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "3일 전",
-      "meta": "무료 · 별점 9.85",
-      "thumb": "📖",
-      "description": "심야 공방의 비밀 제 41화 무료 공개"
+      "meta": "무료 · 별점 9.89",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 148화 - 밤의 뒷골목에서 성사되는 신비한 유리병과 마법 재료 거래"
     },
     {
-      "id": "webtoon-10",
+      "id": "webtoon-147",
       "board": "webtoon",
-      "title": "회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽",
-      "url": "posts/webtoon-10.html",
+      "title": "달빛 아뜰리에 - 제 147화 : 고대 잉크의 레시피",
+      "url": "posts/webtoon-147.html",
       "pubDate": "Thu, 05 Nov 2026 10:00:00 +0900",
       "isoDate": "2026-11-05T10:00:00+09:00",
-      "author": "데브 작가",
-      "badge": "신작 연재",
+      "author": "루나 작가",
+      "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "5일 전",
-      "meta": "무료 · 별점 9.91",
-      "thumb": "💻",
-      "description": "회귀한 개발자의 무한 코딩 제 10화 - 10년 전 스타트업 첫 배포 당일로 돌아간 주인공"
+      "meta": "무료 · 별점 9.93",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 147화 - 낡은 양장본 서책 속에서 발견한 잊혀진 고대 레시피"
     },
     {
-      "id": "webtoon-9",
+      "id": "webtoon-146",
       "board": "webtoon",
-      "title": "회귀한 개발자의 무한 코딩 - 제 9화 : 레거시 코드의 저주",
-      "url": "posts/webtoon-9.html",
+      "title": "달빛 아뜰리에 - 제 146화 : 별빛 도서관의 기록",
+      "url": "posts/webtoon-146.html",
       "pubDate": "Thu, 29 Oct 2026 10:00:00 +0900",
       "isoDate": "2026-10-29T10:00:00+09:00",
-      "author": "데브 작가",
+      "author": "루나 작가",
       "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-29",
-      "meta": "무료 · 별점 9.89",
-      "thumb": "💻",
-      "description": "회귀한 개발자의 무한 코딩 제 9화 - 복잡하게 얽힌 스파게티 코드를 마주하다"
+      "meta": "무료 · 별점 9.88",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 146화 - 금지된 지식이 잠들어 있는 왕립 별빛 도서관 지하 서고"
     },
     {
-      "id": "webtoon-88",
+      "id": "webtoon-145",
       "board": "webtoon",
-      "title": "차원 균열의 검성 - 제 88화 (유료)",
-      "url": "posts/webtoon-88.html",
+      "title": "달빛 아뜰리에 - 제 145화 : 북부 설원의 연금술사",
+      "url": "posts/webtoon-145.html",
       "pubDate": "Wed, 28 Oct 2026 22:00:00 +0900",
       "isoDate": "2026-10-28T22:00:00+09:00",
-      "author": "소드 작가",
-      "badge": "미리보기",
-      "badgeClass": "badge-pay",
+      "author": "루나 작가",
+      "badge": "무료 공개",
+      "badgeClass": "badge-free",
       "timeDisplay": "2026-10-28",
-      "meta": "쿠키 2개 · 별점 9.79",
-      "thumb": "🗡️",
-      "description": "차원 균열의 검성 제 88화 - 북부 전선을 강타한 차원 포식자의 습격"
+      "meta": "무료 · 별점 9.85",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 145화 - 눈보라가 몰아치는 북부 국경 설원에서 마주친 옛 스승의 흔적"
     },
     {
-      "id": "webtoon-87",
+      "id": "webtoon-144",
       "board": "webtoon",
-      "title": "차원 균열의 검성 - 제 87화 : 북부 국경 수비전",
-      "url": "posts/webtoon-87.html",
+      "title": "달빛 아뜰리에 - 제 144화 : 국경 너머에서 온 편지",
+      "url": "posts/webtoon-144.html",
       "pubDate": "Wed, 21 Oct 2026 22:00:00 +0900",
       "isoDate": "2026-10-21T22:00:00+09:00",
-      "author": "소드 작가",
+      "author": "루나 작가",
       "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-21",
-      "meta": "무료 · 별점 9.82",
-      "thumb": "🗡️",
-      "description": "차원 균열의 검성 제 87화 - 필사의 결의로 맞서는 수비대"
+      "meta": "무료 · 별점 9.87",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 144화 - 북부 국경 수비대를 거쳐 아뜰리에로 도착한 밀랍 비밀 편지"
     },
     {
-      "id": "webtoon-65",
+      "id": "webtoon-143",
       "board": "webtoon",
-      "title": "골목길 끝 고양이 빵집 - 제 65화 : 가을 밤의 단호박 파이",
-      "url": "posts/webtoon-65.html",
+      "title": "달빛 아뜰리에 - 제 143화 : 가을 저녁 따뜻한 차 한 잔",
+      "url": "posts/webtoon-143.html",
       "pubDate": "Sun, 18 Oct 2026 14:00:00 +0900",
       "isoDate": "2026-10-18T14:00:00+09:00",
-      "author": "미유 작가",
+      "author": "루나 작가",
       "badge": "일상/힐링",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-18",
-      "meta": "무료 · 별점 9.97",
-      "thumb": "☕",
-      "description": "골목길 끝 고양이 빵집 제 65화 - 쌀쌀한 가을 저녁 따뜻하게 구워낸 단호박 파이"
+      "meta": "무료 · 별점 9.96",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 143화 - 쌀쌀한 가을 저녁 아뜰리에 난로 곁에서 나누는 따스한 온기"
     },
     {
-      "id": "webtoon-64",
+      "id": "webtoon-142",
       "board": "webtoon",
-      "title": "골목길 끝 고양이 빵집 - 제 64화 : 비 오는 날의 따뜻한 홍차",
-      "url": "posts/webtoon-64.html",
+      "title": "달빛 아뜰리에 - 제 142화 : 비 내리는 창가의 스케치",
+      "url": "posts/webtoon-142.html",
       "pubDate": "Sun, 11 Oct 2026 14:00:00 +0900",
       "isoDate": "2026-10-11T14:00:00+09:00",
-      "author": "미유 작가",
+      "author": "루나 작가",
       "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-11",
-      "meta": "무료 · 별점 9.96",
-      "thumb": "☕",
-      "description": "골목길 끝 고양이 빵집 제 64화 - 비 내리는 창가에서 나누는 따뜻한 온기"
+      "meta": "무료 · 별점 9.94",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 142화 - 빗소리가 음악처럼 흐르는 오후, 새로운 마법 펜촉 시험"
     },
     {
-      "id": "webtoon-20",
+      "id": "webtoon-141",
       "board": "webtoon",
-      "title": "궤도 스테이션 09 - 제 20화 : 사라진 교신 신호",
-      "url": "posts/webtoon-20.html",
+      "title": "달빛 아뜰리에 - 제 141화 : 사라진 나침반의 바늘",
+      "url": "posts/webtoon-141.html",
       "pubDate": "Mon, 05 Oct 2026 09:00:00 +0900",
       "isoDate": "2026-10-05T09:00:00+09:00",
-      "author": "스페이스 작가",
+      "author": "루나 작가",
       "badge": "기다무",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-10-05",
-      "meta": "이용권 충전완료 · 별점 9.68",
-      "thumb": "🚀",
-      "description": "궤도 스테이션 09 제 20화 - 지구 관제소와의 모든 통신이 두절되다"
+      "meta": "이용권 충전완료 · 별점 9.82",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 141화 - 고대 유적지 지하에서 방향을 잃고 맴도는 마법 나침반의 수수께끼"
     },
     {
-      "id": "webtoon-19",
+      "id": "webtoon-140",
       "board": "webtoon",
-      "title": "궤도 스테이션 09 - 제 19화 : 밀폐 구역 탐사",
-      "url": "posts/webtoon-19.html",
+      "title": "달빛 아뜰리에 - 제 140화 : 봉인된 밀폐 구역",
+      "url": "posts/webtoon-140.html",
       "pubDate": "Mon, 28 Sep 2026 09:00:00 +0900",
       "isoDate": "2026-09-28T09:00:00+09:00",
-      "author": "스페이스 작가",
+      "author": "루나 작가",
       "badge": "무료 공개",
       "badgeClass": "badge-free",
       "timeDisplay": "2026-09-28",
-      "meta": "무료 · 별점 9.71",
-      "thumb": "🚀",
-      "description": "궤도 스테이션 09 제 19화 - 봉인되었던 제3 격리 구역의 탐사 시작"
+      "meta": "무료 · 별점 9.80",
+      "thumb": "🎨",
+      "description": "달빛 아뜰리에 제 140화 - 육중한 철제 문 너머 봉인되었던 제3 마법 격리 구역의 첫 번째 탐사"
     },
     {
       "id": "webtoon-151",
@@ -391,7 +391,10 @@
       "pubDate": "Sun, 08 Nov 2026 15:00:00 +0900",
       "isoDate": "2026-11-08T15:00:00+09:00",
       "author": "엔지니어링 팀",
-      "tags": ["Release", "Engine"],
+      "tags": [
+        "Release",
+        "Engine"
+      ],
       "badge": "기술공지",
       "readTime": "4분",
       "description": "대규모 크롤링 데이터 파이프라인의 레이턴시를 35% 단축하고, 모바일 푸시 발송 큐의 장애 복구 알고리즘을 획기적으로 개선했습니다."
@@ -404,7 +407,10 @@
       "pubDate": "Wed, 04 Nov 2026 16:30:00 +0900",
       "isoDate": "2026-11-04T16:30:00+09:00",
       "author": "모바일 랩",
-      "tags": ["Flutter", "Database"],
+      "tags": [
+        "Flutter",
+        "Database"
+      ],
       "badge": "아키텍처",
       "readTime": "6분",
       "description": "모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시를 혼합하여 프레임 드롭 없이 매끄럽게 렌더링하는 실전 테크닉을 공유합니다."
@@ -417,7 +423,10 @@
       "pubDate": "Sun, 25 Oct 2026 11:20:00 +0900",
       "isoDate": "2026-10-25T11:20:00+09:00",
       "author": "인프라 팀",
-      "tags": ["Crawler", "Infra"],
+      "tags": [
+        "Crawler",
+        "Infra"
+      ],
       "badge": "가이드",
       "readTime": "8분",
       "description": "주기적 크롤링 시 발생할 수 있는 레이트 리밋과 서버 부하를 최소화하기 위한 분산 워커 노드 구성 및 지능형 폴링 설계기입니다."
@@ -430,7 +439,10 @@
       "pubDate": "Sun, 18 Oct 2026 13:40:00 +0900",
       "isoDate": "2026-10-18T13:40:00+09:00",
       "author": "메시징 팀",
-      "tags": ["FCM", "Push"],
+      "tags": [
+        "FCM",
+        "Push"
+      ],
       "badge": "네트워크",
       "readTime": "5분",
       "description": "APNs와 FCM의 대량 전송 커넥션 풀을 HTTP/2 멀티플렉싱으로 최적화하여 알림 도달 지연 시간을 200ms 미만으로 단축한 노하우입니다."
@@ -443,7 +455,10 @@
       "pubDate": "Fri, 09 Oct 2026 17:15:00 +0900",
       "isoDate": "2026-10-09T17:15:00+09:00",
       "author": "클라이언트 팀",
-      "tags": ["WebView", "JSBridge"],
+      "tags": [
+        "WebView",
+        "JSBridge"
+      ],
       "badge": "프론트엔드",
       "readTime": "7분",
       "description": "모바일 앱 내 인앱 브라우저에서 사용자 인증 토큰 전달 및 딥링크 라우팅 시 발생할 수 있는 XSS 보안 취약점을 차단하는 인터페이스 설계."
@@ -456,7 +471,10 @@
       "pubDate": "Fri, 02 Oct 2026 10:00:00 +0900",
       "isoDate": "2026-10-02T10:00:00+09:00",
       "author": "AI 연구소",
-      "tags": ["AI", "Parser"],
+      "tags": [
+        "AI",
+        "Parser"
+      ],
       "badge": "머신러닝",
       "readTime": "6분",
       "description": "다양한 게시판 레이아웃에서 복잡한 CSS 셀렉터 없이도 최신 글 목록을 정확히 인식하는 경량 파서 모델 실험기입니다."
@@ -469,7 +487,10 @@
       "pubDate": "Thu, 24 Sep 2026 14:00:00 +0900",
       "isoDate": "2026-09-24T14:00:00+09:00",
       "author": "백엔드 팀",
-      "tags": ["MSA", "Kafka"],
+      "tags": [
+        "MSA",
+        "Kafka"
+      ],
       "badge": "아키텍처",
       "readTime": "9분",
       "description": "모놀리식 분해 과정에서 Kafka와 이벤트 소싱을 적용하여 서비스 간 결합도를 낮추고 데이터 일관성을 확보한 실제 구현 사례입니다."
@@ -482,7 +503,10 @@
       "pubDate": "Tue, 10 Nov 2026 22:45:00 +0900",
       "isoDate": "2026-11-10T22:45:00+09:00",
       "author": "보안 팀",
-      "tags": ["Security", "API"],
+      "tags": [
+        "Security",
+        "API"
+      ],
       "badge": "긴급보안",
       "readTime": "3분",
       "description": "외부 연동 API의 토큰 발급 및 리프레시 토큰 로테이션(RTR) 정책이 변경되었습니다. 연동 개발자 분들은 11월 30일까지 확인 부탁드립니다.",

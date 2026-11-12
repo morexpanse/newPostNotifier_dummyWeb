@@ -1,7 +1,7 @@
 {
   "service": "StoryLab",
   "description": "cachi app & server testing JSON API feed",
-  "updated_at": "2026-11-12T05:30:17.653Z",
+  "updated_at": "2026-11-12T05:41:34.971Z",
   "boards": [
     {
       "id": "webtoon",
@@ -39,10 +39,10 @@
       "published_at": "2026-11-09T23:00:00+09:00"
     },
     {
-      "id": "webtoon-42",
+      "id": "webtoon-149",
       "category": "webtoon",
-      "title": "심야 공방의 비밀 - 제 42화 : 의뢰인의 편지",
-      "url": "/posts/webtoon-42.html",
+      "title": "달빛 아뜰리에 - 제 149화 : 새벽 공방의 손님",
+      "url": "/posts/webtoon-149.html",
       "badge": "기다무",
       "is_new": false,
       "published_at": "2026-11-08T18:00:00+09:00"
@@ -66,20 +66,20 @@
       "published_at": "2026-11-08T09:00:00+09:00"
     },
     {
-      "id": "webtoon-41",
+      "id": "webtoon-148",
       "category": "webtoon",
-      "title": "심야 공방의 비밀 - 제 41화 : 은밀한 거래",
-      "url": "/posts/webtoon-41.html",
+      "title": "달빛 아뜰리에 - 제 148화 : 은밀한 유리병 거래",
+      "url": "/posts/webtoon-148.html",
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-11-07T18:00:00+09:00"
     },
     {
-      "id": "webtoon-10",
+      "id": "webtoon-147",
       "category": "webtoon",
-      "title": "회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽",
-      "url": "/posts/webtoon-10.html",
-      "badge": "신작 연재",
+      "title": "달빛 아뜰리에 - 제 147화 : 고대 잉크의 레시피",
+      "url": "/posts/webtoon-147.html",
+      "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-11-05T10:00:00+09:00"
     },
@@ -111,20 +111,20 @@
       "published_at": "2026-11-01T09:00:00+09:00"
     },
     {
-      "id": "webtoon-9",
+      "id": "webtoon-146",
       "category": "webtoon",
-      "title": "회귀한 개발자의 무한 코딩 - 제 9화 : 레거시 코드의 저주",
-      "url": "/posts/webtoon-9.html",
+      "title": "달빛 아뜰리에 - 제 146화 : 별빛 도서관의 기록",
+      "url": "/posts/webtoon-146.html",
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-10-29T10:00:00+09:00"
     },
     {
-      "id": "webtoon-88",
+      "id": "webtoon-145",
       "category": "webtoon",
-      "title": "차원 균열의 검성 - 제 88화 (유료)",
-      "url": "/posts/webtoon-88.html",
-      "badge": "미리보기",
+      "title": "달빛 아뜰리에 - 제 145화 : 북부 설원의 연금술사",
+      "url": "/posts/webtoon-145.html",
+      "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-10-28T22:00:00+09:00"
     },
@@ -147,19 +147,19 @@
       "published_at": "2026-10-25T11:20:00+09:00"
     },
     {
-      "id": "webtoon-87",
+      "id": "webtoon-144",
       "category": "webtoon",
-      "title": "차원 균열의 검성 - 제 87화 : 북부 국경 수비전",
-      "url": "/posts/webtoon-87.html",
+      "title": "달빛 아뜰리에 - 제 144화 : 국경 너머에서 온 편지",
+      "url": "/posts/webtoon-144.html",
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-10-21T22:00:00+09:00"
     },
     {
-      "id": "webtoon-65",
+      "id": "webtoon-143",
       "category": "webtoon",
-      "title": "골목길 끝 고양이 빵집 - 제 65화 : 가을 밤의 단호박 파이",
-      "url": "/posts/webtoon-65.html",
+      "title": "달빛 아뜰리에 - 제 143화 : 가을 저녁 따뜻한 차 한 잔",
+      "url": "/posts/webtoon-143.html",
       "badge": "일상/힐링",
       "is_new": false,
       "published_at": "2026-10-18T14:00:00+09:00"
@@ -192,10 +192,10 @@
       "published_at": "2026-10-15T10:00:00+09:00"
     },
     {
-      "id": "webtoon-64",
+      "id": "webtoon-142",
       "category": "webtoon",
-      "title": "골목길 끝 고양이 빵집 - 제 64화 : 비 오는 날의 따뜻한 홍차",
-      "url": "/posts/webtoon-64.html",
+      "title": "달빛 아뜰리에 - 제 142화 : 비 내리는 창가의 스케치",
+      "url": "/posts/webtoon-142.html",
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-10-11T14:00:00+09:00"
@@ -219,10 +219,10 @@
       "published_at": "2026-10-09T17:15:00+09:00"
     },
     {
-      "id": "webtoon-20",
+      "id": "webtoon-141",
       "category": "webtoon",
-      "title": "궤도 스테이션 09 - 제 20화 : 사라진 교신 신호",
-      "url": "/posts/webtoon-20.html",
+      "title": "달빛 아뜰리에 - 제 141화 : 사라진 나침반의 바늘",
+      "url": "/posts/webtoon-141.html",
       "badge": "기다무",
       "is_new": false,
       "published_at": "2026-10-05T09:00:00+09:00"
@@ -246,10 +246,10 @@
       "published_at": "2026-09-30T10:00:00+09:00"
     },
     {
-      "id": "webtoon-19",
+      "id": "webtoon-140",
       "category": "webtoon",
-      "title": "궤도 스테이션 09 - 제 19화 : 밀폐 구역 탐사",
-      "url": "/posts/webtoon-19.html",
+      "title": "달빛 아뜰리에 - 제 140화 : 봉인된 밀폐 구역",
+      "url": "/posts/webtoon-140.html",
       "badge": "무료 공개",
       "is_new": false,
       "published_at": "2026-09-28T09:00:00+09:00"

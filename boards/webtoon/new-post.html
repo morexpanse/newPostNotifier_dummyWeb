@@ -33,7 +33,7 @@
     </div>
   </header>
 
-  <!-- Board Navigation Tabs -->
+  <!-- Board Navigation Tabs (독립 서브 주소 라우팅) -->
   <nav class="board-tabs">
     <div class="board-tabs-inner">
       <a href="../../index.html" class="board-tab">홈 (전체)</a>
@@ -55,7 +55,40 @@
       </div>
     </div>
 
-    <!-- Webtoon List (새 글 151화 포함) -->
+    <!-- Webtoon Series Profile Header (단일 웹툰 상세 정보) -->
+    <div class="webtoon-series-card">
+      <div class="webtoon-cover">
+        <div class="webtoon-cover-icon">🎨</div>
+        <div class="webtoon-cover-badge">월요연재</div>
+      </div>
+      <div class="webtoon-series-info">
+        <div class="webtoon-series-badges">
+          <span class="badge badge-tech">월요웹툰</span>
+          <span class="badge badge-free">전체연령가</span>
+          <span class="badge" style="background:#FEF3C7;color:#D97706;">판타지/힐링</span>
+        </div>
+        <h2 class="webtoon-series-title">달빛 아뜰리에</h2>
+        <div class="webtoon-series-author">글/그림 <strong>루나 작가</strong></div>
+        <p class="webtoon-series-desc">
+          달빛을 모아 신비한 마법 잉크를 짓는 아뜰리에의 마지막 연금술사 엘레나.
+          밤마다 찾아오는 비밀스러운 의뢰인들과 함께 펼쳐지는 환상적인 판타지 드라마.
+        </p>
+        <div class="webtoon-series-stats">
+          <span>평점 ★ <strong>9.95</strong></span>
+          <span>·</span>
+          <span>관심 <strong>48.2만</strong></span>
+          <span>·</span>
+          <span>총 <strong>152화</strong> 연재중</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="webtoon-section-header">
+      <h2>연재 회차 목록</h2>
+      <span>최신순 정렬</span>
+    </div>
+
+    <!-- Webtoon List (기본 상태: 150화까지 노출) -->
     <div class="board-card-wrapper">
       <ul class="board-list">
         <!-- New Post 151 -->
@@ -70,14 +103,12 @@
             <div class="post-meta-line">
               <time datetime="2026-11-10T22:50:00+09:00">방금 전 (22:50)</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.98</span>
+              <span>무료 · 별점 9.98</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 152 (Preview) -->
+        <!-- Post webtoon-152 -->
         <li class="post-item" data-post-id="152">
           <div class="post-thumb">🎨</div>
           <div class="post-main-content">
@@ -88,14 +119,12 @@
             <div class="post-meta-line">
               <time datetime="2026-11-10T12:00:00+09:00">오늘 12:00</time>
               <span>·</span>
-              <span>쿠키 3개</span>
-              <span>·</span>
-              <span>별점 9.95</span>
+              <span>쿠키 3개 · 별점 9.95</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 150 (Free) -->
+        <!-- Post webtoon-150 -->
         <li class="post-item" data-post-id="150">
           <div class="post-thumb">🎨</div>
           <div class="post-main-content">
@@ -106,191 +135,167 @@
             <div class="post-meta-line">
               <time datetime="2026-11-09T23:00:00+09:00">어제</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.92</span>
+              <span>무료 · 별점 9.92</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 42 (기다무) -->
-        <li class="post-item" data-post-id="42">
-          <div class="post-thumb">📖</div>
+        <!-- Post webtoon-149 -->
+        <li class="post-item" data-post-id="149">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">기다무</span>
             </div>
-            <a href="../../posts/webtoon-42.html" class="post-title">심야 공방의 비밀 - 제 42화 : 의뢰인의 편지</a>
+            <a href="../../posts/webtoon-149.html" class="post-title">달빛 아뜰리에 - 제 149화 : 새벽 공방의 손님</a>
             <div class="post-meta-line">
               <time datetime="2026-11-08T18:00:00+09:00">2일 전</time>
               <span>·</span>
-              <span>이용권 충전완료</span>
-              <span>·</span>
-              <span>별점 9.88</span>
+              <span>이용권 충전완료 · 별점 9.91</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 41 -->
-        <li class="post-item" data-post-id="41">
-          <div class="post-thumb">📖</div>
+        <!-- Post webtoon-148 -->
+        <li class="post-item" data-post-id="148">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-41.html" class="post-title">심야 공방의 비밀 - 제 41화 : 은밀한 거래</a>
+            <a href="../../posts/webtoon-148.html" class="post-title">달빛 아뜰리에 - 제 148화 : 은밀한 유리병 거래</a>
             <div class="post-meta-line">
               <time datetime="2026-11-07T18:00:00+09:00">3일 전</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.85</span>
+              <span>무료 · 별점 9.89</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 10 -->
-        <li class="post-item" data-post-id="10">
-          <div class="post-thumb">💻</div>
+        <!-- Post webtoon-147 -->
+        <li class="post-item" data-post-id="147">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
-              <span class="badge badge-free">신작 연재</span>
+              <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-10.html" class="post-title">회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽</a>
+            <a href="../../posts/webtoon-147.html" class="post-title">달빛 아뜰리에 - 제 147화 : 고대 잉크의 레시피</a>
             <div class="post-meta-line">
               <time datetime="2026-11-05T10:00:00+09:00">5일 전</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.91</span>
+              <span>무료 · 별점 9.93</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 9 -->
-        <li class="post-item" data-post-id="9">
-          <div class="post-thumb">💻</div>
+        <!-- Post webtoon-146 -->
+        <li class="post-item" data-post-id="146">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-9.html" class="post-title">회귀한 개발자의 무한 코딩 - 제 9화 : 레거시 코드의 저주</a>
+            <a href="../../posts/webtoon-146.html" class="post-title">달빛 아뜰리에 - 제 146화 : 별빛 도서관의 기록</a>
             <div class="post-meta-line">
               <time datetime="2026-10-29T10:00:00+09:00">2026-10-29</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.89</span>
+              <span>무료 · 별점 9.88</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 88 -->
-        <li class="post-item" data-post-id="88">
-          <div class="post-thumb">🗡️</div>
-          <div class="post-main-content">
-            <div class="post-header-line">
-              <span class="badge badge-pay">미리보기</span>
-              <span class="badge badge-tech">액션/판타지</span>
-            </div>
-            <a href="../../posts/webtoon-88.html" class="post-title">차원 균열의 검성 - 제 88화 (유료)</a>
-            <div class="post-meta-line">
-              <time datetime="2026-10-28T22:00:00+09:00">2026-10-28</time>
-              <span>·</span>
-              <span>쿠키 2개</span>
-              <span>·</span>
-              <span>별점 9.79</span>
-            </div>
-          </div>
-        </li>
-
-        <!-- Post 87 -->
-        <li class="post-item" data-post-id="87">
-          <div class="post-thumb">🗡️</div>
+        <!-- Post webtoon-145 -->
+        <li class="post-item" data-post-id="145">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-87.html" class="post-title">차원 균열의 검성 - 제 87화 : 북부 국경 수비전</a>
+            <a href="../../posts/webtoon-145.html" class="post-title">달빛 아뜰리에 - 제 145화 : 북부 설원의 연금술사</a>
             <div class="post-meta-line">
-              <time datetime="2026-10-21T22:00:00+09:00">2026-10-21</time>
+              <time datetime="2026-10-28T22:00:00+09:00">2026-10-28</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.82</span>
+              <span>무료 · 별점 9.85</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 65 -->
-        <li class="post-item" data-post-id="65">
-          <div class="post-thumb">☕</div>
+        <!-- Post webtoon-144 -->
+        <li class="post-item" data-post-id="144">
+          <div class="post-thumb">🎨</div>
+          <div class="post-main-content">
+            <div class="post-header-line">
+              <span class="badge badge-free">무료 공개</span>
+            </div>
+            <a href="../../posts/webtoon-144.html" class="post-title">달빛 아뜰리에 - 제 144화 : 국경 너머에서 온 편지</a>
+            <div class="post-meta-line">
+              <time datetime="2026-10-21T22:00:00+09:00">2026-10-21</time>
+              <span>·</span>
+              <span>무료 · 별점 9.87</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Post webtoon-143 -->
+        <li class="post-item" data-post-id="143">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">일상/힐링</span>
             </div>
-            <a href="../../posts/webtoon-65.html" class="post-title">골목길 끝 고양이 빵집 - 제 65화 : 가을 밤의 단호박 파이</a>
+            <a href="../../posts/webtoon-143.html" class="post-title">달빛 아뜰리에 - 제 143화 : 가을 저녁 따뜻한 차 한 잔</a>
             <div class="post-meta-line">
               <time datetime="2026-10-18T14:00:00+09:00">2026-10-18</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.97</span>
+              <span>무료 · 별점 9.96</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 64 -->
-        <li class="post-item" data-post-id="64">
-          <div class="post-thumb">☕</div>
+        <!-- Post webtoon-142 -->
+        <li class="post-item" data-post-id="142">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-64.html" class="post-title">골목길 끝 고양이 빵집 - 제 64화 : 비 오는 날의 따뜻한 홍차</a>
+            <a href="../../posts/webtoon-142.html" class="post-title">달빛 아뜰리에 - 제 142화 : 비 내리는 창가의 스케치</a>
             <div class="post-meta-line">
               <time datetime="2026-10-11T14:00:00+09:00">2026-10-11</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.96</span>
+              <span>무료 · 별점 9.94</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 20 -->
-        <li class="post-item" data-post-id="20">
-          <div class="post-thumb">🚀</div>
+        <!-- Post webtoon-141 -->
+        <li class="post-item" data-post-id="141">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
-              <span class="badge badge-free">SF/미스터리</span>
               <span class="badge badge-free">기다무</span>
             </div>
-            <a href="../../posts/webtoon-20.html" class="post-title">궤도 스테이션 09 - 제 20화 : 사라진 교신 신호</a>
+            <a href="../../posts/webtoon-141.html" class="post-title">달빛 아뜰리에 - 제 141화 : 사라진 나침반의 바늘</a>
             <div class="post-meta-line">
               <time datetime="2026-10-05T09:00:00+09:00">2026-10-05</time>
               <span>·</span>
-              <span>이용권 충전완료</span>
-              <span>·</span>
-              <span>별점 9.68</span>
+              <span>이용권 충전완료 · 별점 9.82</span>
             </div>
           </div>
         </li>
 
-        <!-- Post 19 -->
-        <li class="post-item" data-post-id="19">
-          <div class="post-thumb">🚀</div>
+        <!-- Post webtoon-140 -->
+        <li class="post-item" data-post-id="140">
+          <div class="post-thumb">🎨</div>
           <div class="post-main-content">
             <div class="post-header-line">
               <span class="badge badge-free">무료 공개</span>
             </div>
-            <a href="../../posts/webtoon-19.html" class="post-title">궤도 스테이션 09 - 제 19화 : 밀폐 구역 탐사</a>
+            <a href="../../posts/webtoon-140.html" class="post-title">달빛 아뜰리에 - 제 140화 : 봉인된 밀폐 구역</a>
             <div class="post-meta-line">
               <time datetime="2026-09-28T09:00:00+09:00">2026-09-28</time>
               <span>·</span>
-              <span>무료</span>
-              <span>·</span>
-              <span>별점 9.71</span>
+              <span>무료 · 별점 9.80</span>
             </div>
           </div>
         </li>
