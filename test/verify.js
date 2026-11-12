@@ -42,6 +42,9 @@ async function runTests() {
     'posts/tech-302.html',
     'feeds/rss.xml',
     'feeds/posts.json',
+    'boards/webtoon/rss.xml',
+    'boards/career/rss.xml',
+    'boards/tech/rss.xml',
     'assets/css/style.css',
     'assets/js/main.js',
     'assets/js/demo-toolbar.js',
@@ -86,8 +89,23 @@ async function runTests() {
   // Feeds Validation
   console.log('\n📡 3. Verifying Feeds & Metadata...');
   const rssContent = fs.readFileSync(path.join(BASE_DIR, 'feeds/rss.xml'), 'utf8');
-  assert(rssContent.includes('<rss version="2.0"'), 'RSS feed is valid XML RSS 2.0');
-  assert(rssContent.includes('<item>'), 'RSS feed contains items');
+  assert(rssContent.includes('<rss version="2.0"'), 'Total RSS feed is valid XML RSS 2.0');
+  assert(rssContent.includes('<item>'), 'Total RSS feed contains items');
+
+  const webtoonRss = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml'), 'utf8');
+  assert(webtoonRss.includes('스토리랩 (StoryLab) - 웹툰·연재 피드'), 'Webtoon RSS has specific title');
+  assert(webtoonRss.includes('달빛 아뜰리에'), 'Webtoon RSS contains webtoon post');
+  assert(!webtoonRss.includes('[공채] 2026 하반기 모바일 앱 개발자'), 'Webtoon RSS does NOT contain career post');
+
+  const careerRss = fs.readFileSync(path.join(BASE_DIR, 'boards/career/rss.xml'), 'utf8');
+  assert(careerRss.includes('스토리랩 (StoryLab) - 채용·공고 피드'), 'Career RSS has specific title');
+  assert(careerRss.includes('[긴급채용] 백엔드 크롤링'), 'Career RSS contains career post');
+  assert(!careerRss.includes('달빛 아뜰리에'), 'Career RSS does NOT contain webtoon post');
+
+  const techRss = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/rss.xml'), 'utf8');
+  assert(techRss.includes('스토리랩 (StoryLab) - 기술·공지 피드'), 'Tech RSS has specific title');
+  assert(techRss.includes('OAuth 2.1 토큰 갱신 프로토콜 변경'), 'Tech RSS contains tech post');
+  assert(!techRss.includes('달빛 아뜰리에'), 'Tech RSS does NOT contain webtoon post');
 
   const jsonContent = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'feeds/posts.json'), 'utf8'));
   assert(Array.isArray(jsonContent.items) && jsonContent.items.length > 0, 'JSON feed contains valid items array');

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>스토리랩 (StoryLab) - 웹툰·연재 피드</title>
+  <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/</link>
+  <description>스토리랩 웹툰·연재 게시판 전용 RSS 2.0 피드 (cachi 알림 테스트용)</description>
+  <language>ko-kr</language>
+  <lastBuildDate>Tue, 10 Nov 2026 22:50:00 +0900</lastBuildDate>
+  <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>달빛 아뜰리에 - 제 151화 : 푸른 불꽃의 비밀</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-151.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-151.html</guid>
+    <pubDate>Tue, 10 Nov 2026 22:50:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>달빛 아뜰리에 제 151화 - 마침내 밝혀지는 고대 연금술사의 푸른 불꽃과 유산 (신규 등록)</description>
+  </item>
+
+  <item>
+    <title>달빛 아뜰리에 - 제 152화 (유료 선공개)</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-152-preview.html</guid>
+    <pubDate>Tue, 10 Nov 2026 12:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>달빛 아뜰리에 제 152화 쿠키 3개 유료 미리보기 회차</description>
+  </item>
+
+  <item>
+    <title>달빛 아뜰리에 - 제 150화 : 새로운 시작</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</guid>
+    <pubDate>Mon, 09 Nov 2026 23:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>달빛 아뜰리에 제 150화 무료 공개 - 새로운 시작</description>
+  </item>
+
+  <item>
+    <title>심야 공방의 비밀 - 제 42화 : 의뢰인의 편지</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-workshop-42.html</guid>
+    <pubDate>Sun, 08 Nov 2026 18:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>심야 공방의 비밀 제 42화 기다무 무료 충전 완료 회차</description>
+  </item>
+
+  <item>
+    <title>심야 공방의 비밀 - 제 41화 : 은밀한 거래</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-workshop-41.html</guid>
+    <pubDate>Sat, 07 Nov 2026 18:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>심야 공방의 비밀 제 41화 무료 공개</description>
+  </item>
+
+  <item>
+    <title>회귀한 개발자의 무한 코딩 - 제 10화 : 첫 배포의 악몽</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-dev-10.html</guid>
+    <pubDate>Thu, 05 Nov 2026 10:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>신작 인기 웹툰 회귀한 개발자의 무한 코딩 제 10화 무료 공개</description>
+  </item>
+
+  <item>
+    <title>차원 균열의 검성 - 제 88화 (유료)</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-sword-88.html</guid>
+    <pubDate>Wed, 28 Oct 2026 22:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>차원 균열의 검성 제 88화 액션/판타지 유료 미리보기</description>
+  </item>
+
+  <item>
+    <title>골목길 끝 고양이 빵집 - 제 65화 : 가을 밤의 단호박 파이</title>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-cat-65.html</guid>
+    <pubDate>Sun, 18 Oct 2026 14:00:00 +0900</pubDate>
+    <category>웹툰·연재</category>
+    <description>골목길 끝 고양이 빵집 제 65화 힐링/일상 웹툰 무료 공개</description>
+  </item>
+</channel>
+</rss>

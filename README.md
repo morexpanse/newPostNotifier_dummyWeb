@@ -29,9 +29,12 @@
 | :--- | :--- | :--- | :--- |
 | **메인 포털** | `/` (`index.html`) | 통합 피드 & 허브 | `ul.board-list li a.post-title` |
 | **웹툰·연재** | `/boards/webtoon/` | 리스트 (`ul > li`) | `.post-item .post-title`, `li[data-post-id] a` |
+| **웹툰 RSS** | `/boards/webtoon/rss.xml` | XML RSS 2.0 (웹툰 전용) | `//item/title`, `//item/link` |
 | **채용·공고** | `/boards/career/` | 테이블 (`table > tr > td`) | `.board-table tbody tr td.col-title a` |
+| **채용 RSS** | `/boards/career/rss.xml` | XML RSS 2.0 (채용 전용) | `//item/title`, `//item/link` |
 | **기술·공지** | `/boards/tech/` | 카드 (`section > article`) | `article.card-article .card-title a` |
-| **RSS 피드** | `/feeds/rss.xml` | XML RSS 2.0 | `//item/title`, `//item/link` |
+| **기술 RSS** | `/boards/tech/rss.xml` | XML RSS 2.0 (기술 전용) | `//item/title`, `//item/link` |
+| **전체 통합 RSS** | `/feeds/rss.xml` | XML RSS 2.0 (전체 피드) | `//item/title`, `//item/link` |
 | **JSON API** | `/feeds/posts.json` | JSON REST API | `$.items[*].title`, `$.items[*].url` |
 
 ---
