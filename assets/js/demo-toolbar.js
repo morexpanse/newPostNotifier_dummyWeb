@@ -5,6 +5,13 @@
 
 (function () {
   function initDemoToolbar() {
+    // 사용자의 피드백에 따라 일반 촬영 및 시연 중에는 시뮬레이션 툴바를 기본 비활성화합니다.
+    // 디버깅/테스트를 위해 명시적으로 ?demo=1 이 붙어 있을 때만 툴바를 주입합니다.
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('demo')) {
+      return;
+    }
+
     const isNewPostPage = window.location.pathname.endsWith('new-post.html');
     const isDetailPage = window.location.pathname.includes('/posts/');
     

@@ -47,7 +47,7 @@ body {
   color: var(--text-main);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 72px; /* space for demo toolbar */
+  padding-bottom: 24px;
 }
 
 /* ---------------- Cachi Demo Toolbar (상단/하단 보조 툴바) ---------------- */

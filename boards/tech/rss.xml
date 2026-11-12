@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>스토리랩 (StoryLab) - 기술·공지 피드</title>
+  <title>테크로그 엔지니어링 (TechLog) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/</link>
-  <description>스토리랩 기술·공지 게시판 전용 RSS 2.0 피드 (cachi 알림 테스트용)</description>
+  <description>기술과 성장을 기록하는 공식 테크로그 피드</description>
   <language>ko-kr</language>
   <lastBuildDate>Tue, 10 Nov 2026 22:45:00 +0900</lastBuildDate>
   <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/rss.xml" rel="self" type="application/rss+xml" />
@@ -19,17 +19,8 @@
 
   <item>
     <title>v2.4.0 릴리즈 노트: 백그라운드 동기화 엔진 개선 안내</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</guid>
-    <pubDate>Sun, 08 Nov 2026 15:00:00 +0900</pubDate>
-    <category>기술·공지</category>
-    <description>대규모 크롤링 데이터 파이프라인의 레이턴시 단축 및 모바일 푸시 발송 큐 복구 알고리즘 개선</description>
-  </item>
-
-  <item>
-    <title>플러터(Flutter) 최적화와 로컬 데이터베이스 아키텍처</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-301.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-flutter-sqlite.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-298.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/tech-298.html</guid>
     <pubDate>Wed, 04 Nov 2026 16:30:00 +0900</pubDate>
     <category>기술·공지</category>
     <description>모바일 앱에서 수천 건의 알림 히스토리를 SQLite와 인메모리 캐시로 매끄럽게 렌더링하는 테크닉</description>

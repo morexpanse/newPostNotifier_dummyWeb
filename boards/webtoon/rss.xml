@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>스토리랩 (StoryLab) - 웹툰·연재 피드</title>
+  <title>스토리랩 웹툰 (StoryLab) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/webtoon/</link>
   <description>스토리랩 웹툰·연재 게시판 전용 RSS 2.0 피드 (cachi 알림 테스트용)</description>
   <language>ko-kr</language>
@@ -19,8 +19,8 @@
 
   <item>
     <title>달빛 아뜰리에 - 제 152화 (유료 선공개)</title>
-    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-150.html</link>
-    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-152-preview.html</guid>
+    <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-152.html</link>
+    <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/webtoon-152.html</guid>
     <pubDate>Tue, 10 Nov 2026 12:00:00 +0900</pubDate>
     <category>웹툰·연재</category>
     <description>달빛 아뜰리에 제 152화 쿠키 3개 유료 미리보기 회차</description>

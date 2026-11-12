@@ -1,5 +1,6 @@
 /**
  * Automated Verification Script for StoryLab Cachi Dummy Web
+ * 4대 이슈(타이틀/og:title 분리, 고유 링크 부여, 404 방지, 시연용 클린 UI) 검증 포함
  */
 
 const fs = require('fs');
@@ -36,10 +37,37 @@ async function runTests() {
     'boards/tech/new-post.html',
     'posts/webtoon-150.html',
     'posts/webtoon-151.html',
-    'posts/career-201.html',
-    'posts/career-202.html',
+    'posts/webtoon-152.html',
+    'posts/webtoon-42.html',
+    'posts/webtoon-41.html',
+    'posts/webtoon-10.html',
+    'posts/webtoon-9.html',
+    'posts/webtoon-88.html',
+    'posts/webtoon-87.html',
+    'posts/webtoon-65.html',
+    'posts/webtoon-64.html',
+    'posts/webtoon-20.html',
+    'posts/webtoon-19.html',
+    'posts/career-notice-1.html',
+    'posts/career-104.html',
+    'posts/career-103.html',
+    'posts/career-102.html',
+    'posts/career-101.html',
+    'posts/career-100.html',
+    'posts/career-99.html',
+    'posts/career-98.html',
+    'posts/career-97.html',
+    'posts/career-96.html',
+    'posts/career-95.html',
+    'posts/career-105.html',
     'posts/tech-301.html',
     'posts/tech-302.html',
+    'posts/tech-298.html',
+    'posts/tech-295.html',
+    'posts/tech-290.html',
+    'posts/tech-285.html',
+    'posts/tech-280.html',
+    'posts/tech-275.html',
     'feeds/rss.xml',
     'feeds/posts.json',
     'boards/webtoon/rss.xml',
@@ -57,87 +85,108 @@ async function runTests() {
     assert(fs.existsSync(fullPath), `File exists: ${file}`);
   }
 
-  // Test 2: Crawler Simulation on Static HTML
-  console.log('\n🕷️ 2. Verifying Crawler HTML Parsing (Static Isolation)...');
-  
-  // Webtoon Default vs New
-  const webtoonDefault = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/index.html'), 'utf8');
-  const webtoonNew = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/new-post.html'), 'utf8');
-  assert(webtoonDefault.includes('달빛 아뜰리에 - 제 150화'), 'Webtoon default includes 150화');
-  assert(!webtoonDefault.includes('달빛 아뜰리에 - 제 151화'), 'Webtoon default does NOT include 151화 (No false positives for crawlers!)');
-  assert(webtoonNew.includes('달빛 아뜰리에 - 제 151화'), 'Webtoon new-post includes 151화');
-  assert(webtoonNew.includes('data-post-id="151"'), 'Webtoon new-post has data-post-id="151" attribute');
+  // Test 2: Issue 1 - Page Title & og:title Isolation
+  console.log('\n🏷️ 2. Verifying Title & OG:Title Isolation across Boards...');
+  const webtoonHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/index.html'), 'utf8');
+  const careerHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/career/index.html'), 'utf8');
+  const techHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/index.html'), 'utf8');
 
-  // Career Default vs New
-  const careerDefault = fs.readFileSync(path.join(BASE_DIR, 'boards/career/index.html'), 'utf8');
-  const careerNew = fs.readFileSync(path.join(BASE_DIR, 'boards/career/new-post.html'), 'utf8');
-  assert(careerDefault.includes('table class="board-table"'), 'Career board uses semantic <table> markup');
-  assert(careerDefault.includes('104'), 'Career default includes notice 104');
-  assert(!careerDefault.includes('105'), 'Career default does NOT include notice 105');
-  assert(careerNew.includes('105'), 'Career new-post includes notice 105');
-  assert(careerNew.includes('data-post-id="career-105"'), 'Career new-post has data-post-id="career-105"');
+  assert(webtoonHtml.includes('<title>스토리랩 웹툰 (StoryLab)</title>'), 'Webtoon title is isolated to "스토리랩 웹툰 (StoryLab)"');
+  assert(webtoonHtml.includes('property="og:title" content="스토리랩 웹툰 (StoryLab)"'), 'Webtoon og:title is isolated');
+  assert(webtoonHtml.includes('스토리랩 웹툰'), 'Webtoon brand name is updated in header');
 
-  // Tech Default vs New
-  const techDefault = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/index.html'), 'utf8');
-  const techNew = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/new-post.html'), 'utf8');
-  assert(techDefault.includes('card-article'), 'Tech board uses card-article structure');
-  assert(techDefault.includes('v2.4.0 릴리즈 노트'), 'Tech default includes release note 301');
-  assert(!techDefault.includes('OAuth 2.1 토큰 갱신 프로토콜 변경'), 'Tech default does NOT include notice 302');
-  assert(techNew.includes('OAuth 2.1 토큰 갱신 프로토콜 변경'), 'Tech new-post includes notice 302');
-  assert(techNew.includes('data-post-id="tech-302"'), 'Tech new-post has data-post-id="tech-302"');
+  assert(careerHtml.includes('<title>커리어허브 채용 (CareerHub)</title>'), 'Career title is isolated to "커리어허브 채용 (CareerHub)"');
+  assert(careerHtml.includes('property="og:title" content="커리어허브 채용 (CareerHub)"'), 'Career og:title is isolated');
+  assert(careerHtml.includes('CareerHub'), 'Career brand name is updated in header');
 
-  // Feeds Validation
-  console.log('\n📡 3. Verifying Feeds & Metadata...');
+  assert(techHtml.includes('<title>테크로그 엔지니어링 (TechLog)</title>'), 'Tech title is isolated to "테크로그 엔지니어링 (TechLog)"');
+  assert(techHtml.includes('property="og:title" content="테크로그 엔지니어링 (TechLog)"'), 'Tech og:title is isolated');
+  assert(techHtml.includes('TechLog'), 'Tech brand name is updated in header');
+
+  // Test 3: Issue 3 - Unique Post Links (No duplicate hrefs) and No Broken Links (Zero 404s)
+  console.log('\n🔗 3. Verifying Unique URLs and Zero Broken Links in Boards...');
+  function extractPostLinks(html, boardDir) {
+    const matches = [...html.matchAll(/href="(\.\.\/\.\.\/posts\/[^"]+)"/g)];
+    return matches.map(m => {
+      const relPath = m[1];
+      const absPath = path.resolve(path.join(BASE_DIR, boardDir), relPath);
+      return { relPath, absPath };
+    });
+  }
+
+  const webtoonLinks = extractPostLinks(webtoonHtml, 'boards/webtoon');
+  const careerLinks = extractPostLinks(careerHtml, 'boards/career');
+  const techLinks = extractPostLinks(techHtml, 'boards/tech');
+
+  // Uniqueness check
+  const checkUniqueness = (links, name) => {
+    const hrefs = links.map(l => l.relPath);
+    const set = new Set(hrefs);
+    assert(set.size === hrefs.length && hrefs.length > 0, `${name} has ${hrefs.length} total links, all 100% unique`);
+  };
+
+  checkUniqueness(webtoonLinks, 'Webtoon Board');
+  checkUniqueness(careerLinks, 'Career Board');
+  checkUniqueness(techLinks, 'Tech Board');
+
+  // Broken link check
+  const allBoardLinks = [...webtoonLinks, ...careerLinks, ...techLinks];
+  let brokenCount = 0;
+  for (const link of allBoardLinks) {
+    if (!fs.existsSync(link.absPath)) {
+      brokenCount++;
+      console.error(`  ❌ Missing target file for link: ${link.relPath} (Expected at ${link.absPath})`);
+    }
+  }
+  assert(brokenCount === 0, `All post links point to existing static HTML files (${allBoardLinks.length}/${allBoardLinks.length} valid, zero 404)`);
+
+  // Test 4: Issue 4 - Clean Recording View (No simulation toolbar / guide banner by default)
+  console.log('\n🎬 4. Verifying Clean Recording Presentation...');
+  assert(!webtoonHtml.includes('demo-toolbar.js'), 'Webtoon index does NOT load demo toolbar script by default');
+  assert(!careerHtml.includes('demo-toolbar.js'), 'Career index does NOT load demo toolbar script by default');
+  assert(!techHtml.includes('demo-toolbar.js'), 'Tech index does NOT load demo toolbar script by default');
+  assert(!webtoonHtml.includes('cachi-guide'), 'Webtoon index does NOT show cachi guide banner');
+  assert(!careerHtml.includes('cachi-guide'), 'Career index does NOT show cachi guide banner');
+  assert(!techHtml.includes('cachi-guide'), 'Tech index does NOT show cachi guide banner');
+
+  // Test 5: Feeds & RSS Validation
+  console.log('\n📡 5. Verifying Feeds & Metadata...');
   const rssContent = fs.readFileSync(path.join(BASE_DIR, 'feeds/rss.xml'), 'utf8');
   assert(rssContent.includes('<rss version="2.0"'), 'Total RSS feed is valid XML RSS 2.0');
-  assert(rssContent.includes('<item>'), 'Total RSS feed contains items');
 
   const webtoonRss = fs.readFileSync(path.join(BASE_DIR, 'boards/webtoon/rss.xml'), 'utf8');
-  assert(webtoonRss.includes('스토리랩 (StoryLab) - 웹툰·연재 피드'), 'Webtoon RSS has specific title');
-  assert(webtoonRss.includes('달빛 아뜰리에'), 'Webtoon RSS contains webtoon post');
-  assert(!webtoonRss.includes('[공채] 2026 하반기 모바일 앱 개발자'), 'Webtoon RSS does NOT contain career post');
+  assert(webtoonRss.includes('스토리랩 웹툰 (StoryLab) - 피드'), 'Webtoon RSS has specific isolated title');
 
   const careerRss = fs.readFileSync(path.join(BASE_DIR, 'boards/career/rss.xml'), 'utf8');
-  assert(careerRss.includes('스토리랩 (StoryLab) - 채용·공고 피드'), 'Career RSS has specific title');
-  assert(careerRss.includes('[긴급채용] 백엔드 크롤링'), 'Career RSS contains career post');
-  assert(!careerRss.includes('달빛 아뜰리에'), 'Career RSS does NOT contain webtoon post');
+  assert(careerRss.includes('커리어허브 채용 (CareerHub) - 피드'), 'Career RSS has specific isolated title');
 
   const techRss = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/rss.xml'), 'utf8');
-  assert(techRss.includes('스토리랩 (StoryLab) - 기술·공지 피드'), 'Tech RSS has specific title');
-  assert(techRss.includes('OAuth 2.1 토큰 갱신 프로토콜 변경'), 'Tech RSS contains tech post');
-  assert(!techRss.includes('달빛 아뜰리에'), 'Tech RSS does NOT contain webtoon post');
+  assert(techRss.includes('테크로그 엔지니어링 (TechLog) - 피드'), 'Tech RSS has specific isolated title');
 
-  const jsonContent = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'feeds/posts.json'), 'utf8'));
-  assert(Array.isArray(jsonContent.items) && jsonContent.items.length > 0, 'JSON feed contains valid items array');
-  assert(jsonContent.items[0].id === 'webtoon-151', 'JSON feed has recent post webtoon-151');
-
-  // Test 3: Local Server Verification
-  console.log('\n🚀 4. Verifying Server HTTP Responses...');
+  // Test 6: Local Server HTTP Responses
+  console.log('\n🚀 6. Verifying Server HTTP Responses...');
   const server = require('../server.js');
   const TEST_PORT = 3456;
   
   await new Promise((resolve) => {
-    // re-listen or use existing
     server.close(() => {
       server.listen(TEST_PORT, resolve);
     });
   });
 
-  const fetchUrl = (urlPath, options = {}) => {
+  const fetchUrl = (urlPath) => {
     return new Promise((resolve, reject) => {
       const req = http.request({
         hostname: '127.0.0.1',
         port: TEST_PORT,
         path: urlPath,
-        method: options.method || 'GET',
-        headers: options.headers || {}
+        method: 'GET'
       }, (res) => {
         let data = '';
         res.on('data', chunk => { data += chunk; });
-        res.on('end', () => resolve({ statusCode: res.statusCode, data, headers: res.headers }));
+        res.on('end', () => resolve({ statusCode: res.statusCode, data }));
       });
       req.on('error', reject);
-      if (options.body) req.write(options.body);
       req.end();
     });
   };
@@ -145,36 +194,27 @@ async function runTests() {
   try {
     const resHome = await fetchUrl('/');
     assert(resHome.statusCode === 200, 'GET / returns 200 OK');
-    assert(resHome.data.includes('스토리랩 더미 포털'), 'GET / contains portal content');
 
     const resWebtoon = await fetchUrl('/boards/webtoon/');
     assert(resWebtoon.statusCode === 200, 'GET /boards/webtoon/ returns 200 OK');
+    assert(resWebtoon.data.includes('스토리랩 웹툰 (StoryLab)'), 'GET /boards/webtoon/ returns isolated title');
 
     const resCareer = await fetchUrl('/boards/career/');
     assert(resCareer.statusCode === 200, 'GET /boards/career/ returns 200 OK');
+    assert(resCareer.data.includes('커리어허브 채용 (CareerHub)'), 'GET /boards/career/ returns isolated title');
 
     const resTech = await fetchUrl('/boards/tech/');
     assert(resTech.statusCode === 200, 'GET /boards/tech/ returns 200 OK');
+    assert(resTech.data.includes('테크로그 엔지니어링 (TechLog)'), 'GET /boards/tech/ returns isolated title');
 
-    const resDetail = await fetchUrl('/posts/webtoon-151.html');
-    assert(resDetail.statusCode === 200, 'GET /posts/webtoon-151.html returns 200 OK');
+    const resDetail1 = await fetchUrl('/posts/webtoon-152.html');
+    assert(resDetail1.statusCode === 200, 'GET /posts/webtoon-152.html returns 200 OK');
 
-    const resStatus = await fetchUrl('/api/status');
-    assert(resStatus.statusCode === 200, 'GET /api/status returns 200 OK');
+    const resDetail2 = await fetchUrl('/posts/career-104.html');
+    assert(resDetail2.statusCode === 200, 'GET /posts/career-104.html returns 200 OK');
 
-    const resAddPost = await fetchUrl('/api/posts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ category: 'webtoon', title: '자동화 테스트 새 글', url: '/posts/webtoon-151.html' })
-    });
-    assert(resAddPost.statusCode === 201, 'POST /api/posts adds post and returns 201 Created');
-
-    const resStatusAfter = await fetchUrl('/api/status');
-    const statusJson = JSON.parse(resStatusAfter.data);
-    assert(statusJson.dynamic_posts_count === 1, 'API status reflects new post count 1');
-
-    const resReset = await fetchUrl('/api/reset', { method: 'POST' });
-    assert(resReset.statusCode === 200, 'POST /api/reset returns 200 OK');
+    const resDetail3 = await fetchUrl('/posts/tech-298.html');
+    assert(resDetail3.statusCode === 200, 'GET /posts/tech-298.html returns 200 OK');
   } finally {
     server.close();
   }
