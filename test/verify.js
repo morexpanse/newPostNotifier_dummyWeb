@@ -1,5 +1,5 @@
 /**
- * Automated Verification Script for StoryLab Cachi Dummy Web
+ * Automated Verification Script for Cachi Dummy Web
  * - 4대 이슈(타이틀/og:title 분리, 고유 링크 부여, 404 방지, 시연용 클린 UI)
  * - 게시판과 RSS 간 상시 1:1 동기화 및 전역 링크 고유성(Global Uniqueness) 완벽 검증
  */
@@ -73,7 +73,7 @@ function extractHtmlItems(htmlContent, boardType) {
 }
 
 async function runTests() {
-  console.log('🧪 Starting Verification Tests for StoryLab Dummy Web...\n');
+  console.log('🧪 Starting Verification Tests for Cachi Dummy Web...\n');
 
   // Test 1: File Existence Checks
   console.log('📁 1. Verifying Required Files and Directory Structure...');
@@ -113,17 +113,17 @@ async function runTests() {
   const careerHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/career/index.html'), 'utf8');
   const techHtml = fs.readFileSync(path.join(BASE_DIR, 'boards/tech/index.html'), 'utf8');
 
-  assert(webtoonHtml.includes('<title>스토리랩 웹툰 (StoryLab)</title>'), 'Webtoon title is isolated to "스토리랩 웹툰 (StoryLab)"');
-  assert(webtoonHtml.includes('property="og:title" content="스토리랩 웹툰 (StoryLab)"'), 'Webtoon og:title is isolated');
-  assert(webtoonHtml.includes('스토리랩 웹툰'), 'Webtoon brand name is updated in header');
+  assert(webtoonHtml.includes('<title>까치 웹툰 (Cachi Webtoon)</title>'), 'Webtoon title is isolated to "까치 웹툰 (Cachi Webtoon)"');
+  assert(webtoonHtml.includes('property="og:title" content="까치 웹툰 (Cachi Webtoon)"'), 'Webtoon og:title is isolated');
+  assert(webtoonHtml.includes('까치 웹툰'), 'Webtoon brand name is updated in header');
 
-  assert(careerHtml.includes('<title>커리어허브 채용 (CareerHub)</title>'), 'Career title is isolated to "커리어허브 채용 (CareerHub)"');
-  assert(careerHtml.includes('property="og:title" content="커리어허브 채용 (CareerHub)"'), 'Career og:title is isolated');
-  assert(careerHtml.includes('CareerHub'), 'Career brand name is updated in header');
+  assert(careerHtml.includes('<title>까치 채용 (Cachi Career)</title>'), 'Career title is isolated to "까치 채용 (Cachi Career)"');
+  assert(careerHtml.includes('property="og:title" content="까치 채용 (Cachi Career)"'), 'Career og:title is isolated');
+  assert(careerHtml.includes('까치 채용'), 'Career brand name is updated in header');
 
-  assert(techHtml.includes('<title>테크로그 엔지니어링 (TechLog)</title>'), 'Tech title is isolated to "테크로그 엔지니어링 (TechLog)"');
-  assert(techHtml.includes('property="og:title" content="테크로그 엔지니어링 (TechLog)"'), 'Tech og:title is isolated');
-  assert(techHtml.includes('TechLog'), 'Tech brand name is updated in header');
+  assert(techHtml.includes('<title>까치 테크 (Cachi Tech)</title>'), 'Tech title is isolated to "까치 테크 (Cachi Tech)"');
+  assert(techHtml.includes('property="og:title" content="까치 테크 (Cachi Tech)"'), 'Tech og:title is isolated');
+  assert(techHtml.includes('까치 테크'), 'Tech brand name is updated in header');
 
   // Test 3: Issue 3 - Link Uniqueness in HTML Boards & Webtoon CSR
   console.log('\n🔗 3. Verifying Unique URLs, Zero Broken Links, and Webtoon CSR Static Links Empty...');
@@ -277,15 +277,15 @@ async function runTests() {
 
     const resWebtoon = await fetchUrl('/boards/webtoon/');
     assert(resWebtoon.statusCode === 200, 'GET /boards/webtoon/ returns 200 OK');
-    assert(resWebtoon.data.includes('스토리랩 웹툰 (StoryLab)'), 'GET /boards/webtoon/ returns isolated title');
+    assert(resWebtoon.data.includes('까치 웹툰 (Cachi Webtoon)'), 'GET /boards/webtoon/ returns isolated title');
 
     const resCareer = await fetchUrl('/boards/career/');
     assert(resCareer.statusCode === 200, 'GET /boards/career/ returns 200 OK');
-    assert(resCareer.data.includes('커리어허브 채용 (CareerHub)'), 'GET /boards/career/ returns isolated title');
+    assert(resCareer.data.includes('까치 채용 (Cachi Career)'), 'GET /boards/career/ returns isolated title');
 
     const resTech = await fetchUrl('/boards/tech/');
     assert(resTech.statusCode === 200, 'GET /boards/tech/ returns 200 OK');
-    assert(resTech.data.includes('테크로그 엔지니어링 (TechLog)'), 'GET /boards/tech/ returns isolated title');
+    assert(resTech.data.includes('까치 테크 (Cachi Tech)'), 'GET /boards/tech/ returns isolated title');
 
     const resEpisodesJson = await fetchUrl('/boards/webtoon/episodes.json');
     assert(resEpisodesJson.statusCode === 200, 'GET /boards/webtoon/episodes.json returns 200 OK');

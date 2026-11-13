@@ -1,21 +1,21 @@
 {
-  "service": "StoryLab",
+  "service": "Cachi",
   "description": "cachi app & server testing JSON API feed",
-  "updated_at": "2026-11-12T08:22:16.829Z",
+  "updated_at": "2026-11-13T01:48:43.447Z",
   "boards": [
     {
       "id": "webtoon",
-      "name": "스토리랩 웹툰 (StoryLab)",
+      "name": "까치 웹툰 (Cachi Webtoon)",
       "url": "/boards/webtoon/"
     },
     {
       "id": "career",
-      "name": "커리어허브 채용 (CareerHub)",
+      "name": "까치 채용 (Cachi Career)",
       "url": "/boards/career/"
     },
     {
       "id": "tech",
-      "name": "테크로그 엔지니어링 (TechLog)",
+      "name": "까치 테크 (Cachi Tech)",
       "url": "/boards/tech/"
     }
   ],
@@ -217,7 +217,7 @@
     {
       "id": "career-102",
       "category": "career",
-      "title": "스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
+      "title": "까치 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
       "url": "/posts/career-102.html",
       "badge": "마감",
       "accessType": "free",
@@ -313,7 +313,7 @@
     {
       "id": "career-97",
       "category": "career",
-      "title": "제 3회 스토리랩 오리지널 웹소설 신인 작가 공모전",
+      "title": "제 3회 까치 오리지널 웹소설 신인 작가 공모전",
       "url": "/posts/career-97.html",
       "badge": "마감",
       "accessType": "free",
@@ -489,7 +489,7 @@
     {
       "id": "career-95",
       "category": "career",
-      "title": "2026 하반기 스토리랩 CDN 네트워크 인프라 공급사 선정 입찰",
+      "title": "2026 하반기 까치 CDN 네트워크 인프라 공급사 선정 입찰",
       "url": "/posts/career-95.html",
       "badge": "마감",
       "accessType": "free",

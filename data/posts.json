@@ -2,28 +2,28 @@
   "boards": {
     "webtoon": {
       "id": "webtoon",
-      "title": "스토리랩 웹툰 (StoryLab)",
-      "siteName": "StoryLab Webtoon",
-      "feedTitle": "스토리랩 웹툰 (StoryLab) - JSON API",
-      "description": "스토리랩 웹툰·연재 게시판 전용 JSON API",
+      "title": "까치 웹툰 (Cachi Webtoon)",
+      "siteName": "Cachi Webtoon",
+      "feedTitle": "까치 웹툰 (Cachi Webtoon) - JSON API",
+      "description": "까치 웹툰·연재 게시판 전용 JSON API",
       "url": "boards/webtoon/",
       "apiUrl": "boards/webtoon/episodes.json"
     },
     "career": {
       "id": "career",
-      "title": "커리어허브 채용 (CareerHub)",
-      "siteName": "CareerHub",
-      "feedTitle": "커리어허브 채용 (CareerHub) - 피드",
-      "description": "대한민국 대표 채용·공고 포털 커리어허브 피드",
+      "title": "까치 채용 (Cachi Career)",
+      "siteName": "Cachi Career",
+      "feedTitle": "까치 채용 (Cachi Career) - 피드",
+      "description": "cachi 알림 테스트용 채용·공고 포털 피드",
       "url": "boards/career/",
       "rssUrl": "boards/career/rss.xml"
     },
     "tech": {
       "id": "tech",
-      "title": "테크로그 엔지니어링 (TechLog)",
-      "siteName": "TechLog",
-      "feedTitle": "테크로그 엔지니어링 (TechLog) - 피드",
-      "description": "기술과 성장을 기록하는 공식 테크로그 피드",
+      "title": "까치 테크 (Cachi Tech)",
+      "siteName": "Cachi Tech",
+      "feedTitle": "까치 테크 (Cachi Tech) - 피드",
+      "description": "기술과 성장을 기록하는 공식 까치 테크 블로그 피드",
       "url": "boards/tech/",
       "rssUrl": "boards/tech/rss.xml"
     }
@@ -382,7 +382,7 @@
     {
       "id": "career-102",
       "board": "career",
-      "title": "스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
+      "title": "까치 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
       "url": "posts/career-102.html",
       "pubDate": "Wed, 28 Oct 2026 11:00:00 +0900",
       "isoDate": "2026-10-28T11:00:00+09:00",
@@ -390,7 +390,7 @@
       "badge": "마감",
       "numDisplay": "102",
       "typeBadge": "인턴십",
-      "description": "스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
+      "description": "까치 겨울방학 대학생 체험형 인턴십 4기 모집 요강",
       "accessType": "free",
       "access_type": "free",
       "useType": "FREE",
@@ -482,7 +482,7 @@
     {
       "id": "career-97",
       "board": "career",
-      "title": "제 3회 스토리랩 오리지널 웹소설 신인 작가 공모전",
+      "title": "제 3회 까치 오리지널 웹소설 신인 작가 공모전",
       "url": "posts/career-97.html",
       "pubDate": "Tue, 15 Sep 2026 10:00:00 +0900",
       "isoDate": "2026-10-15T10:00:00+09:00",
@@ -522,7 +522,7 @@
     {
       "id": "career-95",
       "board": "career",
-      "title": "2026 하반기 스토리랩 CDN 네트워크 인프라 공급사 선정 입찰",
+      "title": "2026 하반기 까치 CDN 네트워크 인프라 공급사 선정 입찰",
       "url": "posts/career-95.html",
       "pubDate": "Tue, 25 Aug 2026 14:00:00 +0900",
       "isoDate": "2026-08-25T14:00:00+09:00",

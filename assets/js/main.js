@@ -1,5 +1,5 @@
 /**
- * StoryLab & Cachi Demo Helper Scripts
+ * Cachi Demo Helper Scripts
  */
 
 // Toast notification helper

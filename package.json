@@ -1,5 +1,5 @@
 {
-  "name": "storylab-dummy-web",
+  "name": "cachi-dummy-web",
   "version": "2.0.0",
   "description": "Dummy website for cachi app and cachi server testing and promotion",
   "main": "server.js",
@@ -13,7 +13,7 @@
     "cachi",
     "crawler-test",
     "dummy-web",
-    "storylab",
+    "cachi-test",
     "notifier-test"
   ],
   "author": "agilinger",

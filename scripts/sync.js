@@ -1,5 +1,5 @@
 /**
- * StoryLab Cachi Auto-Sync Engine
+ * Cachi Dummy Auto-Sync Engine
  * Single Source of Truth (data/posts.json) -> Boards HTML, RSS Feeds, JSON API, Posts HTML
  */
 
@@ -177,7 +177,7 @@ function renderPortalOverviewItems(posts) {
             <div class="post-meta-line">
               <span>${p.timeDisplay || p.isoDate.split('T')[0]}</span>
               <span>·</span>
-              <span>${p.author || p.dept || '스토리랩'}</span>
+              <span>${p.author || p.dept || '까치'}</span>
               <span>·</span>
               <span>${p.meta || (p.readTime ? `읽는 시간 ${p.readTime}` : '신규')}</span>
             </div>
@@ -303,7 +303,7 @@ function sync() {
   const sortedCombined = [...allPosts.filter(p => !p.is_new_preview)].sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
   
   const totalRssXml = generateRssXml(
-    '스토리랩 (StoryLab) - 전체 최신 소식',
+    '까치 더미 포털 (Cachi Portal) - 전체 최신 소식',
     '',
     'cachi app & server 알림 테스트용 RSS 2.0 피드',
     sortedCombined
@@ -311,7 +311,7 @@ function sync() {
   fs.writeFileSync(path.join(ROOT_DIR, 'feeds', 'rss.xml'), totalRssXml, 'utf8');
 
   const jsonFeedData = {
-    service: 'StoryLab',
+    service: 'Cachi',
     description: 'cachi app & server testing JSON API feed',
     updated_at: new Date().toISOString(),
     boards: Object.values(data.boards).map(b => ({ id: b.id, name: b.title, url: `/${b.url}` })),

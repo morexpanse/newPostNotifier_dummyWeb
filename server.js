@@ -1,5 +1,5 @@
 /**
- * StoryLab Cachi Test Server
+ * Cachi Test Dummy Server
  * - 의존성 없는(Zero-dependency) Node.js 내장 http 모듈 기반 서버
  * - 정적 웹 서빙(GitHub Pages와 100% 동일한 구조) + 실시간 새 글 주입 API(/api/posts) 지원
  */
@@ -88,7 +88,7 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/status') {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
     res.end(JSON.stringify({
-      server: 'StoryLab Dummy Server',
+      server: 'Cachi Dummy Server',
       status: 'online',
       port: PORT,
       dynamic_posts_count: dynamicPosts.length,
@@ -145,7 +145,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`=================================================`);
-  console.log(`  StoryLab Dummy Web Server running on port ${PORT}`);
+  console.log(`  Cachi Dummy Web Server running on port ${PORT}`);
   console.log(`  URL: http://localhost:${PORT}`);
   console.log(`  - 웹툰: http://localhost:${PORT}/boards/webtoon/`);
   console.log(`  - 채용: http://localhost:${PORT}/boards/career/`);

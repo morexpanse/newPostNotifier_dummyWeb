@@ -1,4 +1,4 @@
-# StoryLab (스토리랩) - cachi 알림 테스트 & 홍보용 더미 웹사이트
+# 까치 더미 웹 (Cachi Dummy Web) - cachi 알림 테스트 & 홍보용 더미 웹사이트
 
 본 프로젝트는 **cachi app** (새 글 알림 모바일 애플리케이션)과 **cachi server** (크롤링 및 새 글 감지 백엔드 서버)의 기능 검증, 통합 테스트, 데모 영상 및 스크린샷 홍보를 위한 공식 더미 웹사이트입니다.
 
@@ -91,15 +91,15 @@ node test/verify.js
 
 ### 1. 모바일 브라우저 주소창(`newPostNotifier_dummyWeb`) 노출 최소화 팁
 - **GitHub 저장소 이름 변경 (가장 깔끔한 방법)**:
-  - GitHub 레포지토리 Settings에서 Repository name을 `storylab` 또는 `daily-board` 등으로 변경하면, 주소창에 `morexpanse.github.io/storylab/boards/webtoon/`처럼 실제 서비스 도메인처럼 간결하게 표시됩니다.
+  - GitHub 레포지토리 Settings에서 Repository name을 `cachi-dummy` 등으로 변경하면, 주소창에 `morexpanse.github.io/cachi-dummy/boards/webtoon/`처럼 간결하게 표시됩니다.
 - **모바일 스크롤 주소창 축소 연출**:
   - 모바일 사파리/크롬 브라우저에서 페이지를 아래로 살짝 1~2cm 스크롤하면 상단 주소창이 자동으로 최소화(숨김)됩니다. 이 상태에서 [공유하기 ➔ 까치]를 실행하면 주소창 텍스트가 거의 보이지 않아 몰입감이 극대화됩니다.
 
 ### 2. 페이지별 독립 브랜딩 & 메타데이터
-- **웹툰·연재**: `<title>스토리랩 웹툰 (StoryLab)</title>`, `og:title="스토리랩 웹툰 (StoryLab)"`
-- **채용·공고**: `<title>커리어허브 채용 (CareerHub)</title>`, `og:title="커리어허브 채용 (CareerHub)"`
-- **기술·공지**: `<title>테크로그 엔지니어링 (TechLog)</title>`, `og:title="테크로그 엔지니어링 (TechLog)"`
-- 까치 앱에서 [공유하기 ➔ 까치] 시 별칭을 손으로 수정하지 않아도 각각 다른 실서비스 사이트처럼 등록됩니다.
+- **웹툰·연재**: `<title>까치 웹툰 (Cachi Webtoon)</title>`, `og:title="까치 웹툰 (Cachi Webtoon)"`
+- **채용·공고**: `<title>까치 채용 (Cachi Career)</title>`, `og:title="까치 채용 (Cachi Career)"`
+- **기술·공지**: `<title>까치 테크 (Cachi Tech)</title>`, `og:title="까치 테크 (Cachi Tech)"`
+- 까치 앱에서 [공유하기 ➔ 까치] 시 다른 상용 브랜드와 혼동되지 않고 까치 전용 더미 사이트로 직관적으로 등록 및 테스트할 수 있습니다.
 
 ### 3. 모든 게시글의 100% 고유 URL 완비 (Unique URLs)
 - 모든 게시글 `<a>` 태그에 고유한 상세 주소(`/posts/webtoon-*.html`, `/posts/career-*.html`, `/posts/tech-*.html`)가 부여되어 있습니다.

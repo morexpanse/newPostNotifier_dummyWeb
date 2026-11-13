@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cachi="https://cachi.app/rss/1.0">
 <channel>
-  <title>테크로그 엔지니어링 (TechLog) - 피드</title>
+  <title>까치 테크 (Cachi Tech) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/</link>
-  <description>기술과 성장을 기록하는 공식 테크로그 피드</description>
+  <description>기술과 성장을 기록하는 공식 까치 테크 블로그 피드</description>
   <language>ko-kr</language>
   <lastBuildDate>Sun, 08 Nov 2026 15:00:00 +0900</lastBuildDate>
   <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/tech/rss.xml" rel="self" type="application/rss+xml" />

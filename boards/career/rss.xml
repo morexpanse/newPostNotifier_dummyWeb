@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cachi="https://cachi.app/rss/1.0">
 <channel>
-  <title>커리어허브 채용 (CareerHub) - 피드</title>
+  <title>까치 채용 (Cachi Career) - 피드</title>
   <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/career/</link>
-  <description>대한민국 대표 채용·공고 포털 커리어허브 피드</description>
+  <description>cachi 알림 테스트용 채용·공고 포털 피드</description>
   <language>ko-kr</language>
   <lastBuildDate>Sun, 01 Nov 2026 09:00:00 +0900</lastBuildDate>
   <atom:link href="https://morexpanse.github.io/newPostNotifier_dummyWeb/boards/career/rss.xml" rel="self" type="application/rss+xml" />
@@ -75,13 +75,13 @@
   </item>
 
   <item>
-    <title>스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강</title>
+    <title>까치 겨울방학 대학생 체험형 인턴십 4기 모집 요강</title>
     <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-102.html</link>
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-102.html</guid>
     <pubDate>Wed, 28 Oct 2026 11:00:00 +0900</pubDate>
     <category>채용·공고</category>
     <category>free</category>
-    <description>스토리랩 겨울방학 대학생 체험형 인턴십 4기 모집 요강</description>
+    <description>까치 겨울방학 대학생 체험형 인턴십 4기 모집 요강</description>
     <accessType>free</accessType>
     <access_type>free</access_type>
     <useType>FREE</useType>
@@ -185,7 +185,7 @@
   </item>
 
   <item>
-    <title>제 3회 스토리랩 오리지널 웹소설 신인 작가 공모전</title>
+    <title>제 3회 까치 오리지널 웹소설 신인 작가 공모전</title>
     <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-97.html</link>
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-97.html</guid>
     <pubDate>Tue, 15 Sep 2026 10:00:00 +0900</pubDate>
@@ -229,7 +229,7 @@
   </item>
 
   <item>
-    <title>2026 하반기 스토리랩 CDN 네트워크 인프라 공급사 선정 입찰</title>
+    <title>2026 하반기 까치 CDN 네트워크 인프라 공급사 선정 입찰</title>
     <link>https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-95.html</link>
     <guid isPermaLink="true">https://morexpanse.github.io/newPostNotifier_dummyWeb/posts/career-95.html</guid>
     <pubDate>Tue, 25 Aug 2026 14:00:00 +0900</pubDate>
